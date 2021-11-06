@@ -1,19 +1,20 @@
 import React from 'react'
 import {Card} from 'react-bootstrap'
 import Rating from "./Rating";
+import {Link} from "react-router-dom";
 
 const Restaurant = ({restaurant}) => {
 
     return(
         <>
             <Card className='my-3 p-3 rounded'>
-                <a href='/'>
+                <Link to={`/restaurant/${restaurant._id}`}>
                     <Card.Img src={restaurant.image} variant='top'/>
-                </a>
+                </Link>
                 <Card.Body>
-                    <a href='/'>
+                    <Link to={`/restaurant/${restaurant._id}`}>
                         <Card.Title as='div'><strong>{`${restaurant.restaurant_name}`}</strong></Card.Title>
-                    </a>
+                    </Link>
                     <Card.Text as='div'>
                         {restaurant.rating && <Rating text={` ${restaurant.num_reviews} reviews`} value={restaurant.rating} />}
                     </Card.Text>

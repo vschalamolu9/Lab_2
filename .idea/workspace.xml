@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="create react files and frontend folder">
-      <change afterPath="$PROJECT_DIR$/frontend/public/restaurantImages/panda-express.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/restaurantImages/starbucks.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Rating.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Restaurant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/menuItems.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/restaurants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Restaurants and HomeScreen">
+      <change afterPath="$PROJECT_DIR$/frontend/public/itemImages/original-orange-chicken.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Item.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Restaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/menuItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/menuItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +51,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/public/restaurantImages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/public/itemImages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/public/itemImages" />
       <recent name="$PROJECT_DIR$/frontend/public/restaurantImages" />
       <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
@@ -82,7 +75,9 @@
       <option name="presentableId" value="Default" />
       <updated>1634940651871</updated>
       <workItem from="1634940654901" duration="31000" />
-      <workItem from="1634940702185" duration="12062000" />
+      <workItem from="1634940702185" duration="16935000" />
+      <workItem from="1635884600066" duration="341000" />
+      <workItem from="1636154795874" duration="1925000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -98,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634952301540</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding Restaurants and HomeScreen">
+      <created>1635027192020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635027192020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,11 +116,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="adding backend and frontend files" />
     <MESSAGE value="create react files and frontend folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="create react files and frontend folder" />
+    <MESSAGE value="Adding Restaurants and HomeScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Restaurants and HomeScreen" />
   </component>
 </project>

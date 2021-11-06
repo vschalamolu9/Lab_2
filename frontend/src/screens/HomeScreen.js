@@ -7,7 +7,7 @@ const HomeScreen = () => {
 
     return(
         <>
-            <h1>Restaurants</h1>
+            <h2>Restaurants</h2>
             <Row>
                 {restaurants.map(restaurant => (
                     <Col sm={12} md={6} lg={4} xl={3} key={restaurant._id}>
