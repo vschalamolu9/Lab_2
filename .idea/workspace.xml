@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Restaurants and HomeScreen">
-      <change afterPath="$PROJECT_DIR$/frontend/public/itemImages/original-orange-chicken.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding ItemScreen and minor modifications.">
+      <change afterPath="$PROJECT_DIR$/backend/config/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/data/menuItems.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/data/restaurants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/customerModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/itemModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/orderModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/restaurantModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Restaurant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/menuItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/menuItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +54,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/public/itemImages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/data" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/data" />
       <recent name="$PROJECT_DIR$/frontend/public/itemImages" />
       <recent name="$PROJECT_DIR$/frontend/public/restaurantImages" />
       <recent name="$PROJECT_DIR$/frontend/public" />
@@ -77,7 +81,7 @@
       <workItem from="1634940654901" duration="31000" />
       <workItem from="1634940702185" duration="16935000" />
       <workItem from="1635884600066" duration="341000" />
-      <workItem from="1636154795874" duration="1925000" />
+      <workItem from="1636154795874" duration="15192000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -100,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635027192020</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adding ItemScreen and minor modifications.">
+      <created>1636172603051</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636172603051</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +134,7 @@
     <MESSAGE value="adding backend and frontend files" />
     <MESSAGE value="create react files and frontend folder" />
     <MESSAGE value="Adding Restaurants and HomeScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Restaurants and HomeScreen" />
+    <MESSAGE value="Adding ItemScreen and minor modifications." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding ItemScreen and minor modifications." />
   </component>
 </project>

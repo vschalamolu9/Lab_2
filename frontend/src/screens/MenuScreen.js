@@ -1,9 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Row, Col} from 'react-bootstrap'
-import menuItems from "../menuItems";
 import Item from "../components/Item";
+import axios from 'axios';
 
 const MenuScreen = ({match}) => {
+
+    const [menuItems, setMenuItems] = useState([])
+
+    useEffect(() => {
+        const fetchMenuItems = async () => {
+            const {data} = await axios.get(`/api/restaurant/${match.params.id}`)
+
+            setMenuItems(data)
+        }
+
+        fetchMenuItems()
+    }, [match])
+
 
     return(
         <>

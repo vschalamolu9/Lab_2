@@ -1,9 +1,21 @@
-import React from 'react'
-import restaurants from "../restaurants";
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Restaurant from "../components/Restaurant";
+import axios from 'axios';
 
 const HomeScreen = () => {
+
+    const [restaurants, setRestaurants] = useState([])
+
+    useEffect(() => {
+        const fetchRestaurants = async () => {
+            const { data } = await axios.get('/api/restaurants')
+
+            setRestaurants(data)
+        }
+
+        fetchRestaurants()
+    }, [])
 
     return(
         <>
