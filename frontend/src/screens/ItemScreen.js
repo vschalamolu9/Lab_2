@@ -6,8 +6,6 @@ import Axios from 'axios';
 
 const ItemScreen = ({match}) => {
 
-    //const menuItem = menuItems.find(item => item._id === Number(match.params.id))
-
     const [menuItem, setMenuItem] = useState({})
 
     useEffect(() => {
@@ -40,7 +38,7 @@ const ItemScreen = ({match}) => {
                             <b>Price:</b> ${menuItem.itemPrice}
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b>Description:</b> ${menuItem.description}
+                            <b>Description:</b> {menuItem.description}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>

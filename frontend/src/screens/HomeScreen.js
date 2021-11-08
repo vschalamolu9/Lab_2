@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux'
 import Restaurant from "../components/Restaurant";
-import axios from 'axios';
+import { listRestaurants } from "../redux/actions/restaurantActions";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
 
 const HomeScreen = () => {
 
-    const [restaurants, setRestaurants] = useState([])
+    const dispatch = useDispatch()
+
+    const restaurantList = useSelector(state => state.restaurantList)
+    const { loading, error, restaurants} = restaurantList
 
     useEffect(() => {
-        const fetchRestaurants = async () => {
-            const { data } = await axios.get('/api/restaurants')
-
-            setRestaurants(data)
-        }
-
-        fetchRestaurants()
-    }, [])
+        dispatch(listRestaurants())
+    }, [dispatch])
 
     return(
         <>
-            <h2>Restaurants</h2>
+            <h3>Restaurants</h3>
+            { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
             <Row>
                 {restaurants.map(restaurant => (
                     <Col sm={12} md={6} lg={4} xl={3} key={restaurant._id}>
                         <Restaurant restaurant={restaurant}/>
                     </Col>
                 ))}
-            </Row>
+            </Row>)}
         </>
     )
 }
