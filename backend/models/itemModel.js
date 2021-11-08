@@ -18,7 +18,7 @@ const itemSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    category:{
+    dishCategory:{
         type: String,
         required: true
     },

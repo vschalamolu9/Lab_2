@@ -9,7 +9,7 @@ const MenuScreen = ({match}) => {
 
     useEffect(() => {
         const fetchMenuItems = async () => {
-            const {data} = await axios.get(`/api/restaurant/${match.params.id}`)
+            const {data} = await axios.get(`/api/restaurants/${match.params.id}`)
 
             setMenuItems(data)
         }
@@ -21,7 +21,7 @@ const MenuScreen = ({match}) => {
     return(
         <>
             <Row>
-                <h2>Menu Items</h2>
+                <h3>Menu Items</h3>
                 {menuItems.map(menuItem => (
                     <Col key={menuItem._id} sm={12} md={6} lg={4} xl={3}>
                         <Item item={menuItem}/>

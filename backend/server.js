@@ -2,8 +2,10 @@ const express = require('express')
 const dotenv = require('dotenv')
 const colors = require('colors')
 const connectDB = require('./config/db')
-const restaurants = require('./data/restaurants')
 const menuItems = require('./data/menuItems')
+const restaurantRoutes = require('./routes/restaurantRoutes')
+const itemRoutes = require('./routes/itemRoutes')
+const { notFound, errorHandler} = require('./middleware/errorMiddleWare')
 
 dotenv.config()
 
@@ -15,19 +17,17 @@ app.get('/', (req, res) => {
     res.send('API is running...')
 })
 
-app.get('/api/restaurants', (req, res) => {
-    res.json(restaurants)
-})
-
-app.get('/api/restaurants/:id', (req, res) => {
-    const restaurant = restaurants.find(r => r._id === Number(req.params.id))
-    res.json(restaurant)
-})
-
 app.get('/api/restaurant/:id', (req, res) => {
     const items = menuItems.filter(i => i.restaurantId === req.params.id)
     res.json(items)
 })
+
+app.use('/api/restaurants', restaurantRoutes)
+app.use('/api/item', itemRoutes)
+
+app.use(notFound)
+
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 

@@ -13,10 +13,10 @@ const Restaurant = ({restaurant}) => {
                 </Link>
                 <Card.Body>
                     <Link to={`/restaurant/${restaurant._id}`}>
-                        <Card.Title as='div'><strong>{`${restaurant.restaurant_name}`}</strong></Card.Title>
+                        <Card.Title as='div'><strong>{`${restaurant.restaurantName}`}</strong></Card.Title>
                     </Link>
                     <Card.Text as='div'>
-                        {restaurant.rating && <Rating text={` ${restaurant.num_reviews} reviews`} value={restaurant.rating} />}
+                        {restaurant.rating && <Rating text={` ${restaurant.numReviews} reviews`} value={restaurant.rating} />}
                     </Card.Text>
                 </Card.Body>
             </Card>

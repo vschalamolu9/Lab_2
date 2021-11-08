@@ -11,7 +11,7 @@ const Item = ({item}) => {
                 </Link>
                 <Card.Body>
                     <Link to={`/item/${item._id}`}>
-                        <Card.Title as='div'><strong>{item.item_name}</strong></Card.Title>
+                        <Card.Title as='div'><strong>{item.itemName}</strong></Card.Title>
                     </Link>
                 </Card.Body>
             </Card>
