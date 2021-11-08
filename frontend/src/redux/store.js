@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from "redux-devtools-extension";
-import { restaurantListReducer, restaurantMenuItemsList } from './reducers/restaurantReducers'
+import { restaurantListReducer, restaurantMenuItemsListReducer } from './reducers/restaurantReducers'
+import { menuItemDetailsReducer } from './reducers/menuItemReducers'
 
 const reducer = combineReducers({
     restaurantList: restaurantListReducer,
-    menuItemsList: restaurantMenuItemsList
+    menuItemsList: restaurantMenuItemsListReducer,
+    menuItemDetails: menuItemDetailsReducer
 })
 
 const initialState = {}

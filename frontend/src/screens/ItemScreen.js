@@ -1,28 +1,29 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
 import {Link} from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import Axios from 'axios';
+import { detailsMenuItem } from "../redux/actions/menuItemActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const ItemScreen = ({match}) => {
 
-    const [menuItem, setMenuItem] = useState({})
+    const dispatch = useDispatch()
+
+    const menuItemDetails = useSelector(state => state.menuItemDetails)
+    const { loading, error, menuItem } = menuItemDetails
 
     useEffect(() => {
-        const fetchMenuItem = async () => {
-            const {data} = await Axios.get(`/api/item/${match.params.id}`)
-            setMenuItem(data)
-        }
-
-        fetchMenuItem()
-    }, [match])
+        dispatch(detailsMenuItem(match.params.id))
+    }, [match, dispatch])
 
     return(
         <>
             <Link className='btn btn-dark my-3' to={`/restaurant/${menuItem.restaurant}`}>
                 Go Back
             </Link>
-            <Row>
+            { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (<Row>
                 <Col md={6}>
                     <Image SRC={menuItem.image} alt={menuItem.itemName} fluid/>
                 </Col>
@@ -61,7 +62,7 @@ const ItemScreen = ({match}) => {
                         </ListGroup>
                     </Card>
                 </Col>
-            </Row>
+            </Row>)}
         </>
     )
 }

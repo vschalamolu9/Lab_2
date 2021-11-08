@@ -14,7 +14,7 @@ export const restaurantListReducer = (state = { restaurants: []}, action) => {
     }
 }
 
-export const restaurantMenuItemsList = (state = { menuItems: []}, action) => {
+export const restaurantMenuItemsListReducer = (state = { menuItems: []}, action) => {
 
     switch(action.type){
         case RESTAURANT_MENU_ITEMS_REQUEST:
