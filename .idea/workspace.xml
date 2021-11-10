@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/menuItemActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/constants/menuItemConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/menuItemReducers.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing Redux in MenuItemScreen.">
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/kafka/Connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/books.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/signin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka/client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka/connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka/kafkarpc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,16 +55,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/kafka_backend" />
       <recent name="$PROJECT_DIR$/backend/data" />
       <recent name="$PROJECT_DIR$/frontend/public/itemImages" />
-      <recent name="$PROJECT_DIR$/frontend/public/restaurantImages" />
-      <recent name="$PROJECT_DIR$/frontend/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/src" />
@@ -73,7 +83,11 @@
       <workItem from="1634940654901" duration="31000" />
       <workItem from="1634940702185" duration="16935000" />
       <workItem from="1635884600066" duration="341000" />
-      <workItem from="1636154795874" duration="34920000" />
+      <workItem from="1636154795874" duration="35605000" />
+      <workItem from="1636425054565" duration="103000" />
+      <workItem from="1636431306920" duration="8800000" />
+      <workItem from="1636525688883" duration="79000" />
+      <workItem from="1636525811727" duration="3090000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -124,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636408471519</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implementing Redux in MenuItemScreen.">
+      <created>1636413492681</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636413492681</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +172,7 @@
     <MESSAGE value="Adding MongoDB and models" />
     <MESSAGE value="Inserting data into MongoDB and fetching data from it and displaying it on frontend." />
     <MESSAGE value="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen." />
+    <MESSAGE value="Implementing Redux in MenuItemScreen." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing Redux in MenuItemScreen." />
   </component>
 </project>
