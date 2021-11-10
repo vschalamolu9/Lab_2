@@ -1,5 +1,4 @@
 const express = require('express')
-const Restaurant = require('../models/restaurantModel')
 const Item = require('../models/itemModel')
 const asyncHandler = require('express-async-handler')
 const router = express.Router()
@@ -10,8 +9,7 @@ const kafka = require('../kafka/client')
 //@route GET /api/restaurants
 //@access Public
 router.get('/', asyncHandler(async (req, res) => {
-    //const restaurants = await Restaurant.find({})
-    //res.json(restaurants)
+
     kafka.make_request('get_restaurants', req.body, (err, results) => {
         if (err) {
             res.status(500).json({
@@ -20,14 +18,14 @@ router.get('/', asyncHandler(async (req, res) => {
 
         }
         else {
-            console.log(results)
-            res.status(201).json(results)
+            res.status(200).json(results)
         }
     })
+
 }))
 
 
-/*//@description Fetch all Restaurants
+/*//@description Fetch Restaurant with Id
 //@route GET /api/restaurants/:id
 //@access Public
 router.get('/:id', asyncHandler(async (req, res) => {
@@ -46,8 +44,20 @@ router.get('/:id', asyncHandler(async (req, res) => {
 //@route GET /api/restaurant/:id
 //@access Public
 router.get('/:id', asyncHandler(async(req, res) => {
-    const menuItems = await Item.find({restaurant: req.params.id})
-    res.json(menuItems)
+    //const menuItems = await Item.find({restaurant: req.params.id})
+    //res.json(menuItems)
+
+    kafka.make_request('get_restaurant_menu', req.params, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            console.log(results)
+            res.status(200).json(results)
+        }
+    })
 }))
 
 module.exports = router

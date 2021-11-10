@@ -16,7 +16,6 @@ const handle_request = async(msg, callback)=>{
         }
     }
     catch (error) {
-        //console.log(req)
         console.log(error)
         const err = {
             error:"Internal Server Error"

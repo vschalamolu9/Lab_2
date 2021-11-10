@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing Redux in MenuItemScreen.">
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/kafka/Connection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/books.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/signin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka/connection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka/kafkarpc.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Integrating Kafka with Backend">
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getRestaurantMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +78,7 @@
       <workItem from="1636425054565" duration="103000" />
       <workItem from="1636431306920" duration="8800000" />
       <workItem from="1636525688883" duration="79000" />
-      <workItem from="1636525811727" duration="3090000" />
+      <workItem from="1636525811727" duration="6947000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -145,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636413492681</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Integrating Kafka with Backend">
+      <created>1636534595771</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636534595771</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +171,7 @@
     <MESSAGE value="Inserting data into MongoDB and fetching data from it and displaying it on frontend." />
     <MESSAGE value="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen." />
     <MESSAGE value="Implementing Redux in MenuItemScreen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing Redux in MenuItemScreen." />
+    <MESSAGE value="Integrating Kafka with Backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrating Kafka with Backend" />
   </component>
 </project>
