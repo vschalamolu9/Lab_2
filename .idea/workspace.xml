@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Integrating Kafka with Backend">
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getRestaurantMenu.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Kafka to fetch Restaurant menu items.">
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getItemDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getRestaurantDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/cartActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/constants/cartConstants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/cartReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/CartScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/itemRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/itemRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +92,8 @@
       <workItem from="1636425054565" duration="103000" />
       <workItem from="1636431306920" duration="8800000" />
       <workItem from="1636525688883" duration="79000" />
-      <workItem from="1636525811727" duration="6947000" />
+      <workItem from="1636525811727" duration="7064000" />
+      <workItem from="1636574372218" duration="10093000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -143,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636534595771</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding Kafka to fetch Restaurant menu items.">
+      <created>1636538496614</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636538496614</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +194,7 @@
     <MESSAGE value="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen." />
     <MESSAGE value="Implementing Redux in MenuItemScreen." />
     <MESSAGE value="Integrating Kafka with Backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrating Kafka with Backend" />
+    <MESSAGE value="Adding Kafka to fetch Restaurant menu items." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Kafka to fetch Restaurant menu items." />
   </component>
 </project>

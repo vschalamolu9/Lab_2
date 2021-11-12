@@ -8,7 +8,7 @@ const Header = () => {
             <Navbar bg="light" expand="lg" collapseOnSelect>
                 <Container>
                     <LinkContainer to='/'>
-                        <Navbar.Brand><h3>Uber <span style={{color: '#3e9920'}}>Eats</span></h3></Navbar.Brand>
+                        <Navbar.Brand><h3 style={{fontFamily: "sans-serif"}}>Uber <span style={{color: '#3e9920'}}>Eats</span></h3></Navbar.Brand>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

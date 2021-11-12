@@ -25,20 +25,33 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 
-/*//@description Fetch Restaurant with Id
+//@description Fetch Restaurant with Id
 //@route GET /api/restaurants/:id
 //@access Public
-router.get('/:id', asyncHandler(async (req, res) => {
-    const restaurant = await Restaurant.findById(req.params.id)
+router.get('/details/:id', asyncHandler(async (req, res) => {
+    /*const restaurant = await Restaurant.findById(req.params.id)
     if(restaurant){
         res.json(restaurant)
     }else{
         res.status(404)
         throw new Error('Product not found')
-    }
+    }*/
+
+    kafka.make_request('restaurant_details', req.params, (err, results)=>{
+
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            console.log(results)
+            res.status(200).json(results)
+        }
+    })
 
 }))
- */
+
 
 //@description Fetch all Restaurant Menu Items
 //@route GET /api/restaurant/:id

@@ -1,6 +1,8 @@
 let connection =  require('./kafka/Connection');
 const get_all_restaurants = require('./services/restaurantServices/getAllRestaurants')
 const get_restaurant_menu = require('./services/restaurantServices/getRestaurantMenu')
+const get_item_details = require('./services/restaurantServices/getItemDetails')
+const get_restaurant_details = require('./services/restaurantServices/getRestaurantDetails')
 const colors = require('colors')
 const connectDB = require('../config/db');
 connectDB()
@@ -39,3 +41,5 @@ function handleTopicRequest(topic_name,fname){
 //second argument is a function that will handle this topic request
 handleTopicRequest('get_restaurants', get_all_restaurants)
 handleTopicRequest('get_restaurant_menu', get_restaurant_menu)
+handleTopicRequest('get_item_details', get_item_details)
+handleTopicRequest('restaurant_details', get_restaurant_details)
