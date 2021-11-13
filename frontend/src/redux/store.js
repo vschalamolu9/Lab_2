@@ -1,14 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from "redux-devtools-extension";
-import { restaurantListReducer, restaurantMenuItemsListReducer, restaurantDetailsReducer } from './reducers/restaurantReducers'
-import { menuItemDetailsReducer } from './reducers/menuItemReducers'
+import { restaurantListReducer, restaurantDishesListReducer, restaurantDetailsReducer } from './reducers/restaurantReducers'
+import { dishDetailsReducer } from './reducers/dishReducers'
 import { cartReducer } from "./reducers/cartReducers";
 
 const reducer = combineReducers({
     restaurantList: restaurantListReducer,
-    menuItemsList: restaurantMenuItemsListReducer,
-    menuItemDetails: menuItemDetailsReducer,
+    dishesList: restaurantDishesListReducer,
+    dishDetails: dishDetailsReducer,
     restaurantDetails: restaurantDetailsReducer,
     cart: cartReducer
 })

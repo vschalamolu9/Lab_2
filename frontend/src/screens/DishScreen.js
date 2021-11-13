@@ -3,20 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button, FormControl } from "react-bootstrap";
 import Rating from "../components/Rating";
-import { detailsMenuItem } from "../redux/actions/menuItemActions";
+import { detailsDish } from "../redux/actions/dishActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 
-const ItemScreen = ({match, history}) => {
+const DishScreen = ({match, history}) => {
 
     const dispatch = useDispatch()
     const [qty, setQty] = useState(1)
 
-    const menuItemDetails = useSelector(state => state.menuItemDetails)
-    const { loading, error, menuItem } = menuItemDetails
+    const dishDetails = useSelector(state => state.dishDetails)
+    const { loading, error, dish } = dishDetails
 
     useEffect(() => {
-        dispatch(detailsMenuItem(match.params.id))
+        dispatch(detailsDish(match.params.id))
     }, [match, dispatch])
 
     const addToCartHandler = () => {
@@ -26,26 +26,26 @@ const ItemScreen = ({match, history}) => {
 
     return(
         <>
-            <Link className='btn btn-dark my-3' to={`/restaurant/${menuItem.restaurant}`}>
+            <Link className='btn btn-dark my-3' to={`/restaurant/${dish.restaurantId}`}>
                 Go Back
             </Link>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (<Row>
                 <Col md={4}>
-                    <Image SRC={menuItem.image} alt={menuItem.itemName} fluid/>
+                    <Image SRC={dish.image} alt={dish.dishName} fluid/>
                 </Col>
                 <Col md={4}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
-                            <h3>{menuItem.itemName}</h3>
+                            <h3>{dish.dishName}</h3>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <Rating value={menuItem.itemReview} text={` ${menuItem.numReviews} reviews`}/>
+                            <Rating value={dish.dishReview} text={` ${dish.numReviews} reviews`}/>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b>Price:</b> ${menuItem.itemPrice}
+                            <b>Price:</b> ${dish.dishPrice}
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <b>Description:</b> {menuItem.description}
+                            <b>Description:</b> {dish.description}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
@@ -58,7 +58,7 @@ const ItemScreen = ({match, history}) => {
                                         <b>Price:</b>
                                     </Col>
                                     <Col>
-                                        <strong>${menuItem.itemPrice}</strong>
+                                        <strong>${dish.dishPrice}</strong>
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
@@ -88,4 +88,4 @@ const ItemScreen = ({match, history}) => {
     )
 }
 
-export default ItemScreen;
+export default DishScreen;

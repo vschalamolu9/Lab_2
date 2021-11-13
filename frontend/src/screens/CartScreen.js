@@ -8,7 +8,7 @@ import { addToCart, removeFromCart } from "../redux/actions/cartActions"
 
 const CartScreen = ({match, location, history}) => {
 
-    const itemId = match.params.id
+    const dishId = match.params.id
 
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -18,10 +18,10 @@ const CartScreen = ({match, location, history}) => {
     const { cartItems } = cart
 
     useEffect(() => {
-        if(itemId){
-            dispatch(addToCart(itemId, qty))
+        if(dishId){
+            dispatch(addToCart(dishId, qty))
         }
-    }, [dispatch, itemId, qty])
+    }, [dispatch, dishId, qty])
 
     const checkOutHandler = () => {
         localStorage.removeItem('cartItems')

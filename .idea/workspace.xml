@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Cart functionality.">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/itemController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/restaurantController.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Controllers to backend.">
+      <change afterPath="$PROJECT_DIR$/backend/data/dishes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/dishModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/itemRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/itemRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/itemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/dishController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/restaurantController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/restaurantController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/data/customers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/data/menuItems.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/data/restaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/restaurants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/books.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getItemDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getDishDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getRestaurantMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getRestaurantMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/signin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/customerModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/itemModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/orderModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/restaurantModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/restaurantModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/itemRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/dishRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/cartActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/cartActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/cartReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/cartReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/seeder.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/seeder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dish.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/menuItemActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/dishActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/menuItemConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/dishConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/menuItemReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/dishReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/CartScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/CartScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ItemScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/DishScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +107,7 @@
       <workItem from="1636431306920" duration="8800000" />
       <workItem from="1636525688883" duration="79000" />
       <workItem from="1636525811727" duration="7064000" />
-      <workItem from="1636574372218" duration="14794000" />
+      <workItem from="1636574372218" duration="30276000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -159,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636701255501</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Adding Controllers to backend.">
+      <created>1636743440368</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1636743440368</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +224,7 @@
     <MESSAGE value="Integrating Kafka with Backend" />
     <MESSAGE value="Adding Kafka to fetch Restaurant menu items." />
     <MESSAGE value="Adding Cart functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Cart functionality." />
+    <MESSAGE value="Adding Controllers to backend." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Controllers to backend." />
   </component>
 </project>

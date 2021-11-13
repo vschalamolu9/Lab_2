@@ -2,9 +2,9 @@ import {
     RESTAURANT_LIST_REQUEST,
     RESTAURANT_LIST_SUCCESS,
     RESTAURANT_LIST_FAIL,
-    RESTAURANT_MENU_ITEMS_SUCCESS,
-    RESTAURANT_MENU_ITEMS_REQUEST,
-    RESTAURANT_MENU_ITEMS_FAIL,
+    RESTAURANT_DISHES_SUCCESS,
+    RESTAURANT_DISHES_REQUEST,
+    RESTAURANT_DISHES_FAIL,
     RESTAURANT_DETAILS_REQUEST,
     RESTAURANT_DETAILS_SUCCESS,
     RESTAURANT_DETAILS_FAIL
@@ -27,17 +27,17 @@ export const listRestaurants = () => async (dispatch) => {
     }
 }
 
-export const listMenuItems = (restaurantId) => async (dispatch) => {
+export const listDishes = (restaurantId) => async (dispatch) => {
 
     try{
-        dispatch({type: RESTAURANT_MENU_ITEMS_REQUEST})
+        dispatch({type: RESTAURANT_DISHES_REQUEST})
 
         const { data } = await axios.get(`/api/restaurants/${restaurantId}`)
 
-        dispatch({type: RESTAURANT_MENU_ITEMS_SUCCESS, payload: data})
+        dispatch({type: RESTAURANT_DISHES_SUCCESS, payload: data})
     }catch(error){
         dispatch({
-            type: RESTAURANT_MENU_ITEMS_FAIL,
+            type: RESTAURANT_DISHES_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message,
         })
     }

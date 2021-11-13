@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const kafka = require('../kafka/client')
+const Restaurant = require('../models/restaurantModel')
 
 //@description Fetch all Restaurants
 //@route GET /api/restaurants
@@ -55,4 +56,30 @@ const getRestaurantMenuItems = asyncHandler(async(req, res) => {
         }
     })
 })
-module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems }
+
+
+const addNewRestaurant = asyncHandler(async(req, res) => {
+    const { restaurantName, restaurantEmail, restaurantPassword, country, city } = req.body;
+
+    const restaurantExists = await Restaurant.findOne({RestaurantEmail: restaurantEmail})
+
+    if(restaurantExists){
+        res.status(400)
+        throw new Error('Restaurant already exists!')
+    }
+
+    const restaurant = Restaurant.create(req.body)
+
+    if(restaurant){
+        res.status(201).json({
+            restaurantId: restaurant.RestaurantId,
+            restaurantName: restaurant.RestauarntName,
+            restaurantEmail: restaurant.RestaurantEmail
+        })
+    }
+    else{
+        res.status(400)
+        throw new Error('Invalid user data')
+    }
+})
+module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, addNewRestaurant }

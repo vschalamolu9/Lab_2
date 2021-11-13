@@ -1,14 +1,14 @@
-const Item = require('../../../models/itemModel')
+const Dish = require('../../../models/dishModel')
 
 const handle_request = async(msg, callback) => {
     try{
-        const itemDetails = await Item.findById({_id: msg.id})
-        if(itemDetails){
-            callback(null, itemDetails)
+        const dishDetails = await Dish.findById({_id: msg.id})
+        if(dishDetails){
+            callback(null, dishDetails)
         }
         else{
             const err = {
-                error: "Menu Item Not Found!"
+                error: "Menu Dish Not Found!"
             }
             callback(err, null);
         }

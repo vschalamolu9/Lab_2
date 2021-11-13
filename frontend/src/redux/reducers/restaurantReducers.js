@@ -1,9 +1,9 @@
 import { RESTAURANT_LIST_REQUEST,
     RESTAURANT_LIST_SUCCESS,
     RESTAURANT_LIST_FAIL,
-    RESTAURANT_MENU_ITEMS_REQUEST,
-    RESTAURANT_MENU_ITEMS_SUCCESS,
-    RESTAURANT_MENU_ITEMS_FAIL,
+    RESTAURANT_DISHES_REQUEST,
+    RESTAURANT_DISHES_SUCCESS,
+    RESTAURANT_DISHES_FAIL,
     RESTAURANT_DETAILS_REQUEST,
     RESTAURANT_DETAILS_SUCCESS,
     RESTAURANT_DETAILS_FAIL
@@ -23,14 +23,14 @@ export const restaurantListReducer = (state = { restaurants: []}, action) => {
     }
 }
 
-export const restaurantMenuItemsListReducer = (state = { menuItems: []}, action) => {
+export const restaurantDishesListReducer = (state = { dishes: []}, action) => {
 
     switch(action.type){
-        case RESTAURANT_MENU_ITEMS_REQUEST:
-            return { loading: true, menuItems: []}
-        case RESTAURANT_MENU_ITEMS_SUCCESS:
-            return { loading: false, menuItems: action.payload }
-        case RESTAURANT_MENU_ITEMS_FAIL:
+        case RESTAURANT_DISHES_REQUEST:
+            return { loading: true, dishes: []}
+        case RESTAURANT_DISHES_SUCCESS:
+            return { loading: false, dishes: action.payload }
+        case RESTAURANT_DISHES_FAIL:
             return { loading:false, error: action.payload }
         default:
             return state

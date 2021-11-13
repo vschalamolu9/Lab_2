@@ -1,11 +1,9 @@
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const colors = require('colors')
-const customers = require('./data/customers')
-const items = require('./data/menuItems')
+const dishes = require('./data/dishes')
 const restaurants = require('./data/restaurants')
-const Customer = require('./models/customerModel')
-const Item = require('./models/itemModel')
+const Dish = require('./models/dishModel')
 const Restaurant = require('./models/restaurantModel')
 const connectDB = require('./config/db')
 
@@ -16,13 +14,13 @@ connectDB()
 const importData = async () => {
     try{
         await Restaurant.deleteMany()
-        await Item.deleteMany()
+        await Dish.deleteMany()
 
         const createdRestaurants = await Restaurant.insertMany(restaurants)
-        const sampleItems = items.map(item => {
-            return {...item, restaurant: createdRestaurants[0]}
+        const sampleDishes = dishes.map(dish => {
+            return {...dish, restaurantId: createdRestaurants[0]}
         })
-        await Item.insertMany(sampleItems)
+        await Dish.insertMany(sampleDishes)
 
         console.log('Data Imported!'.green.inverse)
         process.exit()
@@ -36,7 +34,7 @@ const importData = async () => {
 const destroyData = async () => {
     try{
         await Restaurant.deleteMany()
-        await Item.deleteMany()
+        await Dish.deleteMany()
 
         console.log('Data Destroyed!'.red.inverse)
         process.exit()

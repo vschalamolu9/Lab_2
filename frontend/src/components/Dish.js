@@ -2,16 +2,16 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import {Card} from "react-bootstrap";
 
-const Item = ({item}) => {
+const Dish = ({dish}) => {
     return(
         <>
             <Card className='my-6 p-3 rounded'>
-                <Link to={`/item/${item._id}`}>
-                    <Card.Img src={item.image} variant='top' />
+                <Link to={`/dish/${dish._id}`}>
+                    <Card.Img src={dish.image} variant='top' />
                 </Link>
                 <Card.Body>
-                    <Link to={`/item/${item._id}`}>
-                        <Card.Title as='div'><strong>{item.itemName}</strong></Card.Title>
+                    <Link to={`/dish/${dish._id}`}>
+                        <Card.Title as='div'><strong>{dish.dishName}</strong></Card.Title>
                     </Link>
                 </Card.Body>
             </Card>
@@ -19,4 +19,4 @@ const Item = ({item}) => {
     )
 }
 
-export default Item;
+export default Dish;

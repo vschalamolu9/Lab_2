@@ -1,13 +1,13 @@
-const Item = require('../../../models/itemModel')
+const Dish = require('../../../models/dishModel')
 const kafka = require('../../../kafka/client')
 
 const handle_request = async(msg, callback) => {
 
     try{
-        const menuItems = await Item.find({restaurant: msg.id})
-        console.log(menuItems)
-        if(menuItems.length !== 0){
-            callback(null, menuItems)
+        const dishes = await Dish.find({restaurantId: msg.id})
+        console.log(dishes)
+        if(dishes.length !== 0){
+            callback(null, dishes)
         }
         else{
             const err = {

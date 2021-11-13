@@ -1,8 +1,8 @@
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector} from "react-redux";
-import { listMenuItems, detailsRestaurant } from "../redux/actions/restaurantActions";
+import { listDishes, detailsRestaurant } from "../redux/actions/restaurantActions";
 import {Row, Col} from 'react-bootstrap'
-import Item from "../components/Item";
+import Dish from "../components/Dish";
 import Loader from "../components/Loader";
 import Message from '../components/Message';
 
@@ -10,14 +10,14 @@ const MenuScreen = ({match}) => {
 
     const dispatch = useDispatch()
 
-    const menuItemsList = useSelector(state => state.menuItemsList)
-    const { loading, error, menuItems} = menuItemsList
+    const dishesList = useSelector(state => state.dishesList)
+    const { loading, error, dishes} = dishesList
 
     const restaurantDetails = useSelector(state => state.restaurantDetails)
     const { restaurantInfo } = restaurantDetails
 
     useEffect(() => {
-        dispatch(listMenuItems(match.params.id))
+        dispatch(listDishes(match.params.id))
         dispatch(detailsRestaurant(match.params.id))
     }, [dispatch, match])
 
@@ -29,9 +29,9 @@ const MenuScreen = ({match}) => {
             <h5>Menu Items</h5>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <Row>
-                    {menuItems.map(menuItem => (
-                        <Col key={menuItem._id} sm={12} md={6} lg={4} xl={3}>
-                            <Item item={menuItem}/>
+                    {dishes.map(dish => (
+                        <Col key={dish._id} sm={12} md={6} lg={4} xl={3}>
+                            <Dish dish={dish}/>
                         </Col>
                     ))
                     }

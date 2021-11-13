@@ -1,12 +1,12 @@
 const asyncHandler = require('express-async-handler')
 const kafka = require('../kafka/client')
 
-//description Fetch Item
+//description Fetch Dish
 //@route GET /api/item/:id
 //@access Public
-const getMenuItemById = asyncHandler (async(req, res) => {
+const getDishById = asyncHandler (async(req, res) => {
 
-    kafka.make_request('get_item_details', req.params, (err, results) => {
+    kafka.make_request('get_dish_details', req.params, (err, results) => {
         if(err){
             res.status(500).json({
                 error: err
@@ -19,4 +19,4 @@ const getMenuItemById = asyncHandler (async(req, res) => {
 
 })
 
-module.exports = { getMenuItemById }
+module.exports = { getDishById }
