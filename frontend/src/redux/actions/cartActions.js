@@ -3,16 +3,16 @@ import { CART_ADD_ITEM,CART_REMOVE_ITEM } from '../constants/cartConstants'
 
 export const addToCart = (id, qty) => async(dispatch, getState) => {
 
-    const { data } = await axios.get(`/api/item/${id}`)
+    const { data } = await axios.get(`/api/dishes/${id}`)
 
     dispatch({
         type: CART_ADD_ITEM,
         payload: {
             product: data._id,
-            item_name: data.itemName,
+            dishName: data.dishName,
             image: data.image,
-            price: data.itemPrice,
-            restaurant_id: data.restaurant,
+            dishPrice: data.dishPrice,
+            restaurantId: data.restaurantId,
             qty
         }
     })
