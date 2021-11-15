@@ -9,6 +9,8 @@ import DishScreen from "./screens/DishScreen";
 import CartScreen from './screens/CartScreen';
 import UserLoginScreen from './screens/UserLoginScreen';
 import UserSignUpScreen from "./screens/UserSignUpScreen";
+import RestaurantLoginScreen from "./screens/RestaurantLoginScreen";
+import RestaurantSignUpScreen from './screens/RestaurantSignUpScreen';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
                 <Route path='/cart/:id?' component={CartScreen} exact/>
                 <Route path='/user/login' component={UserLoginScreen} exact />
                 <Route path='/user/signup' component={UserSignUpScreen} exact/>
+                <Route path='/res/login' component={RestaurantLoginScreen} exact/>
+                <Route path='/res/signup' component={RestaurantSignUpScreen} exact/>
             </Container>
         </main>
         <Footer />

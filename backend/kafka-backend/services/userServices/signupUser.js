@@ -4,12 +4,12 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async(msg, callback) => {
 
-    const { firstName, lastName, emailId, contact, password, street, city, state, country, zipCode, imageUrl } = msg
+    const { firstName, lastName, emailId, password, city, state, country, zipCode } = msg
 
     const userExists = await User.findOne({emailId: emailId})
 
     if(userExists){
-        callback({error: 'UserExists'}, null)
+        callback({error: 'User already exists'}, null)
     }
     else{
         const salt = await bcrypt.genSalt(10)
@@ -20,15 +20,12 @@ const handle_request = async(msg, callback) => {
             lastName,
             emailId,
             password: hashedPassword,
-            contact,
             address:{
-                street: street,
                 city: city,
                 state: state,
                 country: country,
                 zipCode: zipCode
-            },
-            imageUrl: imageUrl
+            }
         })
 
         if(user){
@@ -36,7 +33,8 @@ const handle_request = async(msg, callback) => {
                 _id: user._id,
                 firstName: user.firstName,
                 lastName: user.lastName,
-                emailId: user.emailId
+                emailId: user.emailId,
+                address:user.address
             }
 
             callback(null, result)

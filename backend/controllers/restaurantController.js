@@ -40,7 +40,7 @@ const getRestaurantById = asyncHandler(async(req, res) => {
 })
 
 //@description Fetch all Restaurant Menu Items
-//@route GET /api/restaurant/:id
+//@route GET /api/restaurants/:id
 //@access Public
 const getRestaurantMenuItems = asyncHandler(async(req, res) => {
 
@@ -57,5 +57,37 @@ const getRestaurantMenuItems = asyncHandler(async(req, res) => {
     })
 })
 
+//@description Restaurant SignUp
+//@route POST /api/restaurants/signup
+//@access Public
+const signupRestaurant = asyncHandler(async(req, res) => {
+    kafka.make_request('restaurant_signup', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(201).send(results)
+        }
+    })
+})
 
-module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems }
+//@description Restaurant SignUp
+//@route POST /api/restaurants/login
+//@access Public
+const loginRestaurant = asyncHandler(async(req, res) => {
+    kafka.make_request('restaurant_login', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
+
+
+module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, signupRestaurant, loginRestaurant}

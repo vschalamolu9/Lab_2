@@ -6,7 +6,14 @@ import { RESTAURANT_LIST_REQUEST,
     RESTAURANT_DISHES_FAIL,
     RESTAURANT_DETAILS_REQUEST,
     RESTAURANT_DETAILS_SUCCESS,
-    RESTAURANT_DETAILS_FAIL
+    RESTAURANT_DETAILS_FAIL,
+    RESTAURANT_SIGNUP_REQUEST,
+    RESTAURANT_SIGNUP_SUCCESS,
+    RESTAURANT_SIGNUP_FAIL,
+    RESTAURANT_LOGIN_REQUEST,
+    RESTAURANT_LOGIN_SUCCESS,
+    RESTAURANT_LOGIN_FAIL,
+    RESTAURANT_LOGOUT
 } from '../constants/restaurantConstants'
 
 export const restaurantListReducer = (state = { restaurants: []}, action) => {
@@ -50,3 +57,32 @@ export const restaurantDetailsReducer = (state = {restaurantInfo: {}}, action) =
             return state
     }
 }
+
+export const restaurantSignUpReducer = (state = {}, action) => {
+    switch (action.type) {
+        case RESTAURANT_SIGNUP_REQUEST:
+            return { loading: true }
+        case RESTAURANT_SIGNUP_SUCCESS:
+            return { loading: false, restaurantData: action.payload }
+        case RESTAURANT_SIGNUP_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+export const restaurantLoginReducer = (state = {}, action) => {
+    switch (action.type) {
+        case RESTAURANT_LOGIN_REQUEST:
+            return { loading: true }
+        case RESTAURANT_LOGIN_SUCCESS:
+            return { loading: false, restaurantData: action.payload }
+        case RESTAURANT_LOGIN_FAIL:
+            return { loading: false, error: action.payload }
+        case RESTAURANT_LOGOUT:
+            return {}
+        default:
+            return state
+    }
+}
+

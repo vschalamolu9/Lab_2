@@ -2,20 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing User SignUp and Login functionalities in frontend and backend.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/FormContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/actions/userActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/constants/userConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserLoginScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserSignUpScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/loginRestaurant.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/signupRestaurant.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestauarntLoginScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/restaurantController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/restaurantController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/signupUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/signupUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/restaurantModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/restaurantModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/userModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/userModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/restaurantConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +92,7 @@
       <workItem from="1636525688883" duration="79000" />
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
-      <workItem from="1636937978430" duration="16014000" />
+      <workItem from="1636937978430" duration="25577000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -180,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636952337083</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Implementing User SignUp and Login functionalities in frontend and backend.">
+      <created>1636965736522</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1636965736522</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

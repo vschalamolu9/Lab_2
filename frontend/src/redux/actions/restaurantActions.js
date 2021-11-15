@@ -7,7 +7,14 @@ import {
     RESTAURANT_DISHES_FAIL,
     RESTAURANT_DETAILS_REQUEST,
     RESTAURANT_DETAILS_SUCCESS,
-    RESTAURANT_DETAILS_FAIL
+    RESTAURANT_DETAILS_FAIL,
+    RESTAURANT_LOGIN_REQUEST,
+    RESTAURANT_LOGIN_SUCCESS,
+    RESTAURANT_LOGIN_FAIL,
+    RESTAURANT_LOGOUT,
+    RESTAURANT_SIGNUP_REQUEST,
+    RESTAURANT_SIGNUP_SUCCESS,
+    RESTAURANT_SIGNUP_FAIL
 } from '../constants/restaurantConstants'
 import axios from 'axios'
 
@@ -56,6 +63,73 @@ export const detailsRestaurant = (restaurantId) => async(dispatch) => {
         dispatch({
             type: RESTAURANT_DETAILS_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
+    }
+}
+
+export const loginRestaurant = (restaurantEmail, password) => async(dispatch) => {
+
+    try{
+        dispatch({
+            type: RESTAURANT_LOGIN_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        const { data } = await axios.post('/api/restaurants/login', {restaurantEmail, password}, config)
+
+        dispatch({
+            type: RESTAURANT_LOGIN_SUCCESS,
+            payload: data
+        })
+    }
+    catch (error){
+        dispatch({
+            type: RESTAURANT_LOGIN_FAIL,
+            payload: error.response && error.response.data.message ? error.response.data.message : error.message
+        })
+    }
+}
+
+export const logoutRestaurant = () => (dispatch) => {
+    localStorage.removeItem('restaurantData')
+    dispatch({ type: RESTAURANT_LOGOUT })
+    document.location.href = '/res/login'
+}
+
+export const signUpRestaurant = (restaurantName, restaurantEmail, password, city, province, country, zipCode ) => async(dispatch) => {
+
+    try{
+        dispatch({
+            type: RESTAURANT_SIGNUP_REQUEST
+        })
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        const { data } = await axios.post('/api/restaurants/signup', { restaurantName, restaurantEmail, password, city, province, country, zipCode }, config)
+
+        dispatch({
+            type: RESTAURANT_SIGNUP_SUCCESS,
+            payload: data
+        })
+
+        localStorage.setItem('restaurantData', JSON.stringify(data))
+    }
+    catch(error){
+        dispatch({
+            type: RESTAURANT_SIGNUP_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
         })
     }
 }
