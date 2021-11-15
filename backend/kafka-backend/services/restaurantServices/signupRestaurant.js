@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 
 const handle_request = async(msg, callback) => {
 
-    const { restaurantName, restaurantEmail, password, city, province, country, zipCode } = msg
+    const { restaurantName, restaurantEmail, password, city, province, country, zipCode, imageUrl } = msg
 
     const restaurantExists = await Restaurant.findOne({restaurantEmail: restaurantEmail})
 
@@ -24,7 +24,8 @@ const handle_request = async(msg, callback) => {
                 province: province,
                 country: country,
                 zipCode: zipCode
-            }
+            },
+            imageUrl
         })
 
         if(restaurant){
@@ -33,6 +34,7 @@ const handle_request = async(msg, callback) => {
                 restaurantName: restaurant.restaurantName,
                 restaurantEmail: restaurant.restaurantEmail,
                 address: restaurant.address,
+                imageUrl: restaurant.imageUrl
             }
             callback(null, result)
         }

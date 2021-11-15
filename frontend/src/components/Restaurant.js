@@ -9,7 +9,7 @@ const Restaurant = ({restaurant}) => {
         <>
             <Card className='my-3 p-3 rounded'>
                 <Link to={`/restaurant/${restaurant._id}`}>
-                    <Card.Img src={restaurant.image} variant='top'/>
+                    <Card.Img src={restaurant.imageUrl} variant='top'/>
                 </Link>
                 <Card.Body>
                     <Link to={`/restaurant/${restaurant._id}`}>

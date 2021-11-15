@@ -8,11 +8,15 @@ import FormContainer from '../components/FormContainer'
 import { signUpUser } from '../redux/actions/userActions'
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import axios from 'axios';
+import { Image } from 'cloudinary-react'
 
 const UserSignUpScreen = ({location, history}) => {
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [image, setImage] = useState(null)
+    const [imageUrl, setImageUrl] = useState('')
     const [emailId, setEmailId] = useState('')
     const [password, setPassword] = useState('')
     const [cnfPassword, setCnfPassword] = useState('')
@@ -51,6 +55,19 @@ const UserSignUpScreen = ({location, history}) => {
         setValue(value)
     }
 
+    const uploadImage = async () => {
+        const formData = new FormData()
+        formData.append("file", image)
+        formData.append('upload_preset', 'uber_eats')
+
+        await axios.post('https://api.cloudinary.com/v1_1/vschalamolu9/image/upload', formData).then((res) => {
+            console.log(res.data.secure_url)
+            setImageUrl(res.data.secure_url)
+        })
+    }
+
+
+
     const submitHandler = (e) => {
         e.preventDefault()
         if(!validateName(firstName) || !validateName(lastName)){
@@ -66,7 +83,7 @@ const UserSignUpScreen = ({location, history}) => {
             setMessage('Your password should contain atleast 10 characters')
         }
         else{
-            dispatch(signUpUser(firstName, lastName, emailId, password, city, state, value.label, zipCode))
+            dispatch(signUpUser(firstName, lastName, emailId, password, city, state, value.label, zipCode, imageUrl))
         }
     }
 
@@ -77,6 +94,17 @@ const UserSignUpScreen = ({location, history}) => {
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader/>}
             <Form onSubmit={submitHandler}>
+                <br/>
+                {imageUrl && <Image style={{width: 300, marginLeft: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
+                <br/>
+                <Form.Group controlId='image' as = {Row}>
+                    <Form.Control
+                            type='file'
+                            onChange={(e) => setImage(e.target.files[0])}
+                    />
+                    <Button style={{marginTop: 20}} type='btn' className='btn-block btn-dark' onClick={uploadImage}><b>Upload Profile Picture</b></Button>
+                </Form.Group>
+                <br/>
                 <Form.Group controlId='firstname'>
                     <Form.Label>First Name</Form.Label>
                     <Form.Control

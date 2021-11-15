@@ -43,7 +43,7 @@ export const logout = () => (dispatch) => {
     document.location.href = '/user/login'
 }
 
-export const signUpUser = (firstName, lastName, emailId, password, city, state, country ) => async(dispatch) => {
+export const signUpUser = (firstName, lastName, emailId, password, city, state, country, zipCode, imageUrl ) => async(dispatch) => {
 
     try{
         dispatch({
@@ -56,7 +56,7 @@ export const signUpUser = (firstName, lastName, emailId, password, city, state, 
             }
         }
 
-        const { data } = await axios.post('/api/users/signup', { firstName, lastName, emailId, password, city, state, country }, config)
+        const { data } = await axios.post('/api/users/signup', { firstName, lastName, emailId, password, city, state, country, zipCode, imageUrl }, config)
 
         dispatch({
             type: USER_SIGNUP_SUCCESS,

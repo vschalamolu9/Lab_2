@@ -4,7 +4,7 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async(msg, callback) => {
 
-    const { firstName, lastName, emailId, password, city, state, country, zipCode } = msg
+    const { firstName, lastName, emailId, password, city, state, country, zipCode, imageUrl } = msg
 
     const userExists = await User.findOne({emailId: emailId})
 
@@ -25,7 +25,8 @@ const handle_request = async(msg, callback) => {
                 state: state,
                 country: country,
                 zipCode: zipCode
-            }
+            },
+            imageUrl
         })
 
         if(user){
@@ -34,7 +35,9 @@ const handle_request = async(msg, callback) => {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 emailId: user.emailId,
-                address:user.address
+                address:user.address,
+                imageUrl: user.imageUrl
+
             }
 
             callback(null, result)

@@ -15,6 +15,7 @@ const handle_request = async (msg, callback) => {
                 lastName: user.lastName,
                 emailId: user.emailId,
                 address: user.address,
+                imageUrl: user.imageUrl,
                 token: generateToken(user._id)
             }
             callback(null, result)

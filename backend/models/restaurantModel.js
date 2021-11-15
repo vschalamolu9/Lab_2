@@ -7,7 +7,7 @@ const restaurantSchema = new Schema({
     restaurantEmail:{ type: String, required: true, unique: true },
     password:{ type: String,  required: true },
     description:{ type: String, default: '' },
-    image:{ type: String, default: '' },
+    imageUrl:{ type: String, default: '' },
     contact:{ type: String, default: '' },
     address: {
         street: {type: String, default: ''},
