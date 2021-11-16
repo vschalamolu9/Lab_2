@@ -11,6 +11,10 @@ import UserLoginScreen from './screens/UserLoginScreen';
 import UserSignUpScreen from "./screens/UserSignUpScreen";
 import RestaurantLoginScreen from "./screens/RestaurantLoginScreen";
 import RestaurantSignUpScreen from './screens/RestaurantSignUpScreen';
+import DeliveryScreen from "./screens/DeliveryScreen";
+import PaymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderDetailsScreen from "./screens/OrderDetailsScreen";
 
 function App() {
   return (
@@ -24,8 +28,12 @@ function App() {
                 <Route path='/cart/:id?' component={CartScreen} exact/>
                 <Route path='/user/login' component={UserLoginScreen} exact />
                 <Route path='/user/signup' component={UserSignUpScreen} exact/>
+                <Route path='/placeorder' component={PlaceOrderScreen} exact/>
                 <Route path='/res/login' component={RestaurantLoginScreen} exact/>
                 <Route path='/res/signup' component={RestaurantSignUpScreen} exact/>
+                <Route path='/user/delivery' component={DeliveryScreen} exact/>
+                <Route path='/payment' component={PaymentScreen} exact/>
+                <Route path='/user/order/:id' component={OrderDetailsScreen} exact/>
             </Container>
         </main>
         <Footer />

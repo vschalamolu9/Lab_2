@@ -6,6 +6,7 @@ import Rating from "../components/Rating";
 import { detailsDish } from "../redux/actions/dishActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import {detailsRestaurant} from "../redux/actions/restaurantActions";
 
 const DishScreen = ({match, history}) => {
 
@@ -15,12 +16,18 @@ const DishScreen = ({match, history}) => {
     const dishDetails = useSelector(state => state.dishDetails)
     const { loading, error, dish } = dishDetails
 
+    const restaurantDetails= useSelector(state => state.restaurantDetails)
+    const { restaurantInfo } = restaurantDetails
+
     useEffect(() => {
         dispatch(detailsDish(match.params.id))
-    }, [match, dispatch])
+        if(!restaurantInfo){
+            dispatch(detailsRestaurant(dish.restaurantId))
+        }
+    }, [match, dispatch, restaurantInfo])
 
     const addToCartHandler = () => {
-
+        localStorage.setItem('deliveryFee', JSON.stringify(restaurantInfo.deliveryFee))
         history.push(`/cart/${match.params.id}?qty=${qty}`)
     }
 
@@ -31,7 +38,7 @@ const DishScreen = ({match, history}) => {
             </Link>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (<Row>
                 <Col md={4}>
-                    <Image SRC={dish.image} alt={dish.dishName} fluid/>
+                    <Image src={dish.image} alt={dish.dishName} fluid/>
                 </Col>
                 <Col md={4}>
                     <ListGroup variant='flush'>

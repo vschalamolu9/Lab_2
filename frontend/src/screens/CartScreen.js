@@ -10,7 +10,7 @@ const CartScreen = ({match, location, history}) => {
 
     const dishId = match.params.id
 
-    const qty = location.search ? Number(location.search.split('=')[1]) : 1
+    const qty = location.search ? Number(location.search.split('=')[1][0]) : 1
 
     const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ const CartScreen = ({match, location, history}) => {
 
     const checkOutHandler = () => {
         localStorage.removeItem('cartItems')
-        history.push('/login?redirect=delivery')
+        history.push('/user/login?redirect=delivery')
     }
 
     const removeFromCartHandler = (id) => {

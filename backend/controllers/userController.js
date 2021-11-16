@@ -3,6 +3,7 @@ const kafka = require('../kafka/client')
 const User = require('../models/userModel')
 
 
+
 //@description User SignUp
 //@route POST /api/users/signup
 //@access Public
@@ -35,5 +36,6 @@ const loginUser = asyncHandler(async(req, res) => {
         }
     })
 })
+
 
 module.exports = { signupUser, loginUser }

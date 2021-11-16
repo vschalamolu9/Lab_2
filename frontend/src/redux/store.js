@@ -5,6 +5,7 @@ import { restaurantListReducer, restaurantDishesListReducer, restaurantDetailsRe
 import { userLoginReducer, userSignUpReducer } from './reducers/userReducers'
 import { dishDetailsReducer } from './reducers/dishReducers'
 import { cartReducer } from "./reducers/cartReducers";
+import { orderCreateReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
     restaurantList: restaurantListReducer,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
     userLogin: userLoginReducer,
     userSignUp: userSignUpReducer,
     restaurantLogin: restaurantLoginReducer,
-    restaurantSignUp: restaurantSignUpReducer
+    restaurantSignUp: restaurantSignUpReducer,
+    orderCreate: orderCreateReducer
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

@@ -39,6 +39,10 @@ export const loginUser = (emailId, password) => async(dispatch) => {
 export const logout = () => (dispatch) => {
     localStorage.removeItem('userInfo')
     localStorage.removeItem('cartItems')
+    localStorage.removeItem('deliveryFee')
+    localStorage.removeItem('deliveryAddress')
+    localStorage.removeItem('orderType')
+    localStorage.removeItem('paymentMethod')
     dispatch({ type: USER_LOGOUT })
     document.location.href = '/user/login'
 }
