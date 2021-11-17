@@ -7,7 +7,10 @@ const orderSchema = new Schema({
     orderDate: { type: Date, default: Date.now},
     orderType: {type: String, required: true},
     orderStatus: { type: String, required: true},
-    orderTotal: { type: Number, required: true},
+    paymentMethod: {type: String, required: true },
+    totalPrice: { type: Number, required: true},
+    deliveryPrice: {type: Number, default: 0},
+    taxPrice: {type: Number, default: 0},
     orderItems: [
         {
             product: {type: mongoose.Types.ObjectId, ref: 'Dish'},

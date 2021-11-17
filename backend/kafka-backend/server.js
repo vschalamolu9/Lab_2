@@ -8,6 +8,7 @@ const login_user = require('./services/userServices/loginUser')
 const login_restaurant = require('./services/restaurantServices/loginRestaurant')
 const sign_up_restaurant = require('./services/restaurantServices/signupRestaurant')
 const add_new_order = require('./services/orderServices/addNewOrder')
+const get_order_details = require('./services/orderServices/getOrderDetails')
 const colors = require('colors')
 const connectDB = require('../config/db');
 connectDB()
@@ -53,3 +54,5 @@ handleTopicRequest('user_login', login_user)
 handleTopicRequest('restaurant_signup', sign_up_restaurant)
 handleTopicRequest('restaurant_login', login_restaurant)
 handleTopicRequest('add_new_order', add_new_order)
+handleTopicRequest('get_order_details', get_order_details)
+

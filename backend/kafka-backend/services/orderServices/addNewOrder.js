@@ -3,7 +3,7 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async (msg, callback) =>{
 
-    const { userId, restaurantId, orderDate, orderType, orderStatus, orderTotal, orderItems, deliveryAddress } = msg
+    const { userId, restaurantId, orderDate, orderType, orderStatus, paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress } = msg
 
     try{
         const order = await Order.create({
@@ -12,7 +12,10 @@ const handle_request = async (msg, callback) =>{
             orderDate,
             orderType,
             orderStatus,
-            orderTotal,
+            paymentMethod,
+            totalPrice,
+            deliveryPrice,
+            taxPrice,
             orderItems,
             deliveryAddress
         })
@@ -25,7 +28,10 @@ const handle_request = async (msg, callback) =>{
                 orderDate: order.orderDate,
                 orderType: order.orderType,
                 orderStatus: order.orderStatus,
-                orderTotal: order.orderTotal,
+                paymentMethod: order.paymentMethod,
+                totalPrice: order.totalPrice,
+                deliveryPrice: order.deliveryPrice,
+                taxPrice: order.deliveryPrice,
                 orderItems: order.orderItems,
                 deliveryAddress: order.deliveryAddress
             }

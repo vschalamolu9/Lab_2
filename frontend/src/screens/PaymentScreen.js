@@ -11,7 +11,7 @@ const PaymentScreen = ({history}) => {
     const {deliveryAddress} = cart
 
     if(!deliveryAddress){
-        history.push('/delivery')
+        history.push('/user/delivery')
     }
 
     const [paymentMethod, setPaymentMethod] = useState('PayPal')
@@ -23,7 +23,7 @@ const PaymentScreen = ({history}) => {
         e.preventDefault()
         dispatch(savePaymentMethod(paymentMethod))
         dispatch(saveOrderType(orderType))
-        history.push('/placeorder')
+        history.push('/user/placeorder')
     }
 
     return(

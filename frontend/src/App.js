@@ -28,11 +28,11 @@ function App() {
                 <Route path='/cart/:id?' component={CartScreen} exact/>
                 <Route path='/user/login' component={UserLoginScreen} exact />
                 <Route path='/user/signup' component={UserSignUpScreen} exact/>
-                <Route path='/placeorder' component={PlaceOrderScreen} exact/>
+                <Route path='/user/placeorder' component={PlaceOrderScreen} exact/>
                 <Route path='/res/login' component={RestaurantLoginScreen} exact/>
                 <Route path='/res/signup' component={RestaurantSignUpScreen} exact/>
                 <Route path='/user/delivery' component={DeliveryScreen} exact/>
-                <Route path='/payment' component={PaymentScreen} exact/>
+                <Route path='/user/payment' component={PaymentScreen} exact/>
                 <Route path='/user/order/:id' component={OrderDetailsScreen} exact/>
             </Container>
         </main>

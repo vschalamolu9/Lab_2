@@ -1,9 +1,9 @@
-import { ORDER_CREATE_REQUEST, ORDER_CREATE_SUCCESS, ORDER_CREATE_FAIL } from "../constants/orderConstants";
+import { ORDER_CREATE_REQUEST, ORDER_CREATE_SUCCESS, ORDER_CREATE_FAIL, ORDER_DETAILS_REQUEST, ORDER_DETAILS_SUCCESS, ORDER_DETAILS_FAIL } from "../constants/orderConstants";
 import axios from 'axios';
 import { logout } from './userActions'
 import {DELETE_CART_ITEMS} from "../constants/cartConstants";
 
-export const createOrder = (userId, restaurantId, orderDate, orderType, orderStatus, orderTotal, orderItems, deliveryAddress) => async(dispatch, getState) => {
+export const createOrder = (userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress) => async(dispatch, getState) => {
 
     try{
         dispatch({
@@ -14,12 +14,11 @@ export const createOrder = (userId, restaurantId, orderDate, orderType, orderSta
 
         const config = {
             headers: {
-                'Content-Type' : 'application/json',
                 'Authorization' : `Bearer ${userInfo.token}`
             }
         }
 
-        const { data } = await axios.post(`/api/orders/addNewOrder`, { userId, restaurantId, orderDate, orderType, orderStatus, orderTotal, orderItems, deliveryAddress }, config)
+        const { data } = await axios.post(`/api/orders/addNewOrder`, { userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress }, config)
 
         dispatch({
             type: ORDER_CREATE_SUCCESS,
@@ -27,13 +26,6 @@ export const createOrder = (userId, restaurantId, orderDate, orderType, orderSta
         })
 
         localStorage.removeItem('cartItems')
-        dispatch({
-            type: DELETE_CART_ITEMS
-        })
-        localStorage.removeItem('deliveryFee')
-        localStorage.removeItem('deliveryAddress')
-        localStorage.removeItem('orderType')
-        localStorage.removeItem('paymentMethod')
     }
     catch (error) {
         const message =
@@ -48,4 +40,44 @@ export const createOrder = (userId, restaurantId, orderDate, orderType, orderSta
             payload: message,
         })
     }
+}
+
+export const getOrderDetails = (orderId) => async (dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: ORDER_DETAILS_REQUEST
+        })
+
+        const { userLogin: {userInfo}} = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.get(`/api/orders/${orderId}`, config)
+
+        dispatch({
+            type: ORDER_DETAILS_SUCCESS,
+            payload: data
+        })
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: ORDER_DETAILS_FAIL,
+            payload: message,
+        })
+    }
+
+
 }

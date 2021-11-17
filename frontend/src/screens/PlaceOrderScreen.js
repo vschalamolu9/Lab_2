@@ -36,12 +36,12 @@ const PlaceOrderScreen = ({history}) => {
             history.push(`/user/order/${order._id}`)
         }
         //eslint-disable-next-line
-    },[history, success, order])
+    },[history, success])
 
     const placeOrderHandler = (e) => {
         e.preventDefault()
         if(cartItems.length > 0){
-            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'PLACED', cart.totalPrice, cartItems, cart.deliveryAddress))
+            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'PLACED', cart.paymentMethod, cart.totalPrice, cart.deliveryPrice, cart.taxPrice, cartItems, cart.deliveryAddress))
         }
     }
 
@@ -78,7 +78,7 @@ const PlaceOrderScreen = ({history}) => {
                                     <Col>
                                         <Link to={`/item/${item.product}`}>{item.name}</Link>
                                     </Col>
-                                    <Col md={4}>{item.qty} x ${item.dishPrice} = ${item.qty * item.dishPrice}</Col>
+                                    <Col md={4}>{item.qty} x ${item.dishPrice} = ${(item.qty * item.dishPrice).toFixed(2)}</Col>
                                 </Row>
                             </ListGroup.Item>))}</ListGroup>)}
                         </ListGroup.Item>

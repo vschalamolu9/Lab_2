@@ -24,7 +24,7 @@ const DeliveryScreen = ({history}) => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(saveDeliveryAddress({street, city, province, zipCode, country}))
-        history.push('/payment')
+        history.push('/user/payment')
     }
 
     return(
