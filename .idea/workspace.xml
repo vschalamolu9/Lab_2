@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing Orders functionality">
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/updateUserAddress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/updateUserProfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserAddressScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserOrdersScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserProfileScreen.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing User Profile update functionality.">
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/orderServices/getRestaurantOrders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/orderServices/getUserOrders.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/orderController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/restaurantController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/restaurantController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/userRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/userActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/userConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/userConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/orderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/restaurantRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +82,7 @@
       <workItem from="1636525688883" duration="79000" />
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
-      <workItem from="1636937978430" duration="99088000" />
+      <workItem from="1636937978430" duration="101048000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -218,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637111791659</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Implementing User Profile update functionality.">
+      <created>1637138746414</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1637138746414</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +254,7 @@
     <MESSAGE value="Implementing Restaurant SignUp and Login functionalities in frontend and backend." />
     <MESSAGE value="Implementing cloudinary for uploading images." />
     <MESSAGE value="Implementing Orders functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing Orders functionality" />
+    <MESSAGE value="Implementing User Profile update functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing User Profile update functionality." />
   </component>
 </project>

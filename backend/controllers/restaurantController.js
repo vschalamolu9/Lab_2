@@ -90,4 +90,6 @@ const loginRestaurant = asyncHandler(async(req, res) => {
 })
 
 
-module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, signupRestaurant, loginRestaurant}
+
+
+module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, signupRestaurant, loginRestaurant }
