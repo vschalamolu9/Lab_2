@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react'
 import { Button, Row, Col, Table } from 'react-bootstrap'
-import {LinkContainer} from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { fetchUserOrders } from "../redux/actions/orderActions";
+import { fetchRestaurantOrders } from "../redux/actions/orderActions";
 
-const UserOrdersScreen = () => {
+const RestaurantOrdersScreen = () => {
 
     const dispatch = useDispatch()
 
-    const userLogin = useSelector(state => state.userLogin)
-    const { userInfo } = userLogin
+    const restaurantLogin = useSelector(state => state.restaurantLogin)
+    const { restaurantData } = restaurantLogin
 
-    const userOrders = useSelector(state => state.userOrders)
-    const { loading, error, userOrdersList } = userOrders
+    const restaurantOrders = useSelector(state => state.restaurantOrders)
+    const { loading, error, restaurantOrdersList } = restaurantOrders
 
     useEffect(() => {
-        dispatch(fetchUserOrders(userInfo._id))
+        dispatch(fetchRestaurantOrders(restaurantData._id))
     }, [dispatch])
 
 
@@ -42,7 +42,7 @@ const UserOrdersScreen = () => {
                             </tr>
                             </thead>
                             <tbody>
-                            {userOrdersList.map((order, index) => (
+                            {restaurantOrdersList.map((order, index) => (
                                 <tr key={ index }>
                                     <td>{ index+1 }</td>
                                     <td>{order.orderDate.substring(0,10)}</td>
@@ -67,4 +67,4 @@ const UserOrdersScreen = () => {
     )
 }
 
-export default UserOrdersScreen
+export default RestaurantOrdersScreen

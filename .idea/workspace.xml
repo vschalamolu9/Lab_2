@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing User Profile update functionality.">
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding User Orders Screen">
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrdersScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/UserOrdersScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/UserOrdersScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,7 @@
       <workItem from="1636525688883" duration="79000" />
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
-      <workItem from="1636937978430" duration="104254000" />
+      <workItem from="1636937978430" duration="107098000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -223,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637140701474</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Adding User Orders Screen">
+      <created>1637172029307</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1637172029307</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +268,7 @@
     <MESSAGE value="Implementing cloudinary for uploading images." />
     <MESSAGE value="Implementing Orders functionality" />
     <MESSAGE value="Implementing User Profile update functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing User Profile update functionality." />
+    <MESSAGE value="Adding User Orders Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding User Orders Screen" />
   </component>
 </project>

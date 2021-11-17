@@ -45,6 +45,9 @@ const Header = ({history}) => {
                                     <LinkContainer to='/res/dishes'>
                                         <NavDropdown.Item>View Menu</NavDropdown.Item>
                                     </LinkContainer>
+                                    <LinkContainer to='/res/orders'>
+                                        <NavDropdown.Item>View Orders</NavDropdown.Item>
+                                    </LinkContainer>
                                     <NavDropdown.Item onClick={restaurantLogoutHandler}>
                                         Logout
                                     </NavDropdown.Item>

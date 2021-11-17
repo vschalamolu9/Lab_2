@@ -138,11 +138,11 @@ export const fetchRestaurantOrders = (restaurantId) => async (dispatch, getState
             type: GET_RESTAURANT_ORDERS_REQUEST
         })
 
-        const { restaurantLogin: {restaurantInfo}} = getState()
+        const { restaurantLogin: {restaurantData}} = getState()
 
         const config = {
             headers: {
-                'Authorization' : `Bearer ${restaurantInfo.token}`
+                'Authorization' : `Bearer ${restaurantData.token}`
             }
         }
 
