@@ -3,7 +3,13 @@ import { ORDER_CREATE_REQUEST,
     ORDER_CREATE_FAIL,
     ORDER_DETAILS_REQUEST,
     ORDER_DETAILS_SUCCESS,
-    ORDER_DETAILS_FAIL
+    ORDER_DETAILS_FAIL,
+    GET_USER_ORDERS_REQUEST,
+    GET_USER_ORDERS_SUCCESS,
+    GET_USER_ORDERS_FAIL,
+    GET_RESTAURANT_ORDERS_REQUEST,
+    GET_RESTAURANT_ORDERS_SUCCESS,
+    GET_RESTAURANT_ORDERS_FAIL
 } from "../constants/orderConstants";
 
 export const orderCreateReducer = (state = { order: {}}, action) => {
@@ -43,5 +49,33 @@ export const orderDetailsReducer = (state = {loading: true, orderItems: [], deli
             return { loading: false, error: action.payload}
         default:
             return state
+    }
+}
+
+export const getUserOrdersReducer = (state = { userOrdersList: []}, action) =>{
+    switch (action.type){
+        case GET_USER_ORDERS_REQUEST:
+            return { loading: true, userOrdersList: []}
+        case GET_USER_ORDERS_SUCCESS:
+            return { loading: false, userOrdersList: action.payload }
+        case GET_USER_ORDERS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+
+    }
+}
+
+export const getRestaurantOrdersReducer = (state = { restaurantOrdersList: []}, action) =>{
+    switch (action.type){
+        case GET_RESTAURANT_ORDERS_REQUEST:
+            return { loading: true, restaurantOrdersList: []}
+        case GET_RESTAURANT_ORDERS_SUCCESS:
+            return { loading: false, restaurantOrdersList: action.payload }
+        case GET_RESTAURANT_ORDERS_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+
     }
 }
