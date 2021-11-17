@@ -5,9 +5,12 @@ import {
     USER_LOGOUT,
     USER_SIGNUP_SUCCESS,
     USER_SIGNUP_REQUEST,
-    USER_SIGNUP_FAIL
+    USER_SIGNUP_FAIL, USER_UPDATE_PROFILE_REQUEST, USER_UPDATE_PROFILE_SUCCESS, USER_UPDATE_PROFILE_FAIL,
+    USER_UPDATE_ADDRESS_REQUEST,
+    USER_UPDATE_ADDRESS_SUCCESS,
+    USER_UPDATE_ADDRESS_FAIL
 } from "../constants/userConstants";
-import axios from 'axios'
+import axios from 'axios';
 
 export const loginUser = (emailId, password) => async(dispatch) => {
 
@@ -81,6 +84,82 @@ export const signUpUser = (firstName, lastName, emailId, password, city, state, 
                 error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message,
+        })
+    }
+}
+
+export const updateUserProfile = (userProfileObject) => async(dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: USER_UPDATE_PROFILE_REQUEST
+        })
+
+        const { userLogin: {userInfo}} = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.put(`/api/users/updateProfile`, userProfileObject, config)
+
+        dispatch({
+            type: USER_UPDATE_PROFILE_SUCCESS,
+            payload: data
+        })
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: USER_UPDATE_PROFILE_FAIL,
+            payload: message,
+        })
+    }
+}
+
+export const updateUserAddress = (userAddressObject) => async(dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: USER_UPDATE_ADDRESS_REQUEST
+        })
+
+        const { userLogin: {userInfo}} = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.put(`/api/users/updateAddress`, userAddressObject, config)
+
+        dispatch({
+            type: USER_UPDATE_ADDRESS_SUCCESS,
+            payload: data
+        })
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: USER_UPDATE_ADDRESS_FAIL,
+            payload: message,
         })
     }
 }

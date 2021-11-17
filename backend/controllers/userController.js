@@ -37,5 +37,37 @@ const loginUser = asyncHandler(async(req, res) => {
     })
 })
 
+//@description User Login
+//@route PUT /api/users/updateProfile
+//@access Private
+const updateUserProfile = asyncHandler(async(req, res) => {
+    kafka.make_request('update_user_profile', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
 
-module.exports = { signupUser, loginUser }
+//@description User Login
+//@route PUT /api/users/updateAddress
+//@access Private
+const updateUserAddress = asyncHandler(async(req, res) => {
+    kafka.make_request('update_user_address', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
+
+
+module.exports = { signupUser, loginUser, updateUserProfile, updateUserAddress }

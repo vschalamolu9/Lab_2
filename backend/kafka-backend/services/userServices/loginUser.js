@@ -14,8 +14,10 @@ const handle_request = async (msg, callback) => {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 emailId: user.emailId,
+                contact: user.contact,
                 address: user.address,
                 imageUrl: user.imageUrl,
+                favourites: user.favourites,
                 token: generateToken(user._id)
             }
             callback(null, result)

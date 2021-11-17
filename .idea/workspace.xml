@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing Orders functionality">
-      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/orderServices/getOrderDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/updateUserAddress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/updateUserProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserAddressScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserOrdersScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/UserProfileScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/orderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/orderController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/kafka-backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/orderServices/addNewOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/orderServices/addNewOrder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/orderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/orderModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/orderRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/userServices/loginUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/userRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CheckOutSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CheckOutSteps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/userConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/userConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/userReducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/DeliveryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/DeliveryScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,7 @@
       <workItem from="1636525688883" duration="79000" />
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
-      <workItem from="1636937978430" duration="81462000" />
+      <workItem from="1636937978430" duration="99088000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -211,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637058758041</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Implementing Orders functionality">
+      <created>1637111791659</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1637111791659</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

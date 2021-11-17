@@ -59,7 +59,13 @@ const Header = ({history}) => {
                             { userInfo ? (
                                 <NavDropdown title={userInfo.firstName} id='username'>
                                     <LinkContainer to='/user/profile'>
-                                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item>Update Profile</NavDropdown.Item>
+                                    </LinkContainer>
+                                    <LinkContainer to='/user/address'>
+                                        <NavDropdown.Item>Update Address</NavDropdown.Item>
+                                    </LinkContainer>
+                                    <LinkContainer to='/user/orders'>
+                                        <NavDropdown.Item>View Orders</NavDropdown.Item>
                                     </LinkContainer>
                                     <NavDropdown.Item onClick={logoutHandler}>
                                         Logout
