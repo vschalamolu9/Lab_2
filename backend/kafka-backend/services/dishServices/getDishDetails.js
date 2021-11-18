@@ -2,7 +2,7 @@ const Dish = require('../../../models/dishModel')
 
 const handle_request = async(msg, callback) => {
     try{
-        const dishDetails = await Dish.findById({_id: msg.id})
+        const dishDetails = await Dish.findById({'_id': msg.id})
         if(dishDetails){
             callback(null, dishDetails)
         }

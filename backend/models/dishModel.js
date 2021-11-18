@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 
 const dishSchema = mongoose.Schema({
-    restaurantId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Restaurant' },
-    dishName:{ type: String, required: true },
-    description:{ type: String, required: true },
-    image:{ type: String, required: true },
-    dishCategory:{ type: String, required: true },
-    dishType: { type: String, required: true },
-    dishPrice:{ type: Number, required: true },
+    restaurantId: { type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant' },
+    dishName:{ type: String },
+    description:{ type: String },
+    image:{ type: String },
+    dishCategory:{ type: String },
+    dishType: { type: String },
+    dishPrice:{ type: Number, default: 4.99 },
     dishReview: { type: Number, default: 4 },
     numReviews: { type: Number, default: 5 }
 }, {
@@ -15,5 +15,4 @@ const dishSchema = mongoose.Schema({
 })
 
 const Dish= mongoose.model('Dish', dishSchema)
-
 module.exports = Dish

@@ -3,18 +3,18 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async(msg, callback) => {
 
-    const { _id, dishName, description, image, dishCategory, dishType, dishPrice } = msg
-    const dish = await Dish.findById({_id: _id})
 
     try{
+        const dish = await Dish.findById({'_id': _id})
+
         if(dish){
             dish.set({
-                dishName: dishName || dish.dishName,
-                description: description || dish.description,
-                image: image || dish.image,
-                dishCategory: dishCategory || dish.dishCategory,
-                dishType: dishType || dish.dishType,
-                dishPrice: dishPrice || dish.dishPrice
+                dishName: msg.dishName || dish.dishName,
+                description: msg.description || dish.description,
+                image: msg.image || dish.image,
+                dishCategory: msg.dishCategory || dish.dishCategory,
+                dishType: msg.dishType || dish.dishType,
+                dishPrice: msg.dishPrice || dish.dishPrice
             })
 
             await dish.save()

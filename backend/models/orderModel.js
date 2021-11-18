@@ -5,28 +5,28 @@ const orderSchema = new Schema({
     userId: { type: mongoose.Types.ObjectId, ref: 'User'},
     restaurantId: {type: mongoose.Types.ObjectId, ref: 'Restaurant'},
     orderDate: { type: Date, default: Date.now},
-    orderType: {type: String, required: true},
-    orderStatus: { type: String, required: true},
-    paymentMethod: {type: String, required: true },
-    totalPrice: { type: Number, required: true},
-    deliveryPrice: {type: Number, default: 0},
-    taxPrice: {type: Number, default: 0},
+    orderType: {type: String },
+    orderStatus: { type: String },
+    paymentMethod: {type: String },
+    totalPrice: { type: Number },
+    deliveryPrice: {type: Number, default: 0.00},
+    taxPrice: {type: Number, default: 0.00},
     orderItems: [
         {
             product: {type: mongoose.Types.ObjectId, ref: 'Dish'},
+            restaurantId: {type: mongoose.Types.ObjectId, ref: 'Restaurant'},
             dishName: { type: String },
             image: {type: String},
-            dishPrice: { type: Number },
-            restaurantId: {type: mongoose.Types.ObjectId, ref: 'Restaurant'},
-            qty: { type: Number},
+            dishPrice: { type: Number, default: 0.00 },
+            qty: { type: Number, default: 1 },
         }
     ],
     deliveryAddress: {
-        street: {type: String, default: ''},
-        city: {type: String, required: true},
-        province: { type: String, required: true},
-        country: {type: String, required: true},
-        zipCode: {type: String, default: true}
+        street: {type: String },
+        city: {type: String },
+        province: { type: String },
+        country: {type: String },
+        zipCode: {type: String }
     }
 
 },{

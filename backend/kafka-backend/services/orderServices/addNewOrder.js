@@ -3,39 +3,26 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async (msg, callback) =>{
 
-    const { userId, restaurantId, orderDate, orderType, orderStatus, paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress } = msg
 
     try{
-        const order = await Order.create({
-            userId,
-            restaurantId,
-            orderDate,
-            orderType,
-            orderStatus,
-            paymentMethod,
-            totalPrice,
-            deliveryPrice,
-            taxPrice,
-            orderItems,
-            deliveryAddress
-        })
+        const newOrder = {
+            userId : msg.userId,
+            restaurantId : msg.restaurantId,
+            orderDate: msg.orderDate,
+            orderType: msg.orderType,
+            orderStatus: msg.orderStatus,
+            paymentMethod: msg.paymentMethod,
+            totalPrice: msg.totalPrice,
+            deliveryPrice: msg.deliveryPrice,
+            taxPrice: msg.taxPrice,
+            orderItems: msg.orderItems,
+            deliveryAddress: msg.deliveryAddress
+        }
+
+        const order = Order.create(newOrder)
 
         if(order){
-            const result = {
-               _id: order._id,
-                userId: order.userId,
-                restaurantId: order.restaurantId,
-                orderDate: order.orderDate,
-                orderType: order.orderType,
-                orderStatus: order.orderStatus,
-                paymentMethod: order.paymentMethod,
-                totalPrice: order.totalPrice,
-                deliveryPrice: order.deliveryPrice,
-                taxPrice: order.deliveryPrice,
-                orderItems: order.orderItems,
-                deliveryAddress: order.deliveryAddress
-            }
-            callback(null, result)
+            callback(null, order)
         }
         else{
             callback('Order Failed!', null)
