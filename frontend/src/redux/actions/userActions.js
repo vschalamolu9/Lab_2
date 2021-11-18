@@ -110,6 +110,11 @@ export const updateUserProfile = (userProfileObject) => async(dispatch, getState
             type: USER_UPDATE_PROFILE_SUCCESS,
             payload: data
         })
+        dispatch({
+            type: USER_LOGIN_SUCCESS,
+            payload: data,
+        })
+        localStorage.setItem('userInfo', JSON.stringify(data))
     }
     catch (error) {
         const message =
@@ -148,6 +153,8 @@ export const updateUserAddress = (userAddressObject) => async(dispatch, getState
             type: USER_UPDATE_ADDRESS_SUCCESS,
             payload: data
         })
+
+        localStorage.setItem('userInfo', JSON.stringify(data))
     }
     catch (error) {
         const message =

@@ -5,6 +5,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import FormContainer from "../components/FormContainer";
 import {logout, updateUserAddress} from "../redux/actions/userActions";
+import {USER_UPDATE_ADDRESS_RESET} from "../redux/constants/userConstants";
 
 const UserAddressScreen = ({history}) => {
 
@@ -13,6 +14,9 @@ const UserAddressScreen = ({history}) => {
     const userLogin = useSelector(state => state.userLogin)
     const { loading, error, userInfo } = userLogin
 
+    const userAddress = useSelector(state => state.userAddress)
+    const { success } = userAddress
+
 
     const [street, setStreet] = useState(userInfo.address.street)
     const [city, setCity] = useState(userInfo.address.city)
@@ -20,6 +24,18 @@ const UserAddressScreen = ({history}) => {
     const [zipCode, setZipCode] = useState(userInfo.address.zipCode)
     const [country, setCountry] = useState(userInfo.address.country)
     const [message, setMessage] = useState('')
+
+    useEffect(() => {
+        if(!userInfo){
+            dispatch(logout())
+        }
+        else{
+            if(success){
+                dispatch({type: USER_UPDATE_ADDRESS_RESET})
+                dispatch(logout())
+            }
+        }
+    }, [dispatch, userInfo, success])
 
     const submitHandler = () => {
         const addressObject = {
@@ -31,7 +47,6 @@ const UserAddressScreen = ({history}) => {
             zipCode: zipCode
         }
         dispatch(updateUserAddress(addressObject))
-        dispatch(logout())
     }
 
     return(

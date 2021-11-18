@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { Image } from 'cloudinary-react'
 import {logout, updateUserProfile} from "../redux/actions/userActions";
 import axios from "axios";
+import {USER_UPDATE_PROFILE_RESET} from "../redux/constants/userConstants";
 
 const UserProfileScreen = ({history}) => {
 
@@ -15,6 +16,7 @@ const UserProfileScreen = ({history}) => {
     const { loading, error, userInfo } = userLogin
 
     const userProfile = useSelector(state => state.userProfile)
+    const { success } = userProfile
 
     const [firstName, setFirstName] = useState(userInfo.firstName)
     const [lastName, setLastName] = useState(userInfo.lastName)
@@ -49,14 +51,20 @@ const UserProfileScreen = ({history}) => {
 
 
     useEffect(()=>{
-        if(userProfile === null){
+        if(!userInfo){
             dispatch(logout())
         }
+        else{
+            if(success){
+                dispatch({type: USER_UPDATE_PROFILE_RESET})
+                dispatch(logout())
+            }
+        }
         //eslint-disable-next-line
-    },[history])
+    },[history, dispatch, success])
 
 
-    const submitHandler = () => {
+    const submitHandler = async () => {
         if(!validateEmail(emailId)){
             setMessage('Please enter a valid email')
         }
@@ -69,7 +77,7 @@ const UserProfileScreen = ({history}) => {
         else{
             const _id = userInfo._id
 
-            dispatch(updateUserProfile({_id, firstName, lastName, emailId, password, contact, imageUrl}))
+            await dispatch(updateUserProfile({_id, firstName, lastName, emailId, password, contact, imageUrl}))
         }
     }
 
