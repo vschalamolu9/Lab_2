@@ -5,21 +5,21 @@ const bcrypt = require('bcryptjs')
 
 const handle_request = async (msg, callback) => {
 
-    const { _id, firstName, lastName, emailId, password, contact, imageUrl } = msg
-    const user = await User.findById({_id: _id})
-
     try{
+        const user = await User.findById({'_id': msg._id})
         if(user){
-            const salt = await bcrypt.genSalt(10)
-            const hashedPassword = await bcrypt.hash(password, salt)
+            if(msg.password){
+                const salt = await bcrypt.genSalt(10)
+                var hashedPassword = await bcrypt.hash(msg.password, salt)
+            }
             user.set(
                 {
-                    firstName: firstName || user.firstName,
-                    lastName: lastName || user.lastName,
-                    emailId: emailId || user.emailId,
+                    firstName: msg.firstName || user.firstName,
+                    lastName: msg.lastName || user.lastName,
+                    emailId: msg.emailId || user.emailId,
                     password: hashedPassword || user.password,
-                    imageUrl: imageUrl || user.imageUrl,
-                    contact: contact || user.contact
+                    imageUrl: msg.imageUrl || user.imageUrl,
+                    contact: msg.contact || user.contact
                 })
             await user.save()
             callback(null, user)

@@ -3,24 +3,25 @@ const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema
 
 const restaurantSchema = new Schema({
-    restaurantName:{ type: String, required: true },
-    restaurantEmail:{ type: String, required: true, unique: true },
-    password:{ type: String,  required: true },
-    description:{ type: String, default: '' },
-    imageUrl:{ type: String, default: '' },
-    contact:{ type: String, default: '' },
+    restaurantName:{ type: String },
+    restaurantEmail:{ type: String, unique: true },
+    restaurantType: {type: String },
+    password:{ type: String },
+    description:{ type: String },
+    imageUrl:{ type: String },
+    contact:{ type: String },
     address: {
-        street: {type: String, default: ''},
-        city: {type: String, required: true},
-        province: {type: String, required: true},
-        country: {type: String, required: true},
-        zipCode: {type: String, default: ''}
+        street: {type: String },
+        city: {type: String },
+        province: {type: String },
+        country: {type: String },
+        zipCode: {type: String }
     },
     deliveryFee: { type: Number, default: 0 },
-    workHrsFrom: {type: String, default: ''},
-    workHrsTo: {type: String, default: ''},
-    rating:{ type: Number, default: 0 },
-    numReviews: { type: Number, default: 0 }
+    workHrsFrom: {type: String, default: '10:00:00'},
+    workHrsTo: {type: String, default: '21:00:00'},
+    rating:{ type: Number, default: 4 },
+    numReviews: { type: Number, default: 5 }
 }, {
     timestamps: true
 })

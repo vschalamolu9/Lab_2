@@ -101,7 +101,7 @@ export const logoutRestaurant = () => (dispatch) => {
     document.location.href = '/res/login'
 }
 
-export const signUpRestaurant = (restaurantName, restaurantEmail, password, city, province, country, zipCode, imageUrl ) => async(dispatch) => {
+export const signUpRestaurant = (restaurantName, restaurantEmail, password, restaurantType, city, province, country, zipCode, imageUrl ) => async(dispatch) => {
 
     try{
         dispatch({
@@ -114,7 +114,7 @@ export const signUpRestaurant = (restaurantName, restaurantEmail, password, city
             }
         }
 
-        const { data } = await axios.post('/api/restaurants/signup', { restaurantName, restaurantEmail, password, city, province, country, zipCode, imageUrl }, config)
+        const { data } = await axios.post('/api/restaurants/signup', { restaurantName, restaurantEmail, password, restaurantType, city, province, country, zipCode, imageUrl }, config)
 
         dispatch({
             type: RESTAURANT_SIGNUP_SUCCESS,

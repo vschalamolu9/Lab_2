@@ -4,37 +4,48 @@ const bcrypt = require('bcryptjs')
 
 const handle_request = async(msg, callback) => {
 
-    const { restaurantName, restaurantEmail, password, city, province, country, zipCode, imageUrl } = msg
+    //const { restaurantName, restaurantEmail, password, restaurantType, city, province, country, zipCode, imageUrl, workHrsFrom, workHrsTo } = msg
 
-    const restaurantExists = await Restaurant.findOne({restaurantEmail: restaurantEmail})
+    const restaurantExists = await Restaurant.findOne({'restaurantEmail': msg.restaurantEmail})
 
     if(restaurantExists){
-        callback({error: 'Restaurant already exits'}, null)
+        callback('Restaurant already exits', null)
     }
     else{
         const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(password, salt)
+        const hashedPassword = await bcrypt.hash(msg.password, salt)
 
-        const restaurant = await Restaurant.create({
-            restaurantName,
-            restaurantEmail,
+        const restaurantObj = {
+            restaurantName : msg.restaurantName,
+            restaurantEmail: msg.restaurantEmail,
             password: hashedPassword,
+            restaurantType: msg.restaurantType,
             address:{
-                city: city,
-                province: province,
-                country: country,
-                zipCode: zipCode
+                street: msg.street,
+                city: msg.city,
+                province: msg.province,
+                country: msg.country,
+                zipCode: msg.zipCode
             },
-            imageUrl
-        })
+            imageUrl: msg.imageUrl
+        }
+
+        const restaurant = await Restaurant.create(restaurantObj)
 
         if(restaurant){
             const result = {
                 _id: restaurant._id,
                 restaurantName: restaurant.restaurantName,
                 restaurantEmail: restaurant.restaurantEmail,
+                restaurantType: restaurant.restaurantType,
+                imageUrl: restaurant.imageUrl,
+                contact: restaurant.contact,
                 address: restaurant.address,
-                imageUrl: restaurant.imageUrl
+                deliveryFee: restaurant.deliveryFee,
+                workHrsFrom: restaurant.workHrsFrom,
+                workHrsTo: restaurant.workHrsTo,
+                rating: restaurant.rating,
+                numReviews: restaurant.numReviews
             }
             callback(null, result)
         }

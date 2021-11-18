@@ -2,8 +2,6 @@ const asyncHandler = require('express-async-handler')
 const kafka = require('../kafka/client')
 const User = require('../models/userModel')
 
-
-
 //@description User SignUp
 //@route POST /api/users/signup
 //@access Public
@@ -37,7 +35,7 @@ const loginUser = asyncHandler(async(req, res) => {
     })
 })
 
-//@description User Login
+//@description Update User Address
 //@route PUT /api/users/updateProfile
 //@access Private
 const updateUserProfile = asyncHandler(async(req, res) => {
@@ -53,7 +51,7 @@ const updateUserProfile = asyncHandler(async(req, res) => {
     })
 })
 
-//@description User Login
+//@description Update User Address
 //@route PUT /api/users/updateAddress
 //@access Private
 const updateUserAddress = asyncHandler(async(req, res) => {

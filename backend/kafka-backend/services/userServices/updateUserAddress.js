@@ -3,20 +3,20 @@ const kafka = require('../../../kafka/client')
 
 const handle_request = async (msg, callback) => {
 
-    const { _id, street, city, state, country, zipCode } = msg
-    const user = await User.findById({_id: _id})
-
 
     try{
+
+        const user = await User.findById({'_id': msg._id})
+
         if(user){
             user.set(
                 {address:
                         {
-                            street: street || user.address.street,
-                            city: city || user.address.city,
-                            state: state || user.address.state,
-                            country: country || user.address.country,
-                            zipCode: zipCode || user.address.zipCode
+                            street: msg.street || user.address.street,
+                            city: msg.city || user.address.city,
+                            state: msg.state || user.address.state,
+                            country: msg.country || user.address.country,
+                            zipCode: msg.zipCode || user.address.zipCode
                         }
                 })
             await user.save()

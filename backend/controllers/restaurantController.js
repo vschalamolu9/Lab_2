@@ -89,7 +89,39 @@ const loginRestaurant = asyncHandler(async(req, res) => {
     })
 })
 
+//@description Update Restaurant Profile
+//@route PUT /api/restaurants/updateProfile
+//@access Private
+const updateRestaurantProfile = asyncHandler(async(req, res) => {
+    kafka.make_request('update_restaurant_profile', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
+
+//@description Update Restaurant Address
+//@route PUT /api/restaurants/updateAddress
+//@access Private
+const updateRestaurantAddress = asyncHandler(async(req, res) => {
+    kafka.make_request('update_restaurant_address', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
 
 
 
-module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, signupRestaurant, loginRestaurant }
+
+module.exports = { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, signupRestaurant, loginRestaurant, updateRestaurantProfile, updateRestaurantAddress }

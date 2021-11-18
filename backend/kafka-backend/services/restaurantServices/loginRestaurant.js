@@ -14,8 +14,15 @@ const handle_request = async (msg, callback) => {
                 _id: restaurant._id,
                 restaurantName: restaurant.restaurantName,
                 restaurantEmail: restaurant.restaurantEmail,
-                address: restaurant.address,
+                restaurantType: restaurant.restaurantType,
                 imageUrl: restaurant.imageUrl,
+                contact: restaurant.contact,
+                address: restaurant.address,
+                deliveryFee: restaurant.deliveryFee,
+                workHrsFrom: restaurant.workHrsFrom,
+                workHrsTo: restaurant.workHrsTo,
+                rating: restaurant.rating,
+                numReviews: restaurant.numReviews,
                 token: generateToken(restaurant._id)
             }
             callback(null, result)

@@ -5,7 +5,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listDishes } from "../redux/actions/restaurantActions";
 
-const RestaurantMenuScreen = () => {
+const RestaurantMenuScreen = ({history}) => {
 
     const dispatch = useDispatch()
 
@@ -19,10 +19,24 @@ const RestaurantMenuScreen = () => {
         dispatch(listDishes(restaurantData._id))
     }, [dispatch])
 
+    const updateDishHandler = (dishId) => {
+        history.push(`/res/updateDish/${dishId}`)
+    }
+
+    const deleteDishHandler = (dishId) => {
+
+    }
+
+    const addNewDishHandler = (e) => {
+        e.preventDefault()
+        history.push('/res/addNewDish')
+    }
+
     return(
         <>
             <Row>
                 <h3>Menu Items</h3>
+                <Button className={"btn-lg btn-success"} onClick={ addNewDishHandler }>Add New Dish</Button>
             </Row>
             <Row>
                 <Col>
@@ -48,8 +62,12 @@ const RestaurantMenuScreen = () => {
                                         <td>{dish.dishCategory}</td>
                                         <td>{dish.dishType}</td>
                                         <td>${dish.dishPrice}</td>
-                                        <td><Button className='btn-md'>Update Dish</Button></td>
-                                        <td><Button className='btn-md'>Delete Dish</Button></td>
+                                        <td><Button className='btn-md' onClick={
+                                            (e) => {
+                                                e.preventDefault()
+                                                updateDishHandler(dish._id)}}>Update Dish</Button></td>
+                                        <td><Button className='btn-md btn-danger' onClick={ e => {e.preventDefault()
+                                            deleteDishHandler(dish.dish._id)}}>Delete Dish</Button></td>
                                     </tr>
                                 ))}
                                 </tbody>

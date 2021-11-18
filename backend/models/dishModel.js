@@ -8,8 +8,8 @@ const dishSchema = mongoose.Schema({
     dishCategory:{ type: String, required: true },
     dishType: { type: String, required: true },
     dishPrice:{ type: Number, required: true },
-    dishReview: { type: Number },
-    numReviews: { type: Number }
+    dishReview: { type: Number, default: 4 },
+    numReviews: { type: Number, default: 5 }
 }, {
     timestamps: true
 })

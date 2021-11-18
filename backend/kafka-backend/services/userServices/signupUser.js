@@ -15,19 +15,21 @@ const handle_request = async(msg, callback) => {
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
 
-        const user = await User.create({
-            firstName,
-            lastName,
-            emailId,
+        const newUser = {
+            firstName: firstName,
+            lastName: lastName,
+            emailId: emailId,
             password: hashedPassword,
-            address:{
+            address: {
                 city: city,
                 state: state,
                 country: country,
                 zipCode: zipCode
             },
-            imageUrl
-        })
+            imageUrl: imageUrl
+        }
+
+        const user = await User.create(newUser)
 
         if(user){
             const result = {
@@ -37,7 +39,6 @@ const handle_request = async(msg, callback) => {
                 emailId: user.emailId,
                 address:user.address,
                 imageUrl: user.imageUrl
-
             }
 
             callback(null, result)

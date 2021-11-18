@@ -15,6 +15,7 @@ const RestaurantSignUpScreen = ({location, history}) => {
 
     const [restaurantName, setRestaurantName] = useState('')
     const [restaurantEmail, setRestaurantEmail] = useState('')
+    const [restaurantType, setRestaurantType] = useState('')
     const [image, setImage] = useState(null)
     const [imageUrl, setImageUrl] = useState('')
     const [password, setPassword] = useState('')
@@ -54,7 +55,13 @@ const RestaurantSignUpScreen = ({location, history}) => {
         setValue(value)
     }
 
-    const uploadImage = async () => {
+    const restaurantTypeHandler = (value) =>{
+        setRestaurantType(value)
+        console.log(restaurantType)
+    }
+
+    const uploadImage = async (e) => {
+        e.preventDefault()
         const formData = new FormData()
         formData.append("file", image)
         formData.append('upload_preset', 'uber_eats')
@@ -80,7 +87,7 @@ const RestaurantSignUpScreen = ({location, history}) => {
             setMessage('Your password should contain atleast 10 characters')
         }
         else{
-            dispatch(signUpRestaurant(restaurantName, restaurantEmail, password, city, province, value.label, zipCode, imageUrl))
+            dispatch(signUpRestaurant(restaurantName, restaurantEmail, password, restaurantType, city, province, value.label, zipCode, imageUrl))
         }
     }
 
@@ -90,10 +97,10 @@ const RestaurantSignUpScreen = ({location, history}) => {
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader/>}
+            {imageUrl && <Image style={{width: 300, marginBottom: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
             <Form onSubmit={submitHandler}>
                 <br/>
                 <br/>
-                {imageUrl && <Image style={{width: 300, marginBottom: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
                 <br/>
                 <Form.Group controlId='image' as = {Row}>
                     <Form.Control
@@ -145,6 +152,15 @@ const RestaurantSignUpScreen = ({location, history}) => {
                         value={cnfPassword}
                         onChange={(e) => setCnfPassword(e.target.value)}
                     />
+                </Form.Group>
+                <br />
+                <Form.Group controlId='restaurantType'>
+                    <Form.Label>Restaurant Type</Form.Label>
+                    <Form.Select onChange={(e)=>setRestaurantType(e.target.value)}>
+                        <option value='Delivery'>Delivery</option>
+                        <option value='PickUp'>Pick Up</option>
+                        <option value='PickUp&Delivery'>Pick Up & Delivery</option>
+                    </Form.Select>
                 </Form.Group>
                 <br />
                 <Form.Group controlId='city'>

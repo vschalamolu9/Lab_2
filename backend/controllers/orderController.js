@@ -54,7 +54,7 @@ const getUserOrders = asyncHandler(async(req, res) => {
 })
 
 //@description Restaurant Orders
-//@route GET /api//orders/restaurantOrders/:id
+//@route GET /api/orders/restaurantOrders/:id
 //@access Private
 const getRestaurantOrders = asyncHandler(async(req, res) => {
     kafka.make_request('get_restaurant_orders', req.params, (err, results) => {
@@ -69,5 +69,22 @@ const getRestaurantOrders = asyncHandler(async(req, res) => {
     })
 })
 
+//@description Update Order Status
+//@route PUT /api/orders/updateStatus/:id
+//@access Private
+const updateOrderStatus =asyncHandler(async(req, res) => {
+    kafka.make_request('update_order_status', req.body, (err, results) => {
+        if(err){
+            res.status(500).json({
+                error: err
+            })
+        }
+        else{
+            res.status(200).send(results)
+        }
+    })
+})
 
-module.exports = { addNewOrder, getOrderDetails, getUserOrders, getRestaurantOrders }
+
+
+module.exports = { addNewOrder, getOrderDetails, getUserOrders, getRestaurantOrders, updateOrderStatus }
