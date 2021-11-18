@@ -13,6 +13,9 @@ const Dish = ({dish}) => {
                     <Link to={`/dish/${dish._id}`}>
                         <Card.Title as='div'><strong>{dish.dishName}</strong></Card.Title>
                     </Link>
+                    <Card.Text as='div'>
+                        <Card.Text as='h7'>${dish.dishPrice}</Card.Text>
+                    </Card.Text>
                 </Card.Body>
             </Card>
         </>

@@ -9,36 +9,27 @@ import { ORDER_CREATE_REQUEST,
     GET_USER_ORDERS_FAIL,
     GET_RESTAURANT_ORDERS_REQUEST,
     GET_RESTAURANT_ORDERS_SUCCESS,
-    GET_RESTAURANT_ORDERS_FAIL
+    GET_RESTAURANT_ORDERS_FAIL,
+    ORDER_CREATE_RESET
 } from "../constants/orderConstants";
 
-export const orderCreateReducer = (state = { order: {}}, action) => {
+export const orderCreateReducer = (state = {}, action) => {
 
     switch(action.type){
         case ORDER_CREATE_REQUEST:
-            return{
-                loading: true,
-                success: false,
-                order: {}
-            }
+            return { loading: true}
         case ORDER_CREATE_SUCCESS:
-            return {
-                loading: false,
-                success: true,
-                order: action.payload
-            }
+            return { loading: false, success: true,  order: action.payload }
         case ORDER_CREATE_FAIL:
-            return{
-                loading: false,
-                success: false,
-                error: action.payload
-            }
+            return{ loading: false, error: action.payload }
+        case ORDER_CREATE_RESET:
+            return {}
         default:
             return state
     }
 }
 
-export const orderDetailsReducer = (state = {loading: true, orderItems: [], deliveryAddress: {}}, action) => {
+export const orderDetailsReducer = (state = { loading:true, orderItems: [], deliveryAddress: {} }, action) => {
 
     switch(action.type){
         case ORDER_DETAILS_REQUEST:

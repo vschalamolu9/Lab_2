@@ -5,6 +5,7 @@ import {Row, Col} from 'react-bootstrap'
 import Dish from "../components/Dish";
 import Loader from "../components/Loader";
 import Message from '../components/Message';
+import {Link} from "react-router-dom";
 
 const MenuScreen = ({match}) => {
 
@@ -25,6 +26,9 @@ const MenuScreen = ({match}) => {
 
     return(
         <>
+            <Link className='btn btn-dark my-3' to={`/`}>
+                Go Back
+            </Link>
             <p style={{fontFamily: "sans-serif"}}>{restaurantInfo.description}</p>
             <h5>Menu Items</h5>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (

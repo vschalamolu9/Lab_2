@@ -5,6 +5,8 @@ import CheckOutSteps from '../components/CheckOutSteps'
 import Message from "../components/Message";
 import {Link} from "react-router-dom";
 import {createOrder} from "../redux/actions/orderActions";
+import {ORDER_CREATE_RESET} from "../redux/constants/orderConstants";
+import {CART_CLEAR_ITEMS } from "../redux/constants/cartConstants";
 
 const PlaceOrderScreen = ({history}) => {
 
@@ -31,9 +33,11 @@ const PlaceOrderScreen = ({history}) => {
     const orderCreate = useSelector(state => state.orderCreate)
     const { order, success, error } = orderCreate
 
-    useEffect(()=>{
+    useEffect(async ()=>{
         if(success){
-            history.push(`/user/order/${order._id}`)
+            await history.push(`/user/order/${order._id}`)
+            dispatch({type: ORDER_CREATE_RESET})
+            dispatch({type: CART_CLEAR_ITEMS})
         }
         //eslint-disable-next-line
     },[history, success])

@@ -17,6 +17,9 @@ const CartScreen = ({match, location, history}) => {
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
 
+    const restaurantDetails = useSelector(state => state.restaurantDetails)
+    const { restaurantInfo } = restaurantDetails
+
     useEffect(() => {
         if(dishId){
             dispatch(addToCart(dishId, qty))
@@ -40,7 +43,7 @@ const CartScreen = ({match, location, history}) => {
                 <h3>Shopping Cart</h3>
                 {cartItems.length === 0 ? <Message>Your cart is empty <Link to='/'>Go Back</Link></Message> : (
                     <ListGroup variant='flush'>
-                        <Link to={'/'} className='btn btn-dark my-3'>Add more items</Link>
+                        <Link to={`/restaurant/${restaurantInfo._id}`} className='btn btn-dark my-3'>Add more items</Link>
                         <br/>
                         {cartItems.map(item => (
                             <ListGroup.Item key={item.product}>

@@ -19,7 +19,8 @@ const handle_request = async (msg, callback) =>{
             deliveryAddress: msg.deliveryAddress
         }
 
-        const order = Order.create(newOrder)
+        const order = await Order.create(newOrder)
+        console.log(order)
 
         if(order){
             callback(null, order)

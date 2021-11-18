@@ -16,9 +16,11 @@ const OrderDetailsScreen = ({match}) => {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    useEffect(() => {
-        dispatch(getOrderDetails(match.params.id))
-    }, [match])
+    useEffect(async () => {
+        if(!order || (order._id !== match.params.id)){
+            await dispatch(getOrderDetails(match.params.id))
+        }
+    }, [match, order, dispatch])
 
     return(
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :

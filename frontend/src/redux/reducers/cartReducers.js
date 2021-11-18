@@ -2,7 +2,7 @@ import {
     CART_ADD_ITEM,
     CART_REMOVE_ITEM,
     CART_SAVE_DELIVERY_ADDRESS,
-    CART_SAVE_PAYMENT_METHOD, DELETE_CART_ITEMS, SAVE_ORDER_TYPE
+    CART_SAVE_PAYMENT_METHOD, CART_CLEAR_ITEMS, SAVE_ORDER_TYPE
 } from '../constants/cartConstants'
 
 export const cartReducer = (state={cartItems:[]}, action) => {
@@ -44,7 +44,7 @@ export const cartReducer = (state={cartItems:[]}, action) => {
                 ...state,
                 orderType: action.payload
             }
-        case DELETE_CART_ITEMS:
+        case CART_CLEAR_ITEMS:
             localStorage.removeItem('cartItems')
             return({
                 ...state,

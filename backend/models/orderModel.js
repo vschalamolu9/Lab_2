@@ -8,7 +8,7 @@ const orderSchema = new Schema({
     orderType: {type: String },
     orderStatus: { type: String },
     paymentMethod: {type: String },
-    totalPrice: { type: Number },
+    totalPrice: { type: Number, default: 0.00 },
     deliveryPrice: {type: Number, default: 0.00},
     taxPrice: {type: Number, default: 0.00},
     orderItems: [

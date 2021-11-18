@@ -44,7 +44,7 @@ const handle_request = async(msg, callback) => {
             callback(null, result)
         }
         else{
-            callback('Internal Server Error!')
+            callback('Internal Server Error!', null)
         }
     }
     callback('Success!', null)
