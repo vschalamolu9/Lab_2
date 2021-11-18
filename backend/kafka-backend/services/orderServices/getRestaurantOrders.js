@@ -4,7 +4,7 @@ const Order = require('../../../models/orderModel')
 const handle_request = async(msg, callback)=>{
 
     try {
-        const restaurantOrders = await Order.find({restaurantId: msg.id})
+        const restaurantOrders = await Order.find({'restaurantId': msg.id})
         if (restaurantOrders) {
             callback(null, restaurantOrders)
         }

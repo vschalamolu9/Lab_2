@@ -4,7 +4,7 @@ const Order = require('../../../models/orderModel')
 const handle_request = async(msg, callback)=>{
 
     try {
-        const userOrders = await Order.find({userId: msg.id})
+        const userOrders = await Order.find({'userId': msg.id})
         if (userOrders) {
             callback(null, userOrders)
         }

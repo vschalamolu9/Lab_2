@@ -4,7 +4,7 @@ const kafka = require('../../../kafka/client')
 const handle_request = async(msg, callback) => {
 
     try{
-        const orderDetails = await Order.findById({_id: msg.id})
+        const orderDetails = await Order.findById({'_id': msg.id})
 
         if(orderDetails){
             callback(null, orderDetails)

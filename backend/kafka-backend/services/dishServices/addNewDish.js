@@ -5,7 +5,7 @@ const handle_request = async(msg, callback) => {
 
     try{
 
-        const dish = {
+        const newDish = {
             restaurantId: msg.restaurantId,
             dishName: msg.dishName,
             description: msg.description,
@@ -15,20 +15,10 @@ const handle_request = async(msg, callback) => {
             dishPrice: msg.dishPrice
         }
 
-        const newDish = await Dish.create(dish)
+        const dish = await Dish.create(newDish)
 
-        if(newDish){
-            const result = {
-                _id: newDish._id,
-                restaurantId: newDish.restaurantId,
-                dishName: newDish.dishName,
-                description: newDish.description,
-                image: newDish.image,
-                dishCategory: newDish.dishCategory,
-                dishType: newDish.dishType,
-                dishPrice: newDish.dishPrice
-            }
-            callback(null, result)
+        if(dish){
+            callback(null, dish)
         }
         else{
             const err = {

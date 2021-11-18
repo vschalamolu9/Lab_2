@@ -24,7 +24,7 @@ const getDishById = asyncHandler (async(req, res) => {
 //@access Private
 const addNewDish = asyncHandler (async(req, res) => {
 
-    kafka.make_request('add_new_dish', req.params, (err, results) => {
+    kafka.make_request('add_new_dish', req.body, (err, results) => {
         if(err){
             res.status(500).json({
                 error: err
