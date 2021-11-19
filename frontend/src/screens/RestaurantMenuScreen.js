@@ -50,7 +50,7 @@ const RestaurantMenuScreen = ({history}) => {
         <>
             <Row>
                 <h3>Menu Items</h3>
-                <Button className={"btn-lg btn-success"} onClick={ addNewDishHandler } style={{marginBottom: "20"}}>Add New Dish</Button>
+                <Button className={"btn-lg btn-success"} onClick={ addNewDishHandler } style={{marginBottom: "20px", marginTop:"20px"}}>Add New Dish</Button>
             </Row>
             <Row>
                 {dishes === null ? (<Message>You don't have dishes in the Menu</Message>) : (

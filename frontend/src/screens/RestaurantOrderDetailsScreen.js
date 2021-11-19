@@ -120,7 +120,7 @@ const RestaurantOrderDetailsScreen = ({match, history}) => {
                                         <Col>${order.totalPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
-                                { (order.orderStatus === 'PLACED') &&
+                                { (order.orderStatus === 'Placed') &&
 
                                 <ListGroup.Item>
                                     <Row>
@@ -136,7 +136,7 @@ const RestaurantOrderDetailsScreen = ({match, history}) => {
                                                 </Form.Group>
                                                 <br/>
                                                 <Button type='submit'  className='btn-block btn-dark'>
-                                                    <b>Add New Dish</b>
+                                                    <b>Update Status</b>
                                                 </Button>
                                             </Form>
                                         </Col>

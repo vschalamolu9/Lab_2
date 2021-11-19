@@ -32,6 +32,7 @@ const MenuScreen = ({match}) => {
             <p style={{fontFamily: "sans-serif"}}>{restaurantInfo.description}</p>
             <h5>Menu Items</h5>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                dishes !== null ?
                 <Row>
                     {dishes.map(dish => (
                         <Col key={dish._id} sm={12} md={6} lg={4} xl={3}>
@@ -40,6 +41,8 @@ const MenuScreen = ({match}) => {
                     ))
                     }
                 </Row>
+                    :
+                    <Message>Sorry...! Our Menu is not yet done...</Message>
             )}
         </>
     )

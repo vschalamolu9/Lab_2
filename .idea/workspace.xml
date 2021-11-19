@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Restaurant Order Details Screen">
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Restaurant Profile Screen update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantLoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantLoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/MenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
       <workItem from="1636937978430" duration="124385000" />
-      <workItem from="1637198789716" duration="47766000" />
+      <workItem from="1637198789716" duration="49554000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -292,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637358522730</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Restaurant Profile Screen update">
+      <created>1637359708757</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1637359708757</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +319,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="adding backend and frontend files" />
     <MESSAGE value="create react files and frontend folder" />
     <MESSAGE value="Adding Restaurants and HomeScreen" />
     <MESSAGE value="Adding ItemScreen and minor modifications." />
@@ -337,6 +343,7 @@
     <MESSAGE value="Updating User Profile Screen and User Address Screen" />
     <MESSAGE value="Updating Restaurant Profile Screen and View Restaurant Menu Screen" />
     <MESSAGE value="Restaurant Order Details Screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restaurant Order Details Screen" />
+    <MESSAGE value="Restaurant Profile Screen update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restaurant Profile Screen update" />
   </component>
 </project>
