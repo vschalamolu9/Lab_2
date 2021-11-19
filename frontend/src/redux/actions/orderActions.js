@@ -65,10 +65,14 @@ export const getOrderDetails = (orderId) => async (dispatch, getState) => {
 
         const { userLogin: {userInfo}} = getState()
 
+        const { restaurantLogin: {restaurantData}} = getState()
+
+        const authToken = userInfo === null ? restaurantData.token : userInfo.token
+
         const config = {
             headers: {
                 'Content-Type' : 'application/json',
-                'Authorization' : `Bearer ${userInfo.token}`
+                'Authorization' : `Bearer ${ authToken }`
             }
         }
 

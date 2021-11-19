@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Button, Row, Col, Table } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import {Button, Row, Col, Table, Form} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from "../components/Message";
@@ -20,6 +20,7 @@ const RestaurantOrdersScreen = () => {
         dispatch(fetchRestaurantOrders(restaurantData._id))
     }, [dispatch])
 
+
     return(
         <>
             <Row>
@@ -36,7 +37,7 @@ const RestaurantOrdersScreen = () => {
                                 <th>Pick Up/Delivery</th>
                                 <th>ORDER STATUS</th>
                                 <th>TOTAL</th>
-                                <th>VIEW RECEIPT</th>
+                                <th>VIEW ORDER</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -48,8 +49,8 @@ const RestaurantOrdersScreen = () => {
                                     <td>{order.orderStatus}</td>
                                     <td>{order.totalPrice}</td>
                                     <td>
-                                        <LinkContainer to={`/user/order/${order._id}`}>
-                                            <Button className='btn-sm btn-dark' variant='light'>View Receipt</Button>
+                                        <LinkContainer to={`/res/order/${order._id}`}>
+                                            <Button className='btn-sm btn-dark' variant='light'>View Order</Button>
                                         </LinkContainer>
                                     </td>
                                 </tr>

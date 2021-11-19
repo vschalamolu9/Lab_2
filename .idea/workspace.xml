@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Updating User Profile Screen and User Address Screen">
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantProfileScreen.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Updating Restaurant Profile Screen and View Restaurant Menu Screen">
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/dishActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/dishActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/dishConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/dishConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/dishReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/dishReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/AddNewDishScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/AddNewDishScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantAddressScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantAddressScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrdersScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrdersScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/UpdateDishScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/UpdateDishScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/UserSignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/UserSignUpScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +81,7 @@
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
       <workItem from="1636937978430" duration="124385000" />
-      <workItem from="1637198789716" duration="35861000" />
+      <workItem from="1637198789716" duration="39501000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -285,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637270878757</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Updating Restaurant Profile Screen and View Restaurant Menu Screen">
+      <created>1637316698064</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1637316698064</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +322,7 @@
     <MESSAGE value="Updating api's and responses." />
     <MESSAGE value="Updating Place Order Screen and Order Details Screen" />
     <MESSAGE value="Updating User Profile Screen and User Address Screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating User Profile Screen and User Address Screen" />
+    <MESSAGE value="Updating Restaurant Profile Screen and View Restaurant Menu Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating Restaurant Profile Screen and View Restaurant Menu Screen" />
   </component>
 </project>
