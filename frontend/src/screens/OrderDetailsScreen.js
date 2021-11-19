@@ -25,7 +25,7 @@ const OrderDetailsScreen = ({match}) => {
     return(
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         <>
-            { order._id && <Message variant='success'>Order Placed Successfully.</Message> }
+            { order._id && <Message variant='success'>Order {order.orderStatus} Successfully.</Message> }
             <Row>
                 <h3>Order: {order._id}</h3>
                 <Col md={8}>

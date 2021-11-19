@@ -47,7 +47,7 @@ const RestaurantSignUpScreen = ({location, history}) => {
 
     useEffect(() => {
         if(restaurantData){
-            history.push(redirect)
+            history.push('/res/profile')
         }
     }, [history, restaurantData, redirect])
 
