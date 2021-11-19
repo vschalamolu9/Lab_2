@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Updating Restaurant Profile Screen and View Restaurant Menu Screen">
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Restaurant Order Details Screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/orderActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/constants/orderConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/orderReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/AddNewDishScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/AddNewDishScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantMenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrdersScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrdersScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +86,7 @@
       <workItem from="1636525811727" duration="7064000" />
       <workItem from="1636574372218" duration="30276000" />
       <workItem from="1636937978430" duration="124385000" />
-      <workItem from="1637198789716" duration="39501000" />
+      <workItem from="1637198789716" duration="46819000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -279,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637316698064</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Restaurant Order Details Screen">
+      <created>1637347714891</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1637347714891</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,6 +335,7 @@
     <MESSAGE value="Updating Place Order Screen and Order Details Screen" />
     <MESSAGE value="Updating User Profile Screen and User Address Screen" />
     <MESSAGE value="Updating Restaurant Profile Screen and View Restaurant Menu Screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating Restaurant Profile Screen and View Restaurant Menu Screen" />
+    <MESSAGE value="Restaurant Order Details Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restaurant Order Details Screen" />
   </component>
 </project>

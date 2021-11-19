@@ -109,7 +109,7 @@ const AddNewDishScreen = ({history}) => {
                         </Form.Group>
                         <br/>
                         <Form.Group controlId='dishType'>
-                            <Form.Label as='legend'>Dish Type</Form.Label>
+                            <Form.Label>Dish Type</Form.Label>
                             <Form.Control as='select' value={dishType} onChange={x => setDishType(x.target.value)}>
                                 <option value='Veg'>Veg</option>
                                 <option value='Non-Veg'>Non-Veg</option>

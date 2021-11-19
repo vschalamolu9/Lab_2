@@ -45,7 +45,7 @@ const PlaceOrderScreen = ({history}) => {
     const placeOrderHandler = (e) => {
         e.preventDefault()
         if(cartItems.length > 0){
-            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'PLACED', cart.paymentMethod, cart.totalPrice, cart.deliveryPrice, cart.taxPrice, cartItems, cart.deliveryAddress))
+            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'Placed', cart.paymentMethod, cart.totalPrice, cart.deliveryPrice, cart.taxPrice, cartItems, cart.deliveryAddress))
         }
     }
 

@@ -5,7 +5,7 @@ import { restaurantListReducer, restaurantDishesListReducer, restaurantDetailsRe
 import { userLoginReducer, userSignUpReducer, userUpdateProfileReducer, userUpdateAddressReducer } from './reducers/userReducers'
 import { dishDetailsReducer, addDishReducer, updateDishReducer } from './reducers/dishReducers'
 import { cartReducer } from "./reducers/cartReducers";
-import { orderCreateReducer, orderDetailsReducer, getUserOrdersReducer, getRestaurantOrdersReducer, orderDeliverReducer } from './reducers/orderReducers';
+import { orderCreateReducer, orderDetailsReducer, getUserOrdersReducer, getRestaurantOrdersReducer, updateOrderStatusReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
     restaurantList: restaurantListReducer,
@@ -23,7 +23,7 @@ const reducer = combineReducers({
     userAddress: userUpdateAddressReducer,
     userOrders: getUserOrdersReducer,
     restaurantOrders: getRestaurantOrdersReducer,
-    orderDeliver: orderDeliverReducer,
+    updateOrder: updateOrderStatusReducer,
     addDish: addDishReducer,
     updateDish: updateDishReducer
 })

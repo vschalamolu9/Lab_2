@@ -11,7 +11,11 @@ import {
     GET_RESTAURANT_ORDERS_REQUEST,
     GET_RESTAURANT_ORDERS_SUCCESS,
     GET_RESTAURANT_ORDERS_FAIL,
-    ORDER_CREATE_RESET, ORDER_DELIVER_REQUEST, ORDER_DELIVER_SUCCESS, ORDER_DELIVER_FAIL, ORDER_DELIVER_RESET
+    ORDER_CREATE_RESET,
+    UPDATE_ORDER_STATUS_REQUEST,
+    UPDATE_ORDER_STATUS_SUCCESS,
+    UPDATE_ORDER_STATUS_FAIL,
+    UPDATE_ORDER_STATUS_RESET
 } from "../constants/orderConstants";
 
 export const orderCreateReducer = (state = {}, action) => {
@@ -72,16 +76,16 @@ export const getRestaurantOrdersReducer = (state = { restaurantOrdersList: []}, 
     }
 }
 
-export const orderDeliverReducer = (state = {}, action) => {
+export const updateOrderStatusReducer = (state = {}, action) => {
 
-    switch (action.type) {
-        case ORDER_DELIVER_REQUEST:
-            return {loading: true,}
-        case ORDER_DELIVER_SUCCESS:
-            return {loading: false, success: true}
-        case ORDER_DELIVER_FAIL:
-            return {loading: false, error: action.payload}
-        case ORDER_DELIVER_RESET:
+    switch(action.type){
+        case UPDATE_ORDER_STATUS_REQUEST:
+            return { loading: true }
+        case UPDATE_ORDER_STATUS_SUCCESS:
+            return { loading: false, success: true, order: action.payload}
+        case UPDATE_ORDER_STATUS_FAIL:
+            return { loading: false, error: action.payload }
+        case UPDATE_ORDER_STATUS_RESET:
             return {}
         default:
             return state

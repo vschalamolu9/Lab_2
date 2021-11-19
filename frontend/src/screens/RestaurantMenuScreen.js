@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listDishes } from "../redux/actions/restaurantActions";
-import { addNewDish } from "../redux/actions/dishActions";
 import { ADD_DISH_RESET } from "../redux/constants/dishConstants";
 
 const RestaurantMenuScreen = ({history}) => {
@@ -32,7 +31,7 @@ const RestaurantMenuScreen = ({history}) => {
         if(!dishes){
             history.push('/res/addNewDish')
         }
-    }, [dispatch, history])
+    }, [dispatch, history, successCreate])
 
     const updateDishHandler = (dishId) => {
         history.push(`/res/updateDish/${dishId}`)

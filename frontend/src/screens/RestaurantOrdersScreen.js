@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { fetchRestaurantOrders } from "../redux/actions/orderActions";
+import { UPDATE_ORDER_STATUS_RESET } from '../redux/constants/orderConstants'
 
 const RestaurantOrdersScreen = () => {
 
@@ -17,6 +18,7 @@ const RestaurantOrdersScreen = () => {
     const { loading, error, restaurantOrdersList } = restaurantOrders
 
     useEffect(() => {
+        dispatch({type: UPDATE_ORDER_STATUS_RESET})
         dispatch(fetchRestaurantOrders(restaurantData._id))
     }, [dispatch])
 

@@ -5,14 +5,14 @@ import {
     ORDER_DETAILS_REQUEST,
     ORDER_DETAILS_SUCCESS,
     ORDER_DETAILS_FAIL,
-    ORDER_DELIVER_SUCCESS,
-    ORDER_DELIVER_RESET,
-    ORDER_DELIVER_FAIL,
     GET_USER_ORDERS_REQUEST,
     GET_USER_ORDERS_FAIL,
     GET_USER_ORDERS_SUCCESS,
     GET_RESTAURANT_ORDERS_REQUEST,
-    GET_RESTAURANT_ORDERS_SUCCESS, GET_RESTAURANT_ORDERS_FAIL, ORDER_DELIVER_REQUEST
+    GET_RESTAURANT_ORDERS_SUCCESS,
+    GET_RESTAURANT_ORDERS_FAIL,
+    UPDATE_ORDER_STATUS_REQUEST,
+    UPDATE_ORDER_STATUS_SUCCESS, UPDATE_ORDER_STATUS_FAIL
 } from "../constants/orderConstants";
 import axios from 'axios';
 import { logout } from './userActions'
@@ -176,14 +176,14 @@ export const fetchRestaurantOrders = (restaurantId) => async (dispatch, getState
     }
 }
 
-export const deliverOrder = (_id, deliveryStatus) => async (dispatch, getState) => {
+export const updateOrderStatus = (_id, orderStatus) => async (dispatch, getState) => {
 
     try{
         dispatch({
-            type: ORDER_DELIVER_REQUEST
+            type: UPDATE_ORDER_STATUS_REQUEST
         })
 
-        const { restaurantLogin: {restaurantData} } = getState()
+        const { restaurantLogin: { restaurantData} } = getState()
 
         const config = {
             headers: {
@@ -192,10 +192,10 @@ export const deliverOrder = (_id, deliveryStatus) => async (dispatch, getState) 
             }
         }
 
-        const { data } = await axios.put('/api/orders/updateStatus', { _id, deliveryStatus }, config)
+        const { data } = await axios.put('/api/orders/updateStatus', { _id, orderStatus }, config)
 
         dispatch({
-            type: ORDER_DELIVER_SUCCESS,
+            type: UPDATE_ORDER_STATUS_SUCCESS,
             payload: data
         })
 
@@ -209,7 +209,7 @@ export const deliverOrder = (_id, deliveryStatus) => async (dispatch, getState) 
             dispatch(logout())
         }
         dispatch({
-            type: ORDER_DELIVER_FAIL,
+            type: UPDATE_ORDER_STATUS_FAIL,
             payload: message
         })
     }

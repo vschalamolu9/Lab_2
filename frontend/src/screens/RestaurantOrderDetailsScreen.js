@@ -1,26 +1,48 @@
-import React, { useEffect } from "react";
-import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import {Row, Col, ListGroup, Image, Card, Button, Form} from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
-import { getOrderDetails } from "../redux/actions/orderActions";
+import { getOrderDetails, updateOrderStatus } from "../redux/actions/orderActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import {UPDATE_ORDER_STATUS_RESET} from "../redux/constants/orderConstants";
 
-const RestaurantOrderDetailsScreen = ({match}) => {
+const RestaurantOrderDetailsScreen = ({match, history}) => {
 
     const dispatch = useDispatch()
+
+    const [orderStatus, setOrderStatus] = useState('In Process')
+
+    const restaurantLogin = useSelector(state => state.restaurantLogin)
+    const { restaurantData } = restaurantLogin
 
     const orderDetails = useSelector(state => state.orderDetails)
     const { order, loading, error } = orderDetails
 
+    const updateOrder = useSelector(state => state.updateOrder)
+    const { success } = updateOrder
+
     useEffect(async () => {
+        if(!restaurantData){
+            history.push('/res/login')
+        }
+        dispatch({type: UPDATE_ORDER_STATUS_RESET})
+        if(success){
+            history.push('/res/orders')
+        }
         dispatch(getOrderDetails(match.params.id))
-    }, [match, dispatch])
+    }, [match, dispatch, history, success])
+
+    const orderStatusHandler = (e) => {
+        e.preventDefault()
+        dispatch(updateOrderStatus(order._id, orderStatus))
+    }
+
 
     return(
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
             <>
-                { order._id && <Message variant='success'>Order Received Successfully.</Message> }
+                { order._id && <Message variant='success'>Order {order.orderStatus} Successfully.</Message> }
                 <Row>
                     <h3>Order: {order._id}</h3>
                     <Col md={8}>
@@ -98,6 +120,29 @@ const RestaurantOrderDetailsScreen = ({match}) => {
                                         <Col>${order.totalPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
+                                { (order.orderStatus === 'PLACED') &&
+
+                                <ListGroup.Item>
+                                    <Row>
+                                        <Col>Update Order Status</Col>
+                                        <Col>
+                                            <Form onSubmit={orderStatusHandler}>
+                                                <Form.Group controlId='orderStatus'>
+                                                    <Form.Control as='select' value={orderStatus} onChange={x => setOrderStatus(x.target.value)}>
+                                                        <option value='In Process'>In Process</option>
+                                                        { order.orderType === 'Pick Up' ? (<option value='Picked Up'>Picked Up</option>) : (<option value='Delivered'>Delivered</option>)}
+                                                        <option value='Cancelled'>Cancelled</option>
+                                                    </Form.Control>
+                                                </Form.Group>
+                                                <br/>
+                                                <Button type='submit'  className='btn-block btn-dark'>
+                                                    <b>Add New Dish</b>
+                                                </Button>
+                                            </Form>
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                }
                             </ListGroup>
                         </Card>
                     </Col>
