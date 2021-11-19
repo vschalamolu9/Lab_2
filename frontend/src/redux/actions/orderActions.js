@@ -5,15 +5,17 @@ import {
     ORDER_DETAILS_REQUEST,
     ORDER_DETAILS_SUCCESS,
     ORDER_DETAILS_FAIL,
+    ORDER_DELIVER_SUCCESS,
+    ORDER_DELIVER_RESET,
+    ORDER_DELIVER_FAIL,
     GET_USER_ORDERS_REQUEST,
     GET_USER_ORDERS_FAIL,
     GET_USER_ORDERS_SUCCESS,
     GET_RESTAURANT_ORDERS_REQUEST,
-    GET_RESTAURANT_ORDERS_SUCCESS, GET_RESTAURANT_ORDERS_FAIL
+    GET_RESTAURANT_ORDERS_SUCCESS, GET_RESTAURANT_ORDERS_FAIL, ORDER_DELIVER_REQUEST
 } from "../constants/orderConstants";
 import axios from 'axios';
 import { logout } from './userActions'
-import {DELETE_CART_ITEMS} from "../constants/cartConstants";
 
 export const createOrder = (userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress) => async(dispatch, getState) => {
 
@@ -166,6 +168,45 @@ export const fetchRestaurantOrders = (restaurantId) => async (dispatch, getState
         dispatch({
             type: GET_RESTAURANT_ORDERS_FAIL,
             payload: message,
+        })
+    }
+}
+
+export const deliverOrder = (_id, deliveryStatus) => async (dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: ORDER_DELIVER_REQUEST
+        })
+
+        const { restaurantLogin: {restaurantData} } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${restaurantData.token}`
+            }
+        }
+
+        const { data } = await axios.put('/api/orders/updateStatus', { _id, deliveryStatus }, config)
+
+        dispatch({
+            type: ORDER_DELIVER_SUCCESS,
+            payload: data
+        })
+
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: ORDER_DELIVER_FAIL,
+            payload: message
         })
     }
 }

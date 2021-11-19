@@ -22,6 +22,8 @@ import RestaurantOrdersScreen from './screens/RestaurantOrdersScreen';
 import RestaurantMenuScreen from './screens/RestaurantMenuScreen';
 import UpdateDishScreen from './screens/UpdateDishScreen';
 import AddNewDishScreen from "./screens/AddNewDishScreen";
+import RestaurantProfileScreen from "./screens/RestaurantProfileScreen";
+import RestaurantAddressScreen from "./screens/RestaurantAddressScreen";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
                 <Route path='/res/dishes' component={RestaurantMenuScreen} exact/>
                 <Route path='/res/updateDish' component={UpdateDishScreen} exact/>
                 <Route path='/res/addNewDish' component={AddNewDishScreen} exact/>
+                <Route path='/res/profile' component={RestaurantProfileScreen} exact/>
+                <Route path='/res/address' component={RestaurantAddressScreen} exact/>
             </Container>
         </main>
         <Footer />

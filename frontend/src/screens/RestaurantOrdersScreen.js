@@ -20,8 +20,6 @@ const RestaurantOrdersScreen = () => {
         dispatch(fetchRestaurantOrders(restaurantData._id))
     }, [dispatch])
 
-
-
     return(
         <>
             <Row>

@@ -3,9 +3,9 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from "redux-devtools-extension";
 import { restaurantListReducer, restaurantDishesListReducer, restaurantDetailsReducer, restaurantLoginReducer, restaurantSignUpReducer } from './reducers/restaurantReducers'
 import { userLoginReducer, userSignUpReducer, userUpdateProfileReducer, userUpdateAddressReducer } from './reducers/userReducers'
-import { dishDetailsReducer } from './reducers/dishReducers'
+import { dishDetailsReducer, addDishReducer, updateDishReducer } from './reducers/dishReducers'
 import { cartReducer } from "./reducers/cartReducers";
-import { orderCreateReducer, orderDetailsReducer, getUserOrdersReducer, getRestaurantOrdersReducer } from './reducers/orderReducers';
+import { orderCreateReducer, orderDetailsReducer, getUserOrdersReducer, getRestaurantOrdersReducer, orderDeliverReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
     restaurantList: restaurantListReducer,
@@ -22,7 +22,10 @@ const reducer = combineReducers({
     userProfile: userUpdateProfileReducer,
     userAddress: userUpdateAddressReducer,
     userOrders: getUserOrdersReducer,
-    restaurantOrders: getRestaurantOrdersReducer
+    restaurantOrders: getRestaurantOrdersReducer,
+    orderDeliver: orderDeliverReducer,
+    addDish: addDishReducer,
+    updateDish: updateDishReducer
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

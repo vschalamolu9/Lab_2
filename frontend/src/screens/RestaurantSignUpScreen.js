@@ -154,13 +154,35 @@ const RestaurantSignUpScreen = ({location, history}) => {
                     />
                 </Form.Group>
                 <br />
-                <Form.Group controlId='restaurantType'>
-                    <Form.Label>Restaurant Type</Form.Label>
-                    <Form.Select onChange={(e)=>setRestaurantType(e.target.value)}>
-                        <option value='Delivery'>Delivery</option>
-                        <option value='PickUp'>Pick Up</option>
-                        <option value='PickUp&Delivery'>Pick Up & Delivery</option>
-                    </Form.Select>
+                <Form.Group>
+                    <Form.Label as='legend'>Select Restaurant Type</Form.Label>
+                    <Col>
+                        <Form.Check
+                            type='radio'
+                            label='Delivery'
+                            id='Delivery'
+                            name='restaurantType'
+                            value='Delivery'
+                            checked
+                            onChange={(e) => setRestaurantType(e.target.value)}
+                        />
+                        <Form.Check
+                            type='radio'
+                            label='Pick Up'
+                            id='PickUp'
+                            name='restaurantType'
+                            value='Pick Up'
+                            onChange={(e) => setRestaurantType(e.target.value)}
+                        />
+                        <Form.Check
+                            type='radio'
+                            label='PickUp & Delivery'
+                            id='PickUp&Delivery'
+                            name='restaurantType'
+                            value='PickUp&Delivery'
+                            onChange={(e) => setRestaurantType(e.target.value)}
+                        />
+                    </Col>
                 </Form.Group>
                 <br />
                 <Form.Group controlId='city'>

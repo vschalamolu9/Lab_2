@@ -95,12 +95,12 @@ const UserSignUpScreen = ({location, history}) => {
             {loading && <Loader/>}
             <Form onSubmit={submitHandler}>
                 <br/>
-                {imageUrl && <Image style={{width: 300, marginLeft: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
+                {imageUrl && <Image style={{width: 200, marginLeft: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
                 <br/>
                 <Form.Group controlId='image' as = {Row}>
                     <Form.Control
-                            type='file'
-                            onChange={(e) => setImage(e.target.files[0])}
+                        type='file'
+                        onChange={(e) => setImage(e.target.files[0])}
                     />
                     <Button style={{marginTop: 20}} type='btn' className='btn-block btn-dark' onClick={uploadImage}><b>Upload Profile Picture</b></Button>
                 </Form.Group>
