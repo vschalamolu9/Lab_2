@@ -4,9 +4,17 @@ const Order = require('../../../models/orderModel')
 const handle_request = async(msg, callback)=>{
 
     try {
-        const restaurantOrders = await Order.find({'restaurantId': msg.id})
+        const pageSize = Number(msg.pageSize)
+        const page = Number(msg.page)
+        const count = await Order.countDocuments({'restaurantId' : msg.restaurantId})
+        const restaurantOrders = await Order.find({'restaurantId': msg.restaurantId}).limit(pageSize).skip(pageSize * (page-1))
         if (restaurantOrders) {
-            callback(null, restaurantOrders)
+            const result = {
+                orders: restaurantOrders,
+                page: page,
+                pages: Math.ceil(count/pageSize)
+            }
+            callback(null, result)
         }
         else {
             const err = {

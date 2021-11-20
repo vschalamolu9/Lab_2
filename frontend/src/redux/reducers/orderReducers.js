@@ -53,7 +53,7 @@ export const getUserOrdersReducer = (state = { userOrdersList: []}, action) =>{
         case GET_USER_ORDERS_REQUEST:
             return { loading: true, userOrdersList: []}
         case GET_USER_ORDERS_SUCCESS:
-            return { loading: false, userOrdersList: action.payload }
+            return { loading: false, userOrdersList: action.payload.orders, pages: action.payload.pages, page: action.payload.page }
         case GET_USER_ORDERS_FAIL:
             return { loading: false, error: action.payload }
         default:
@@ -67,7 +67,7 @@ export const getRestaurantOrdersReducer = (state = { restaurantOrdersList: []}, 
         case GET_RESTAURANT_ORDERS_REQUEST:
             return { loading: true, restaurantOrdersList: []}
         case GET_RESTAURANT_ORDERS_SUCCESS:
-            return { loading: false, restaurantOrdersList: action.payload }
+            return { loading: false, restaurantOrdersList: action.payload.orders, pages: action.payload.pages, page: action.payload.page }
         case GET_RESTAURANT_ORDERS_FAIL:
             return { loading: false, error: action.payload }
         default:

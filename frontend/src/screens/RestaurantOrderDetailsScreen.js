@@ -57,6 +57,11 @@ const RestaurantOrderDetailsScreen = ({match, history}) => {
 
                             </ListGroup.Item>
                             <ListGroup.Item>
+                                <h2>Special Instructions</h2>
+                                <strong>Instructions: </strong>
+                                {order.instructions}
+                            </ListGroup.Item>
+                            <ListGroup.Item>
                                 <h2>Payment Method</h2>
                                 <strong>Method: </strong>
                                 {order.paymentMethod}

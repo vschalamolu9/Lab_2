@@ -27,7 +27,8 @@ const orderSchema = new Schema({
         province: { type: String },
         country: {type: String },
         zipCode: {type: String }
-    }
+    },
+    instructions: {type:String}
 
 },{
     timestamps: true

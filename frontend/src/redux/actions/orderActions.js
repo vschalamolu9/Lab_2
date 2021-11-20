@@ -17,7 +17,7 @@ import {
 import axios from 'axios';
 import { logout } from './userActions'
 
-export const createOrder = (userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress) => async(dispatch, getState) => {
+export const createOrder = (userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress, instructions) => async(dispatch, getState) => {
 
     try{
         dispatch({
@@ -32,7 +32,7 @@ export const createOrder = (userId, restaurantId, orderDate, orderType, orderSta
             }
         }
 
-        const { data } = await axios.post(`/api/orders/addNewOrder`, { userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress }, config)
+        const { data } = await axios.post(`/api/orders/addNewOrder`, { userId, restaurantId, orderDate, orderType, orderStatus,paymentMethod, totalPrice, deliveryPrice, taxPrice, orderItems, deliveryAddress, instructions }, config)
 
         dispatch({
             type: ORDER_CREATE_SUCCESS,
@@ -102,7 +102,7 @@ export const getOrderDetails = (orderId) => async (dispatch, getState) => {
 
 }
 
-export const fetchUserOrders = (userId) => async (dispatch, getState) => {
+export const fetchUserOrders = (userId, pageNumber='', pageSize='') => async (dispatch, getState) => {
 
     try{
         dispatch({
@@ -117,7 +117,7 @@ export const fetchUserOrders = (userId) => async (dispatch, getState) => {
             }
         }
 
-        const { data } = await axios.get(`/api/orders/userOrders/${userId}`, config)
+        const { data } = await axios.get(`/api/orders/userOrders/${userId}?pageSize=${pageSize}&page=${pageNumber}`, config)
 
         dispatch({
             type: GET_USER_ORDERS_SUCCESS,
@@ -139,7 +139,7 @@ export const fetchUserOrders = (userId) => async (dispatch, getState) => {
     }
 }
 
-export const fetchRestaurantOrders = (restaurantId) => async (dispatch, getState) => {
+export const fetchRestaurantOrders = (restaurantId, pageNumber='', pageSize='') => async (dispatch, getState) => {
 
     try{
         dispatch({
@@ -154,7 +154,7 @@ export const fetchRestaurantOrders = (restaurantId) => async (dispatch, getState
             }
         }
 
-        const { data } = await axios.get(`/api/orders/restaurantOrders/${restaurantId}`, config)
+        const { data } = await axios.get(`/api/orders/restaurantOrders/${restaurantId}?pageSize=${pageSize}&page=${pageNumber}`, config)
 
         dispatch({
             type: GET_RESTAURANT_ORDERS_SUCCESS,

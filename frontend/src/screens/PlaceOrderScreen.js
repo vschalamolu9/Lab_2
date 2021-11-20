@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
+import React, {useEffect, useState} from 'react'
+import {Button, Row, Col, ListGroup, Image, Card, Form} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import CheckOutSteps from '../components/CheckOutSteps'
 import Message from "../components/Message";
@@ -11,6 +11,8 @@ import {CART_CLEAR_ITEMS } from "../redux/constants/cartConstants";
 const PlaceOrderScreen = ({history}) => {
 
     const dispatch = useDispatch()
+
+    const [instructions, setInstructions] = useState('')
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
@@ -42,10 +44,15 @@ const PlaceOrderScreen = ({history}) => {
         //eslint-disable-next-line
     },[history, success])
 
+    const addInstructionHandler = (e) => {
+        console.log(e.target.value)
+        setInstructions(e.target.value)
+    }
+
     const placeOrderHandler = (e) => {
         e.preventDefault()
         if(cartItems.length > 0){
-            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'Placed', cart.paymentMethod, cart.totalPrice, cart.deliveryPrice, cart.taxPrice, cartItems, cart.deliveryAddress))
+            dispatch(createOrder(userInfo._id, cartItems[0].restaurantId, Date.now(), cart.orderType, 'Placed', cart.paymentMethod, cart.totalPrice, cart.deliveryPrice, cart.taxPrice, cartItems, cart.deliveryAddress, instructions))
         }
     }
 
@@ -116,6 +123,12 @@ const PlaceOrderScreen = ({history}) => {
                                 <Row>
                                     <Col>Total Price</Col>
                                     <Col>${cart.totalPrice}</Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>Special Instructions</Col>
+                                    <Col><input type='text' value={instructions} placeholder='Add Instructions' onChange={addInstructionHandler}/></Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>

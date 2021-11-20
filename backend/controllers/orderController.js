@@ -41,7 +41,10 @@ const getOrderDetails = asyncHandler(async(req, res) => {
 //@route GET /api/orders/userOrders/:id
 //@access Private
 const getUserOrders = asyncHandler(async(req, res) => {
-    kafka.make_request('get_user_orders', req.params, (err, results) => {
+    const pageSize = req.query.pageSize || 2
+    const page = req.query.page || 1
+    const userId = req.params.id
+    kafka.make_request('get_user_orders', {pageSize, page, userId}, (err, results) => {
         if(err){
             res.status(500).json({
                 error: err
@@ -57,7 +60,10 @@ const getUserOrders = asyncHandler(async(req, res) => {
 //@route GET /api/orders/restaurantOrders/:id
 //@access Private
 const getRestaurantOrders = asyncHandler(async(req, res) => {
-    kafka.make_request('get_restaurant_orders', req.params, (err, results) => {
+    const pageSize = req.query.pageSize || 2
+    const page = req.query.page || 1
+    const restaurantId = req.params.id
+    kafka.make_request('get_restaurant_orders', {pageSize, page, restaurantId}, (err, results) => {
         if(err){
             res.status(500).json({
                 error: err

@@ -6,7 +6,7 @@ import { getOrderDetails } from "../redux/actions/orderActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 
-const OrderDetailsScreen = ({match}) => {
+const OrderDetailsScreen = ({match, history}) => {
 
     const dispatch = useDispatch()
 
@@ -17,10 +17,13 @@ const OrderDetailsScreen = ({match}) => {
     const { userInfo } = userLogin
 
     useEffect(async () => {
+        if(!userInfo){
+            history.push('/user/login')
+        }
         if(!order || (order._id !== match.params.id)){
             await dispatch(getOrderDetails(match.params.id))
         }
-    }, [match, order, dispatch])
+    }, [match, order, dispatch, history])
 
     return(
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
@@ -44,6 +47,11 @@ const OrderDetailsScreen = ({match}) => {
                                 {order.deliveryAddress.province}, {order.deliveryAddress.zipCode}{' '}
                                 {order.deliveryAddress.country}
 
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <h2>Special Instructions</h2>
+                            <strong>Instructions: </strong>
+                            {order.instructions}
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <h2>Payment Method</h2>

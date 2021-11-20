@@ -16,7 +16,8 @@ const handle_request = async (msg, callback) =>{
             deliveryPrice: msg.deliveryPrice,
             taxPrice: msg.taxPrice,
             orderItems: msg.orderItems,
-            deliveryAddress: msg.deliveryAddress
+            deliveryAddress: msg.deliveryAddress,
+            instructions: msg.instructions
         }
 
         const order = await Order.create(newOrder)

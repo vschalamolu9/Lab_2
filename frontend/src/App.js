@@ -55,6 +55,8 @@ function App() {
                 <Route path='/res/address' component={RestaurantAddressScreen} exact/>
                 <Route path='/res/order/:id' component={RestaurantOrderDetailsScreen} exact/>
                 <Route path='/page/:pageNumber' component={HomeScreen} exact/>
+                <Route path='/user/orders/:pageNumber' component={UserOrdersScreen} exact/>
+                <Route path='/res/orders/:pageNumber' component={RestaurantOrdersScreen} exact/>
             </Container>
         </main>
         <Footer />
