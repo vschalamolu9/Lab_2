@@ -14,7 +14,13 @@ import {
     RESTAURANT_LOGOUT,
     RESTAURANT_SIGNUP_REQUEST,
     RESTAURANT_SIGNUP_SUCCESS,
-    RESTAURANT_SIGNUP_FAIL
+    RESTAURANT_SIGNUP_FAIL,
+    RESTAURANT_UPDATE_ADDRESS_REQUEST,
+    RESTAURANT_UPDATE_ADDRESS_SUCCESS,
+    RESTAURANT_UPDATE_ADDRESS_FAIL,
+    RESTAURANT_UPDATE_PROFILE_REQUEST,
+    RESTAURANT_UPDATE_PROFILE_SUCCESS,
+    RESTAURANT_UPDATE_PROFILE_FAIL
 } from '../constants/restaurantConstants'
 import axios from 'axios'
 
@@ -132,4 +138,90 @@ export const signUpRestaurant = (restaurantName, restaurantEmail, password, rest
                     : error.message,
         })
     }
+}
+
+export const updateRestaurantAddress = (_id, street, city, province, country, zipCode) => async(dispatch, getState) => {
+    try{
+        dispatch({
+            type: RESTAURANT_UPDATE_ADDRESS_REQUEST
+        })
+
+        const { restaurantLogin: {restaurantData}} = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${restaurantData.token}`
+            }
+        }
+
+        const { data } = await axios.put(`/api/restaurants/updateAddress`, { _id, street, city, province, country, zipCode }, config)
+
+        dispatch({
+            type: RESTAURANT_UPDATE_ADDRESS_SUCCESS,
+            payload: data
+        })
+
+
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(restaurantLogout())
+        }
+        dispatch({
+            type: RESTAURANT_UPDATE_ADDRESS_FAIL,
+            payload: message,
+        })
+    }
+}
+
+export const updateRestaurantProfile = (_id, restaurantName,restaurantEmail, password, restaurantType, description, imageUrl, contact, deliveryFee, workHrsFrom, workHrsTo) => async(dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: RESTAURANT_UPDATE_PROFILE_REQUEST
+        })
+
+        const { restaurantLogin: {restaurantData}} = getState()
+
+        const config = {
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${restaurantData.token}`
+            }
+        }
+
+        const { data } = await axios.put(`/api/restaurants/updateProfile`, {_id, restaurantName,restaurantEmail, password, restaurantType, description, imageUrl, contact, deliveryFee, workHrsFrom, workHrsTo}, config)
+
+        dispatch({
+            type: RESTAURANT_UPDATE_PROFILE_SUCCESS,
+            payload: data
+        })
+        dispatch({
+            type: RESTAURANT_LOGIN_SUCCESS,
+            payload: data,
+        })
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(restaurantLogout())
+        }
+        dispatch({
+            type: RESTAURANT_UPDATE_PROFILE_FAIL,
+            payload: message,
+        })
+    }
+}
+
+export const restaurantLogout = () => (dispatch) => {
+    dispatch({ type: RESTAURANT_LOGOUT })
+    document.location.href = '/res/login'
 }

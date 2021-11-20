@@ -13,7 +13,15 @@ import { RESTAURANT_LIST_REQUEST,
     RESTAURANT_LOGIN_REQUEST,
     RESTAURANT_LOGIN_SUCCESS,
     RESTAURANT_LOGIN_FAIL,
-    RESTAURANT_LOGOUT
+    RESTAURANT_LOGOUT,
+    RESTAURANT_UPDATE_PROFILE_REQUEST,
+    RESTAURANT_UPDATE_PROFILE_SUCCESS,
+    RESTAURANT_UPDATE_PROFILE_RESET,
+    RESTAURANT_UPDATE_ADDRESS_FAIL,
+    RESTAURANT_UPDATE_PROFILE_FAIL,
+    RESTAURANT_UPDATE_ADDRESS_SUCCESS,
+    RESTAURANT_UPDATE_ADDRESS_REQUEST,
+    RESTAURANT_UPDATE_ADDRESS_RESET
 } from '../constants/restaurantConstants'
 
 export const restaurantListReducer = (state = { restaurants: []}, action) => {
@@ -80,6 +88,38 @@ export const restaurantLoginReducer = (state = {}, action) => {
         case RESTAURANT_LOGIN_FAIL:
             return { loading: false, error: action.payload }
         case RESTAURANT_LOGOUT:
+            return {}
+        default:
+            return state
+    }
+}
+
+export const restaurantUpdateProfileReducer = (state = {}, action) => {
+
+    switch (action.type){
+        case RESTAURANT_UPDATE_PROFILE_REQUEST:
+            return { loading: true}
+        case RESTAURANT_UPDATE_PROFILE_SUCCESS:
+            return { loading: false, success: true, userInfo: action.payload }
+        case RESTAURANT_UPDATE_PROFILE_FAIL:
+            return { loading: false, error: action.payload }
+        case RESTAURANT_UPDATE_PROFILE_RESET:
+            return {}
+        default:
+            return state
+    }
+}
+
+export const restaurantUpdateAddressReducer = (state = {}, action) => {
+
+    switch (action.type){
+        case RESTAURANT_UPDATE_ADDRESS_REQUEST:
+            return { loading: true}
+        case RESTAURANT_UPDATE_ADDRESS_SUCCESS:
+            return { loading: false, success: true, userInfo: action.payload }
+        case RESTAURANT_UPDATE_ADDRESS_FAIL:
+            return { loading: false, error: action.payload}
+        case RESTAURANT_UPDATE_ADDRESS_RESET:
             return {}
         default:
             return state

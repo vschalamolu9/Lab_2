@@ -42,6 +42,12 @@ const Header = ({history}) => {
                                     <LinkContainer to='/res/profile'>
                                         <NavDropdown.Item>Restaurant Profile</NavDropdown.Item>
                                     </LinkContainer>
+                                    <LinkContainer to='/res/address'>
+                                        <NavDropdown.Item>Update Address</NavDropdown.Item>
+                                    </LinkContainer>
+                                    <LinkContainer to='/res/addNewDish'>
+                                        <NavDropdown.Item>Add Dish</NavDropdown.Item>
+                                    </LinkContainer>
                                     <LinkContainer to='/res/dishes'>
                                         <NavDropdown.Item>View Menu</NavDropdown.Item>
                                     </LinkContainer>

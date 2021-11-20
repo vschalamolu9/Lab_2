@@ -54,7 +54,7 @@ const UserAddressScreen = ({history}) => {
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
-            <h1>Delivery</h1>
+            <h2>Update Address</h2>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='street'>
                     <Form.Label>Street address</Form.Label>
