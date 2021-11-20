@@ -8,15 +8,15 @@ const protect = asyncHandler(async(req,res,next)=>{
         token = req.headers.authorization.split(' ')[1]
         try {
             //console.log(token)
-            const decoded = jwt.verify(token,process.env.JWT_SECRET)
+            const decoded = jwt.verify(token,'secret_key_ubereats')
             //console.log(decoded)
             if(decoded.id){
                 req.userAuth = true
-                req.userId = decoded.id
+                req._id = decoded.id
             }
             else{
                 req.userAuth = false
-                req.userId = decoded.id
+                req._id = decoded.id
             }
 
             next()

@@ -7,8 +7,8 @@ router.route('/signup').post(signupUser)
 
 router.route('/login').post(loginUser)
 
-router.route('/updateProfile').put(updateUserProfile)
+router.route('/updateProfile').put(protect, updateUserProfile)
 
-router.route('/updateAddress').put(updateUserAddress)
+router.route('/updateAddress').put(protect, updateUserAddress)
 
 module.exports = router
