@@ -30,7 +30,7 @@ export const restaurantListReducer = (state = { restaurants: []}, action) => {
         case RESTAURANT_LIST_REQUEST:
             return { loading: true, restaurants: [] }
         case RESTAURANT_LIST_SUCCESS:
-            return { loading: false, restaurants: action.payload }
+            return { loading: false, restaurants: action.payload.restaurants, pages: action.payload.pages, page: action.payload.page}
         case RESTAURANT_LIST_FAIL:
             return { loading: false, error: action.payload }
         default:
@@ -100,7 +100,7 @@ export const restaurantUpdateProfileReducer = (state = {}, action) => {
         case RESTAURANT_UPDATE_PROFILE_REQUEST:
             return { loading: true}
         case RESTAURANT_UPDATE_PROFILE_SUCCESS:
-            return { loading: false, success: true, userInfo: action.payload }
+            return { loading: false, success: true, restaurantInfo: action.payload }
         case RESTAURANT_UPDATE_PROFILE_FAIL:
             return { loading: false, error: action.payload }
         case RESTAURANT_UPDATE_PROFILE_RESET:
@@ -116,7 +116,7 @@ export const restaurantUpdateAddressReducer = (state = {}, action) => {
         case RESTAURANT_UPDATE_ADDRESS_REQUEST:
             return { loading: true}
         case RESTAURANT_UPDATE_ADDRESS_SUCCESS:
-            return { loading: false, success: true, userInfo: action.payload }
+            return { loading: false, success: true, restaurantInfo: action.payload }
         case RESTAURANT_UPDATE_ADDRESS_FAIL:
             return { loading: false, error: action.payload}
         case RESTAURANT_UPDATE_ADDRESS_RESET:

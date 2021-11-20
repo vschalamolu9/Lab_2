@@ -7,7 +7,7 @@ const Restaurant = require('../models/restaurantModel')
 //@access Public
 const getAllRestaurants = asyncHandler (async(req, res) => {
 
-    kafka.make_request('get_restaurants', req.body, (err, results) => {
+    kafka.make_request('get_restaurants', req.query, (err, results) => {
         if (err) {
             res.status(500).json({
                 error: err

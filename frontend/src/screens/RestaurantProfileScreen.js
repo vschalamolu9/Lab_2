@@ -1,32 +1,35 @@
-import React, {useState, useEffect, useMemo} from 'react'
+import React, {useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import countryList from "react-select-country-list";
 import axios from "axios";
-import {signUpRestaurant, updateRestaurantProfile} from "../redux/actions/restaurantActions";
+import { updateRestaurantProfile} from "../redux/actions/restaurantActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import {Image} from "cloudinary-react";
 import {Button, Col, Form, FormControl, InputGroup, Row} from "react-bootstrap";
-import Select from "react-select";
 import {Link} from "react-router-dom";
 import FormContainer from "../components/FormContainer";
+import TimePicker from 'react-bootstrap-time-picker';
+import {RESTAURANT_UPDATE_PROFILE_RESET} from "../redux/constants/restaurantConstants";
 
-const RestaurantProfileScreen = () => {
+const RestaurantProfileScreen = ({history}) => {
 
     const dispatch = useDispatch()
 
-    const [restaurantName, setRestaurantName] = useState('')
-    const [restaurantEmail, setRestaurantEmail] = useState('')
+    const restaurantLogin = useSelector(state => state.restaurantLogin)
+    const { loading, error, restaurantData} = restaurantLogin
+
+    const [restaurantName, setRestaurantName] = useState(restaurantData.restaurantName)
+    const [restaurantEmail, setRestaurantEmail] = useState(restaurantData.restaurantEmail)
     const [password, setPassword] = useState('')
     const [cnfPassword, setCnfPassword] = useState('')
-    const [restaurantType, setRestaurantType] = useState('')
+    const [restaurantType, setRestaurantType] = useState(restaurantData.restaurantType)
     const [image, setImage] = useState(null)
-    const [imageUrl, setImageUrl] = useState('')
-    const [description, setDescription] =useState('')
-    const [contact, setContact] = useState('')
-    const [deliveryFee, setDeliveryFee] = useState('')
-    const [workHrsFrom, setWorkHrsFrom] = useState('')
-    const [workHrsTo, setWorkHrsTo] = useState('')
+    const [imageUrl, setImageUrl] = useState(restaurantData.imageUrl)
+    const [description, setDescription] =useState(restaurantData.description)
+    const [contact, setContact] = useState(restaurantData.contact)
+    const [deliveryFee, setDeliveryFee] = useState(restaurantData.deliveryFee)
+    const [workHrsFrom, setWorkHrsFrom] = useState(0)
+    const [workHrsTo, setWorkHrsTo] = useState(0)
 
 
     const [message, setMessage] = useState(null)
@@ -46,8 +49,17 @@ const RestaurantProfileScreen = () => {
         return regex.test(phoneNumber);
     }
 
-    const restaurantLogin = useSelector(state => state.restaurantLogin)
-    const { loading, error, restaurantData} = restaurantLogin
+    const opensAtHandler = (time) => {
+        setWorkHrsFrom(time)
+    }
+
+    const closesAtHandler = (time) => {
+        setWorkHrsTo(time)
+    }
+
+    const restaurantProfile = useSelector(state => state.restaurantProfile)
+    const { success } = restaurantProfile
+
 
     const uploadImage = async (e) => {
         e.preventDefault()
@@ -75,13 +87,20 @@ const RestaurantProfileScreen = () => {
         if(password !== cnfPassword){
             setMessage('Passwords did not match')
         }
-        if(password.length < 10){
-            setMessage('Your password should contain atleast 10 characters')
-        }
         else{
-            dispatch(updateRestaurantProfile(restaurantData._id, restaurantName, restaurantName,restaurantEmail, password, restaurantType, description, imageUrl, contact, deliveryFee, workHrsFrom, workHrsTo))
+            dispatch(updateRestaurantProfile(restaurantData._id, restaurantName,restaurantEmail, password, restaurantType, description, imageUrl, contact, deliveryFee, workHrsFrom, workHrsTo))
         }
     }
+
+    useEffect(() => {
+        if(restaurantData === null){
+            history.push('/res/login')
+        }
+        dispatch({type: RESTAURANT_UPDATE_PROFILE_RESET})
+        if(success){
+            history.push('/res/profile')
+        }
+    }, [dispatch, success, history])
 
     return (
         <FormContainer>
@@ -105,7 +124,6 @@ const RestaurantProfileScreen = () => {
                 <Form.Group controlId='restaurantName'>
                     <Form.Label>Restaurant Name</Form.Label>
                     <Form.Control
-                        required
                         type='text'
                         placeholder='Enter restaurant name'
                         value={restaurantName}
@@ -116,7 +134,6 @@ const RestaurantProfileScreen = () => {
                 <Form.Group controlId='restaurantEmailId'>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
-                        required
                         type='emailId'
                         placeholder='Enter email Id'
                         value={restaurantEmail}
@@ -127,7 +144,6 @@ const RestaurantProfileScreen = () => {
                 <Form.Group controlId='password'>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
-                        required
                         type='password'
                         placeholder='Enter password'
                         value={password}
@@ -138,7 +154,6 @@ const RestaurantProfileScreen = () => {
                 <Form.Group controlId='password'>
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
-                        required
                         type='password'
                         placeholder='Confirm password'
                         value={cnfPassword}
@@ -180,7 +195,6 @@ const RestaurantProfileScreen = () => {
                 <Form.Group controlId='description'>
                     <Form.Label>Description</Form.Label>
                     <Form.Control
-                        required
                         type='text'
                         placeholder='Description'
                         value={description}
@@ -188,10 +202,9 @@ const RestaurantProfileScreen = () => {
                     />
                 </Form.Group>
                 <br/>
-                <Form.Group controlId='province'>
+                <Form.Group controlId='contact'>
                     <Form.Label>Contact</Form.Label>
                     <Form.Control
-                        required
                         type='text'
                         placeholder='Contact'
                         value={contact}
@@ -203,8 +216,18 @@ const RestaurantProfileScreen = () => {
                     <Form.Label>Delivery fee</Form.Label>
                     <InputGroup className="mb-2">
                         <InputGroup.Text>$</InputGroup.Text>
-                        <FormControl value={deliveryFee} id="deliveryFee" placeholder="Delivery Fee" onChange={e => setDeliveryFee(e.target.value)}/>
+                        <FormControl value={deliveryFee} placeholder="Delivery Fee" onChange={e => setDeliveryFee(e.target.value)}/>
                     </InputGroup>
+                </Form.Group>
+                <br/>
+                <Form.Group controlId='workHrsFrom'>
+                    <Form.Label>Opens at</Form.Label>
+                    <TimePicker start="0:00" end="23:59" value={workHrsFrom} onChange={opensAtHandler}/>
+                </Form.Group>
+                <br/>
+                <Form.Group controlId='workHrsTo'>
+                    <Form.Label>Closes at</Form.Label>
+                    <TimePicker start="0:00" end="23:59" value={workHrsTo} onChange={closesAtHandler}/>
                 </Form.Group>
                 <br/>
                 <Button type='submit' className='btn-block btn-dark' variant='primary'>

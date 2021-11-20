@@ -4,9 +4,16 @@ const Restaurant = require('../../../models/restaurantModel')
 const handle_request = async(msg, callback)=>{
 
     try {
-        const restaurants = await Restaurant.find({})
+        const pageSize = 2
+        const page = Number(msg.pageNumber) || 1
+        const count = await Restaurant.countDocuments({})
+        const restaurants = await Restaurant.find({}).limit(pageSize).skip(pageSize * (page-1))
         if (restaurants) {
-            callback(null,restaurants)
+            const result = {
+                restaurants: restaurants, page: page, pages: Math.ceil(count/pageSize)
+            }
+
+            callback(null,result)
         }
         else {
             const err = {
