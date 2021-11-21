@@ -6,7 +6,8 @@ const connectDB = async () => {
         const conn = await mongoose.connect('mongodb+srv://root:rootuser@projectcluster273.gghfx.mongodb.net/ubereats?retryWrites=true&w=majority',
             {
             useUnifiedTopology: true,
-            useNewUrlParser: true
+            useNewUrlParser: true,
+                maxPoolSize: 20
         })
 
         console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)

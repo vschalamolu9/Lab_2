@@ -12,7 +12,6 @@ import { DISH_DETAILS_REQUEST,
 } from '../constants/dishConstants'
 import axios from 'axios'
 import {logout} from "./userActions";
-import {GET_RESTAURANT_ORDERS_FAIL} from "../constants/orderConstants";
 
 export const detailsDish = (dishId) => async (dispatch) => {
 

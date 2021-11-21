@@ -133,14 +133,14 @@ const OrderDetailsScreen = ({match, history}) => {
 
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Update Order Status</Col>
+                                    <Col>Cancel Order</Col>
                                     <Col>
                                         <Form onSubmit={orderStatusHandler}>
                                             <Form.Group controlId='orderStatus'>
                                                 <Form.Control as='select' value={orderStatus}
                                                               onChange={x => setOrderStatus(x.target.value)}>
                                                     <option value='Placed'>--Select--</option>
-                                                    <option value='Cancelled'>Cancelled</option>
+                                                    <option value='Cancelled'>Cancel Order</option>
                                                 </Form.Control>
                                             </Form.Group>
                                             <br/>

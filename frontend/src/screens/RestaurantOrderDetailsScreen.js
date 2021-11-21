@@ -125,7 +125,7 @@ const RestaurantOrderDetailsScreen = ({match, history}) => {
                                         <Col>${order.totalPrice}</Col>
                                     </Row>
                                 </ListGroup.Item>
-                                { (order.orderStatus === 'Placed') &&
+                                { (order.orderStatus === 'Placed' || order.orderStatus==='Preparing') &&
 
                                 <ListGroup.Item>
                                     <Row>
@@ -135,7 +135,7 @@ const RestaurantOrderDetailsScreen = ({match, history}) => {
                                                 <Form.Group controlId='orderStatus'>
                                                     <Form.Control as='select' value={orderStatus} onChange={x => setOrderStatus(x.target.value)}>
                                                         <option value='Preparing'>Preparing</option>
-                                                        { order.orderType === 'Pick Up' ? (<option value='Picked Up'>Picked Up</option>) : (<option value='Delivered'>Delivered</option>)}
+                                                        { order.orderType === 'PickUp' ? (<option value='Picked Up'>Picked Up</option>) : (<option value='Delivered'>Delivered</option>)}
                                                         <option value='Cancelled'>Cancelled</option>
                                                     </Form.Control>
                                                 </Form.Group>
