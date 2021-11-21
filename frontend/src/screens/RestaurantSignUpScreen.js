@@ -100,8 +100,6 @@ const RestaurantSignUpScreen = ({location, history}) => {
             {imageUrl && <Image style={{width: 300, marginBottom: 20}} cloudName='vschalamolu9' public_id={imageUrl}/>}
             <Form onSubmit={submitHandler}>
                 <br/>
-                <br/>
-                <br/>
                 <Form.Group controlId='image' as = {Row}>
                     <Form.Control
                         type='file'
@@ -158,6 +156,7 @@ const RestaurantSignUpScreen = ({location, history}) => {
                     <Form.Label as='legend'>Select Restaurant Type</Form.Label>
                     <Col>
                         <Form.Check
+                            style={{paddingRight: '3px'}}
                             type='radio'
                             label='Delivery'
                             id='Delivery'
@@ -167,6 +166,7 @@ const RestaurantSignUpScreen = ({location, history}) => {
                             onChange={(e) => setRestaurantType(e.target.value)}
                         />
                         <Form.Check
+                            style={{paddingRight: '3px'}}
                             type='radio'
                             label='Pick Up'
                             id='PickUp'
@@ -175,11 +175,12 @@ const RestaurantSignUpScreen = ({location, history}) => {
                             onChange={(e) => setRestaurantType(e.target.value)}
                         />
                         <Form.Check
+                            style={{paddingRight: '3px'}}
                             type='radio'
-                            label='PickUp & Delivery'
-                            id='PickUp&Delivery'
-                            name='restaurantType'
-                            value='PickUp&Delivery'
+                            label='Both'
+                            id='Both'
+                            name='Both'
+                            value='Both'
                             onChange={(e) => setRestaurantType(e.target.value)}
                         />
                     </Col>

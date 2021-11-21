@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Pagination to Frontend">
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="updating proxy">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/SearchBox.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/restaurantController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/restaurantController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/kafka-backend/services/restaurantServices/getAllRestaurants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers/restaurantReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantSignUpScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +90,7 @@
       <workItem from="1636574372218" duration="30276000" />
       <workItem from="1636937978430" duration="124385000" />
       <workItem from="1637198789716" duration="68107000" />
-      <workItem from="1637428964620" duration="22439000" />
+      <workItem from="1637428964620" duration="33536000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -347,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637454040275</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="updating proxy">
+      <created>1637456936248</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1637456936248</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +385,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adding Restaurants and HomeScreen" />
     <MESSAGE value="Adding ItemScreen and minor modifications." />
     <MESSAGE value="Adding MongoDB and models" />
     <MESSAGE value="Inserting data into MongoDB and fetching data from it and displaying it on frontend." />
@@ -392,6 +409,7 @@
     <MESSAGE value="Restaurant Order Details Screen" />
     <MESSAGE value="Restaurant Profile Screen update" />
     <MESSAGE value="Adding Pagination to Frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Pagination to Frontend" />
+    <MESSAGE value="updating proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating proxy" />
   </component>
 </project>

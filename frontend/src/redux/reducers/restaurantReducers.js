@@ -30,7 +30,7 @@ export const restaurantListReducer = (state = { restaurants: []}, action) => {
         case RESTAURANT_LIST_REQUEST:
             return { loading: true, restaurants: [] }
         case RESTAURANT_LIST_SUCCESS:
-            return { loading: false, restaurants: action.payload.restaurants, pages: action.payload.pages, page: action.payload.page}
+            return { loading: false, restaurants: action.payload }
         case RESTAURANT_LIST_FAIL:
             return { loading: false, error: action.payload }
         default:

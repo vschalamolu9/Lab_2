@@ -24,12 +24,12 @@ import {
 } from '../constants/restaurantConstants'
 import axios from 'axios'
 
-export const listRestaurants = (pageNumber='') => async (dispatch) => {
+export const listRestaurants = (keyWord='', filterOption='') => async (dispatch) => {
 
     try{
         dispatch({type: RESTAURANT_LIST_REQUEST})
 
-        const { data } = await axios.get(`/api/restaurants?pageNumber=${pageNumber}`)
+        const { data } = await axios.get(`/api/restaurants?keyWord=${keyWord}&filterOption=${filterOption}`)
 
         dispatch({type: RESTAURANT_LIST_SUCCESS, payload: data})
     }catch(error){

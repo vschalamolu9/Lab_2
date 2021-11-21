@@ -4,16 +4,26 @@ const Restaurant = require('../../../models/restaurantModel')
 const handle_request = async(msg, callback)=>{
 
     try {
-        const pageSize = 2
-        const page = Number(msg.pageNumber) || 1
-        const count = await Restaurant.countDocuments({})
-        const restaurants = await Restaurant.find({}).limit(pageSize).skip(pageSize * (page-1))
-        if (restaurants) {
-            const result = {
-                restaurants: restaurants, page: page, pages: Math.ceil(count/pageSize)
+        const keyword = msg.keyWord
+            ? {
+                name: {
+                    $regex: msg.keyword,
+                    $options: 'i',
+                },
             }
+            : {}
 
-            callback(null,result)
+        const filterRestaurants = await Restaurant.find({'restaurantType': msg.filterOption})
+
+        const searchRestaurants = await Restaurant.find({...keyword})
+
+        const restaurants = msg.filterOption!=='' ? filterRestaurants
+            : msg.keyword !== '' ? searchRestaurants
+                : (msg.filterOption === '' && msg.keyWord === '') ? await Restaurant.find({})
+                    : await Restaurant.find({$or:[{'restaurantType': msg.filterOption},{...keyword}]})
+
+        if (restaurants) {
+            callback(null,restaurants)
         }
         else {
             const err = {

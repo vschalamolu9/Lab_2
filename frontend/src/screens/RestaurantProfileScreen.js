@@ -183,10 +183,10 @@ const RestaurantProfileScreen = ({history}) => {
                         />
                         <Form.Check
                             type='radio'
-                            label='PickUp & Delivery'
-                            id='PickUp&Delivery'
-                            name='restaurantType'
-                            value='PickUp&Delivery'
+                            label='Both'
+                            id='Both'
+                            name='Both'
+                            value='Both'
                             onChange={(e) => setRestaurantType(e.target.value)}
                         />
                     </Col>
