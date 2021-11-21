@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Button, Row, Col, ListGroup, Image, Card, Form} from 'react-bootstrap'
+import {Button, Row, Col, ListGroup, Image, Card, Form, FormControl} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import CheckOutSteps from '../components/CheckOutSteps'
 import Message from "../components/Message";
@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {createOrder} from "../redux/actions/orderActions";
 import {ORDER_CREATE_RESET} from "../redux/constants/orderConstants";
 import {CART_CLEAR_ITEMS } from "../redux/constants/cartConstants";
+import {addToCart, removeFromCart} from "../redux/actions/cartActions";
 
 const PlaceOrderScreen = ({history}) => {
 
@@ -43,6 +44,12 @@ const PlaceOrderScreen = ({history}) => {
         }
         //eslint-disable-next-line
     },[history, success])
+
+    const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id))
+    }
+
+
 
     const addInstructionHandler = (e) => {
         console.log(e.target.value)
@@ -90,6 +97,20 @@ const PlaceOrderScreen = ({history}) => {
                                         <Link to={`/item/${item.product}`}>{item.name}</Link>
                                     </Col>
                                     <Col md={4}>{item.qty} x ${item.dishPrice} = ${(item.qty * item.dishPrice).toFixed(2)}</Col>
+                                    <Col md={2}>
+                                        <FormControl as='select' value={item.qty} onChange={(e)=>{dispatch(addToCart(item.product, Number(e.target.value)))}}>
+                                            {[...Array(5).keys()].map( x => (
+                                                <option key={x + 1} value={x + 1}>
+                                                    { x + 1}
+                                                </option>))}
+                                        </FormControl>
+                                    </Col>
+                                    <Col md={2}>
+                                        <Button type='button' variant='light'
+                                                onClick = {() => removeFromCartHandler(item.product)}>
+                                            <i className='fas fa-trash'/>
+                                        </Button>
+                                    </Col>
                                 </Row>
                             </ListGroup.Item>))}</ListGroup>)}
                         </ListGroup.Item>

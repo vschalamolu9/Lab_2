@@ -30,7 +30,7 @@ const DeliveryScreen = ({history}) => {
     return(
         <FormContainer>
             <CheckOutSteps step1 step2 />
-            <h1>Delivery</h1>
+            <h1>Billing Address</h1>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='street'>
                     <Form.Label>Street address</Form.Label>

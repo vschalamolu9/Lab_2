@@ -14,6 +14,9 @@ const PaymentScreen = ({history}) => {
         history.push('/user/delivery')
     }
 
+    const restaurantDetails = useSelector(state => state.restaurantDetails)
+    const { restaurantInfo } = restaurantDetails
+
     const [paymentMethod, setPaymentMethod] = useState('PayPal')
     const [orderType, setOrderType] = useState('Delivery')
 
@@ -56,23 +59,41 @@ const PaymentScreen = ({history}) => {
                 <Form.Group>
                     <Form.Label as='legend'>Select Payment Method</Form.Label>
                     <Col>
-                        <Form.Check
-                            type='radio'
-                            label='Delivery'
-                            id='Delivery'
-                            name='orderType'
-                            value='Delivery'
-                            checked
-                            onChange={(e) => setOrderType(e.target.value)}
-                        />
-                        <Form.Check
+                        { restaurantInfo.restaurantType === 'Both' ?
+                        <>
+                            <Form.Check
+                                type='radio'
+                                label='Delivery'
+                                id='Delivery'
+                                name='orderType'
+                                value='Delivery'
+                                checked
+                                onChange={(e) => setOrderType(e.target.value)}
+                            />
+                            <Form.Check
                             type='radio'
                             label='Pick Up'
                             id='pickUp'
                             name='orderType'
-                            value='Pick Up'
+                            value='PickUp'
                             onChange={(e) => setOrderType(e.target.value)}
                         />
+                        </> : restaurantInfo.restaurantType === 'Delivery' ? <Form.Check
+                                type='radio'
+                                label='Delivery'
+                                id='Delivery'
+                                name='orderType'
+                                value='Delivery'
+                                checked
+                                onChange={(e) => setOrderType(e.target.value)}
+                            /> : <Form.Check
+                                type='radio'
+                                label='Pick Up'
+                                id='pickUp'
+                                name='orderType'
+                                value='PickUp'
+                                onChange={(e) => setOrderType(e.target.value)}
+                            />}
                     </Col>
                 </Form.Group>
                 <br/>

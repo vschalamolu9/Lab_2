@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="updating proxy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/orderRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/orderRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/dishActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/dishActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/OrderDetailsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/DeliveryScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/DeliveryScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/RestaurantOrderDetailsScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +82,7 @@
       <workItem from="1636574372218" duration="30276000" />
       <workItem from="1636937978430" duration="124385000" />
       <workItem from="1637198789716" duration="68107000" />
-      <workItem from="1637428964620" duration="38937000" />
+      <workItem from="1637428964620" duration="41547000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -365,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637483032514</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="updating proxy">
+      <created>1637496837140</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1637496837140</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
