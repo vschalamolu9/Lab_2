@@ -214,3 +214,42 @@ export const updateOrderStatus = (_id, orderStatus) => async (dispatch, getState
         })
     }
 }
+
+export const updateUserOrderStatus = (_id, orderStatus) => async (dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: UPDATE_ORDER_STATUS_REQUEST
+        })
+
+
+        const { userLogin: {userInfo}} = getState()
+
+        const config = {
+            headers: {
+                'Authorization' : `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await axios.put('/api/orders/updateStatus', { _id, orderStatus }, config)
+
+        dispatch({
+            type: UPDATE_ORDER_STATUS_SUCCESS,
+            payload: data
+        })
+
+    }
+    catch (error) {
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: UPDATE_ORDER_STATUS_FAIL,
+            payload: message
+        })
+    }
+}

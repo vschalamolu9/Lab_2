@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
-import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
+import React, {useEffect, useState} from "react";
+import {Row, Col, ListGroup, Image, Card, Form, Button} from 'react-bootstrap'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
-import { getOrderDetails } from "../redux/actions/orderActions";
+import {getOrderDetails, updateOrderStatus, updateUserOrderStatus} from "../redux/actions/orderActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import {UPDATE_ORDER_STATUS_RESET} from "../redux/constants/orderConstants";
 
 const OrderDetailsScreen = ({match, history}) => {
 
     const dispatch = useDispatch()
+
+    const [orderStatus, setOrderStatus] = useState('In Process')
 
     const orderDetails = useSelector(state => state.orderDetails)
     const { order, loading, error } = orderDetails
@@ -16,14 +19,23 @@ const OrderDetailsScreen = ({match, history}) => {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
+    const updateOrder = useSelector(state => state.updateOrder)
+    const { success } = updateOrder
+
+    const orderStatusHandler = (e) => {
+        e.preventDefault()
+        dispatch(updateUserOrderStatus(order._id, orderStatus))
+    }
+
     useEffect(async () => {
         if(!userInfo){
             history.push('/user/login')
         }
+        dispatch({type: UPDATE_ORDER_STATUS_RESET})
         if(!order || (order._id !== match.params.id)){
             await dispatch(getOrderDetails(match.params.id))
         }
-    }, [match, order, dispatch, history])
+    }, [match, order, dispatch, history, success])
 
     return(
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
@@ -117,6 +129,29 @@ const OrderDetailsScreen = ({match, history}) => {
                                     <Col>${order.totalPrice}</Col>
                                 </Row>
                             </ListGroup.Item>
+                            {(order.orderStatus === 'Placed') &&
+
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>Update Order Status</Col>
+                                    <Col>
+                                        <Form onSubmit={orderStatusHandler}>
+                                            <Form.Group controlId='orderStatus'>
+                                                <Form.Control as='select' value={orderStatus}
+                                                              onChange={x => setOrderStatus(x.target.value)}>
+                                                    <option value='Placed'>--Select--</option>
+                                                    <option value='Cancelled'>Cancelled</option>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <br/>
+                                            <Button type='submit' className='btn-block btn-dark'>
+                                                <b>Update Status</b>
+                                            </Button>
+                                        </Form>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                            }
                         </ListGroup>
                     </Card>
                 </Col>
