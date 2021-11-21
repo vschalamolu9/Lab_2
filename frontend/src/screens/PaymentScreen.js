@@ -91,7 +91,7 @@ const PaymentScreen = ({history}) => {
                                 label='Pick Up'
                                 id='pickUp'
                                 name='orderType'
-                                value='PickUp'
+                                value='Pick Up'
                                 onChange={(e) => setOrderType(e.target.value)}
                             />}
                     </Col>

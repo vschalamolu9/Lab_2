@@ -18,13 +18,13 @@ const RestaurantLoginScreen = ({location, history}) => {
     const restaurantLogin = useSelector(state => state.restaurantLogin)
     const { loading, error, restaurantData } = restaurantLogin
 
-    const redirect = location.search ? location.search.split('=')[1] : '/'
+    //const redirect = location.search ? location.search.split('=')[1] : '/'
 
     useEffect(() => {
         if(restaurantData){
             history.push('/res/profile')
         }
-    }, [history, restaurantData, redirect])
+    }, [history, restaurantData])
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -66,7 +66,7 @@ const RestaurantLoginScreen = ({location, history}) => {
             <Row className='py-3'>
                 <Col>
                     New Restaurant?{' '}
-                    <Link to={redirect ? `/res/signup?redirect=${redirect}` : '/res/signup'}>
+                    <Link to='/res/signup'>
                         Sign Up as Restaurant
                     </Link>
                 </Col>

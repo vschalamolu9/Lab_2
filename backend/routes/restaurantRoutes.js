@@ -13,8 +13,8 @@ router.route('/login').post(loginRestaurant)
 
 router.route('/signup').post(signupRestaurant)
 
-router.route('/updateProfile').put(protect, updateRestaurantProfile)
+router.route('/updateProfile').put(updateRestaurantProfile)
 
-router.route('/updateAddress').put(protect, updateRestaurantAddress)
+router.route('/updateAddress').put(updateRestaurantAddress)
 
 module.exports = router

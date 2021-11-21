@@ -45,7 +45,7 @@ const HomeScreen = ({match}) => {
                                         label='Pick Up'
                                         id='PickUp'
                                         name='restaurantType'
-                                        value='PickUp'
+                                        value='Pick Up'
                                         onChange={(e) => setFilterOption(e.target.value)}
                                     />
                                     <Form.Check

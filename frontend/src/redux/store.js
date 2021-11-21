@@ -32,7 +32,7 @@ const reducer = combineReducers({
     restaurantOrders: getRestaurantOrdersReducer,
     updateOrder: updateOrderStatusReducer,
     addDish: addDishReducer,
-    updateDish: updateDishReducer,
+    modifyDish: updateDishReducer,
     restaurantProfile: restaurantUpdateProfileReducer,
     restaurantAddress: restaurantUpdateAddressReducer
 })

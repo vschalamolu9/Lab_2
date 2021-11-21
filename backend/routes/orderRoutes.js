@@ -3,14 +3,14 @@ const router = express.Router()
 const { addNewOrder, getOrderDetails, getUserOrders, getRestaurantOrders, updateOrderStatus } = require('../controllers/orderController')
 const protect = require('../middleware/authMiddleWare')
 
-router.route('/addNewOrder').post(protect, addNewOrder)
+router.route('/addNewOrder').post(addNewOrder)
 
 router.route('/:id').get(getOrderDetails)
 
-router.route('/userOrders/:id').get(protect, getUserOrders)
+router.route('/userOrders/:id').get(getUserOrders)
 
-router.route('/restaurantOrders/:id').get(protect, getRestaurantOrders)
+router.route('/restaurantOrders/:id').get(getRestaurantOrders)
 
-router.route('/updateStatus').put(protect, updateOrderStatus)
+router.route('/updateStatus').put(updateOrderStatus)
 
 module.exports = router

@@ -65,3 +65,41 @@ export const addNewDish = (restaurantId, dishName, description, image, dishCateg
     }
 }
 
+export const updateDish = (_id, dishName, description, image, dishCategory, dishType, dishPrice) => async (dispatch, getState) => {
+
+    try{
+        dispatch({
+            type: UPDATE_DISH_REQUEST
+        })
+
+        const { restaurantLogin: {restaurantData}} = getState()
+
+        const config = {
+            headers: {
+                'Authorization' : `Bearer ${restaurantData.token}`
+            }
+        }
+
+        const { data } = await axios.post('/api/dishes/update', { _id, dishName, description, image, dishCategory, dishType, dishPrice }, config)
+
+        dispatch({
+            type: UPDATE_DISH_SUCCESS,
+            payload: data
+        })
+    }catch(error){
+        const message =
+            error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message
+        if (message === 'Not authorized, token failed') {
+            dispatch(logout())
+        }
+        dispatch({
+            type: UPDATE_DISH_FAIL,
+            payload: message,
+        })
+    }
+}
+
+
+

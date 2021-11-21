@@ -5,10 +5,10 @@ const protect = require('../middleware/authMiddleWare')
 
 router.route('/:id').get(getDishById)
 
-router.route('/addDish').post(protect, addNewDish)
+router.route('/addDish').post(addNewDish)
 
-router.route('/updateDish').put(protect, updateDish)
+router.route('/updateDish').put(updateDish)
 
-router.route('/delete/:id').delete(protect, deleteDish)
+router.route('/delete/:id').delete(deleteDish)
 
 module.exports = router

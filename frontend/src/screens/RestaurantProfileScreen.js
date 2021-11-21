@@ -81,8 +81,11 @@ const RestaurantProfileScreen = ({history}) => {
         if(!validateEmail(restaurantEmail)){
             setMessage('Please enter a valid email')
         }
-        if(!validatePhoneNumber(contact)){
-            setMessage('Please enter a valid phone number')
+        if(contact !== ''){
+            const isValid = validatePhoneNumber(contact)
+            if(isValid){
+                setMessage('Please enter a valid phone number')
+            }
         }
         if(password !== cnfPassword){
             setMessage('Passwords did not match')

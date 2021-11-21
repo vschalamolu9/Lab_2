@@ -48,7 +48,7 @@ function App() {
                 <Route path='/user/orders' component={UserOrdersScreen} exact/>
                 <Route path='/res/orders' component={RestaurantOrdersScreen} exact/>
                 <Route path='/res/dishes' component={RestaurantMenuScreen} exact/>
-                <Route path='/res/updateDish' component={UpdateDishScreen} exact/>
+                <Route path='/res/updateDish/:id' component={UpdateDishScreen} exact/>
                 <Route path='/res/addNewDish' component={AddNewDishScreen} exact/>
                 <Route path='/res/profile' component={RestaurantProfileScreen} exact/>
                 <Route path='/res/address' component={RestaurantAddressScreen} exact/>

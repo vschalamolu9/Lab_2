@@ -63,7 +63,7 @@ const UserOrdersScreen = ({match}) => {
                                         <td>{order.orderDate.substring(0,10)}</td>
                                         <td>{order.orderType}</td>
                                         <td>{order.orderStatus}</td>
-                                        <td>{order.totalPrice}</td>
+                                        <td>${order.totalPrice}</td>
                                         <td>
                                             <LinkContainer to={`/user/order/${order._id}`}>
                                                 <Button className='btn-sm btn-dark' variant='light'>View Receipt</Button>
