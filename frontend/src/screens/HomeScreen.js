@@ -16,6 +16,7 @@ const HomeScreen = ({match}) => {
     const restaurantList = useSelector(state => state.restaurantList)
     const { loading, error, restaurants, page, pages} = restaurantList
 
+
     useEffect(() => {
         dispatch(listRestaurants(pageNumber))
     }, [dispatch, pageNumber])
@@ -25,6 +26,7 @@ const HomeScreen = ({match}) => {
             <h3>Restaurants</h3>
             { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
+
                     <Row>
                         {restaurants.map(restaurant => (
                             <Col sm={12} md={6} lg={4} xl={3} key={restaurant._id}>
