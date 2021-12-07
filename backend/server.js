@@ -9,12 +9,13 @@ const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleWare')
 const passport = require('passport')
+const app = express()
+const schema = require('./graphQL/index')
+const { graphqlHTTP } = require('express-graphql')
 
 dotenv.config()
 
 connectDB()
-
-const app = express()
 
 app.use(passport.initialize())
 
@@ -22,6 +23,13 @@ const { auth } = require('./utils/passport')
 auth()
 
 require('./config/passport')(passport)
+
+
+app.use('/graphql', graphqlHTTP({
+    schema,
+    graphiql: true
+}))
+
 
 app.use(bodyParser.json());
 app.use(express.json())

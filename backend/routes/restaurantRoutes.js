@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, loginRestaurant, signupRestaurant, updateRestaurantProfile, updateRestaurantAddress } =require('../controllers/restaurantController')
+const { getAllRestaurants, getRestaurantById, getRestaurantMenuItems, loginRestaurant, signupRestaurant, updateRestaurantProfile, updateRestaurantAddress } = require('../controllers/restaurantController')
 const protect = require('../middleware/authMiddleWare')
 
 router.route('/').get(getAllRestaurants)
