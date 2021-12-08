@@ -1,8 +1,12 @@
 const Restaurant = require("../models/restaurantModel");
 const User = require("../models/userModel")
+const Dish = require('../models/dishModel')
+const Order = require('../models/orderModel')
 const graphql = require("graphql");
 const RestaurantType  = require('./TypeDefs/RestaurantType')
 const UserType = require('./TypeDefs/UserType')
+const DishType = require('./TypeDefs/DishType')
+const OrderType = require('./TypeDefs/OrderType')
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLError } = graphql
 const bcrypt = require('bcryptjs')
 const generateToken = require('../utils/generateToken')
@@ -20,12 +24,48 @@ const RootQuery = new GraphQLObjectType({
             }
         },
 
+        getRestaurantDishes: {
+            type: new GraphQLList(DishType),
+            args: { restaurantId: { type: GraphQLString }},
+            async resolve(parent, args){
+                const dishesList = await Dish.find({restaurantId: args.restaurantId})
+                return dishesList
+            }
+        },
+
         getUserDetails: {
             type: UserType,
             args: { _id: {type: GraphQLString }},
             async resolve(parent, args){
                 const userObj = await User.findOne({_id: args._id})
                 return userObj
+            }
+        },
+
+        getOrderDetails: {
+            type: OrderType,
+            args: { _id: { type: GraphQLString }},
+            async resolve(parent, args){
+                const orderObj = await Order.findById({_id: args._id})
+                return orderObj
+            }
+        },
+
+        getRestaurantDetails: {
+            type: RestaurantType,
+            args: { _id: { type: GraphQLString }},
+            async resolve(parent, args){
+                const restaurantObj = await Restaurant.findById({_id: args._id})
+                return restaurantObj
+            }
+        },
+
+        getDishDetails: {
+            type: DishType,
+            args: { _id: { type: GraphQLString }},
+            async resolve(parent, args){
+                const dishObj = await Dish.findById({_id: args._id})
+                return dishObj
             }
         },
 
