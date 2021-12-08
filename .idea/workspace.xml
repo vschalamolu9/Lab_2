@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding Order Details, Order Types and other functionalities">
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Completing all GraphQL query requests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/graphQL/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/index.js" afterDir="false" />
     </list>
@@ -198,7 +198,7 @@
       <workItem from="1638410917090" duration="968000" />
       <workItem from="1638424742842" duration="5306000" />
       <workItem from="1638497514608" duration="4448000" />
-      <workItem from="1638755220037" duration="27222000" />
+      <workItem from="1638755220037" duration="29863000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -529,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638996546754</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Completing all GraphQL query requests.">
+      <created>1638997445822</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1638997445822</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +555,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Integrating Kafka with Backend" />
     <MESSAGE value="Adding Kafka to fetch Restaurant menu items." />
     <MESSAGE value="Adding Cart functionality." />
     <MESSAGE value="Adding Controllers to backend." />
@@ -573,6 +579,7 @@
     <MESSAGE value="Adding AddressType Defs and User Type Defs" />
     <MESSAGE value="Adding Restaurant Login, User SignUp and UserLogin functionality." />
     <MESSAGE value="Adding Order Details, Order Types and other functionalities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Order Details, Order Types and other functionalities" />
+    <MESSAGE value="Completing all GraphQL query requests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completing all GraphQL query requests." />
   </component>
 </project>

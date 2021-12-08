@@ -7,7 +7,7 @@ const RestaurantType  = require('./TypeDefs/RestaurantType')
 const UserType = require('./TypeDefs/UserType')
 const DishType = require('./TypeDefs/DishType')
 const OrderType = require('./TypeDefs/OrderType')
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLError } = graphql
+const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLError, GraphQLFloat } = graphql
 const bcrypt = require('bcryptjs')
 const generateToken = require('../utils/generateToken')
 
@@ -241,6 +241,52 @@ const Mutation = new GraphQLObjectType({
 
                     return newUser
                 }
+            }
+        },
+
+        updateOrderStatus: {
+            type: OrderType,
+            args:{
+                _id: { type: GraphQLString},
+                orderStatus: { type: GraphQLString }
+            },
+            async resolve(parent, args){
+                const orderDetails = await Order.findById({ _id: args._id})
+                if(orderDetails){
+                    orderDetails.set({ orderStatus: args.orderStatus})
+                    await orderDetails.save()
+                    return orderDetails
+                }
+                else{
+                    return new GraphQLError("Order not found!!")
+                }
+            }
+        },
+
+        addNewDish:{
+            type: DishType,
+            args:{
+                restaurantId: { type: GraphQLString },
+                dishName: { type: GraphQLString},
+                description: { type: GraphQLString },
+                image: { type: GraphQLString },
+                dishCategory: { type: GraphQLString },
+                dishType: { type: GraphQLString },
+                dishPrice: { type: GraphQLFloat }
+            },
+            async resolve(parent, args){
+                const dish = {
+                    restaurantId: args.restaurantId,
+                    dishName: args.dishName,
+                    description: args.description,
+                    image: args.image,
+                    dishCategory: args.dishCategory,
+                    dishType: args.dishType,
+                    dishPrice: args.dishPrice
+                }
+                const newDish = await Dish.create(dish)
+
+                return newDish
             }
         }
     }
