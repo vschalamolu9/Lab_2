@@ -2,6 +2,7 @@ const Restaurant = require("../models/restaurantModel");
 const graphql = require("graphql");
 const RestaurantType  = require('./TypeDefs/RestaurantType')
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList } = graphql
+const bcrypt = require('bcryptjs')
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQueryType",
@@ -26,18 +27,47 @@ const Mutation = new GraphQLObjectType({
                 restaurantName: { type: GraphQLString},
                 restaurantEmail: {type: GraphQLString},
                 password: {type: GraphQLString},
-                restaurantType: {type: GraphQLString}
+                restaurantType: {type: GraphQLString},
+                street: { type: GraphQLString},
+                city: { type: GraphQLString},
+                province: { type: GraphQLString},
+                country: { type: GraphQLString},
+                zipCode: { type: GraphQLString},
+                imageUrl: { type: GraphQLString}
             },
             async resolve(parent, args){
-                const restaurant = await Restaurant.create(
-                    {
-                        restaurantName: args.restaurantName,
-                        restaurantEmail: args.restaurantEmail,
-                        password: args.password,
-                        restaurantType: args.restaurantType
+                try{
+                    const restaurantExists = await Restaurant.findOne({restaurantEmail: args.restaurantEmail})
+                    if(restaurantExists){
+                        const message = "Restaurant already exists";
+                        return message;
                     }
-                )
-                return restaurant
+                    else{
+                        const salt = await bcrypt.genSalt(10)
+                        const hashedPassword = await bcrypt.hash(args.password, salt)
+                        const restaurantObj = {
+                            restaurantName : args.restaurantName,
+                            restaurantEmail: args.restaurantEmail,
+                            password: hashedPassword,
+                            restaurantType: args.restaurantType,
+                            address:{
+                                street: args.street,
+                                city: args.city,
+                                province: args.province,
+                                country: args.country,
+                                zipCode: args.zipCode
+                            },
+                            imageUrl: args.imageUrl
+                        }
+
+                        const newRestaurant = await Restaurant.create(restaurantObj)
+
+                        return newRestaurant
+                    }
+                }
+                catch(error){
+                    return error
+                }
             }
         }
     }
