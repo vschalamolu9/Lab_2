@@ -51,6 +51,24 @@ const RootQuery = new GraphQLObjectType({
             }
         },
 
+        getRestaurantOrders: {
+            type: new GraphQLList(OrderType),
+            args: { restaurantId: { type: GraphQLString }},
+            async resolve(parent, args){
+                const restaurantOrders = await Order.find({restaurantId: args.restaurantId})
+                return restaurantOrders
+            }
+        },
+
+        getUserOrders: {
+            type: new GraphQLList(OrderType),
+            args: { userId: { type: GraphQLString }},
+            async resolve(parent, args){
+                const userOrders = await Order.find({ userId: args.userId})
+                return userOrders
+            }
+        },
+
         getRestaurantDetails: {
             type: RestaurantType,
             args: { _id: { type: GraphQLString }},
