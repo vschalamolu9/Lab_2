@@ -21,11 +21,12 @@ const RestaurantType = new GraphQLObjectType({
                 return rest.address
             }
         },
-        deliveryFee: { type: GraphQLInt, default: 0 },
-        workHrsFrom: {type: GraphQLString, default: '10:00:00'},
-        workHrsTo: {type: GraphQLString, default: '21:00:00'},
-        rating:{ type: GraphQLInt, default: 4 },
-        numReviews: { type: GraphQLInt, default: 5 }
+        deliveryFee: { type: GraphQLInt },
+        workHrsFrom: {type: GraphQLString },
+        workHrsTo: {type: GraphQLString },
+        rating:{ type: GraphQLInt },
+        numReviews: { type: GraphQLInt },
+        token: { type: GraphQLString }
     })
 })
 

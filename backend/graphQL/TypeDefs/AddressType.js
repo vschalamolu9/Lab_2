@@ -7,7 +7,7 @@ const AddressType = new GraphQLObjectType({
         _id: { type: GraphQLString},
         street: { type: GraphQLString},
         city: { type: GraphQLString},
-        province: {type: GraphQLString },
+        state: {type: GraphQLString },
         country: {type: GraphQLString },
         zipCode: {type: GraphQLString }
     })

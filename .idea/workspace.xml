@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Implementing GraphQL at backend and adding apollo client to the frontend.">
-      <change afterPath="$PROJECT_DIR$/backend/graphQL/TypeDefs/AddressType.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/graphQL/TypeDefs/UserType.js" afterDir="false" />
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding AddressType Defs and User Type Defs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/graphQL/TypeDefs/AddressType.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/TypeDefs/AddressType.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/graphQL/TypeDefs/RestaurantType.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/TypeDefs/RestaurantType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/graphQL/TypeDefs/UserType.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/TypeDefs/UserType.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/graphQL/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +201,7 @@
       <workItem from="1638410917090" duration="968000" />
       <workItem from="1638424742842" duration="5306000" />
       <workItem from="1638497514608" duration="4448000" />
-      <workItem from="1638755220037" duration="17087000" />
+      <workItem from="1638755220037" duration="23155000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -511,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638875652357</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Adding AddressType Defs and User Type Defs">
+      <created>1638985942931</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1638985942931</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +537,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inserting data into MongoDB and fetching data from it and displaying it on frontend." />
     <MESSAGE value="Implementing Redux in frontend and using Redux in HomeScreen and MenuScreen." />
     <MESSAGE value="Implementing Redux in MenuItemScreen." />
     <MESSAGE value="Integrating Kafka with Backend" />
@@ -555,6 +561,7 @@
     <MESSAGE value="updating proxy" />
     <MESSAGE value="Changes to Place Order Screen and Payment Screen" />
     <MESSAGE value="Implementing GraphQL at backend and adding apollo client to the frontend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing GraphQL at backend and adding apollo client to the frontend." />
+    <MESSAGE value="Adding AddressType Defs and User Type Defs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding AddressType Defs and User Type Defs" />
   </component>
 </project>
