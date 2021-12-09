@@ -7,11 +7,18 @@ const restaurantRoutes = require('./routes/restaurantRoutes')
 const dishRoutes = require('./routes/dishRoutes')
 const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
+const cors = require('cors')
 const { notFound, errorHandler } = require('./middleware/errorMiddleWare')
 const passport = require('passport')
 const app = express()
 const schema = require('./graphQL/index')
 const { graphqlHTTP } = require('express-graphql')
+
+let corsOptions = {
+    origin: 'http://localhost:3000'
+}
+
+app.use(cors())
 
 dotenv.config()
 
@@ -29,7 +36,6 @@ app.use('/graphql', graphqlHTTP({
     schema,
     graphiql: true
 }))
-
 
 app.use(bodyParser.json());
 app.use(express.json())

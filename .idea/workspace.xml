@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Completing all GraphQL query requests.">
+    <list default="true" id="5c966b63-a941-4530-8293-0b5f4c256942" name="Changes" comment="Adding GraphQL on FrontEnd">
+      <change afterPath="$PROJECT_DIR$/frontend/src/mutations/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/queries/queries.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/graphQL/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/graphQL/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actions/restaurantActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +206,7 @@
       <workItem from="1638410917090" duration="968000" />
       <workItem from="1638424742842" duration="5306000" />
       <workItem from="1638497514608" duration="4448000" />
-      <workItem from="1638755220037" duration="29863000" />
+      <workItem from="1638755220037" duration="43557000" />
     </task>
     <task id="LOCAL-00001" summary="adding backend and frontend files">
       <created>1634951756041</created>
@@ -536,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638997445822</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Add Dish functionality.">
+      <created>1639001518901</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1639001518901</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,8 +570,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adding Kafka to fetch Restaurant menu items." />
-    <MESSAGE value="Adding Cart functionality." />
     <MESSAGE value="Adding Controllers to backend." />
     <MESSAGE value="Adding user login, user signup functionalities." />
     <MESSAGE value="Implementing User SignUp and Login functionalities in frontend and backend." />
@@ -580,6 +593,8 @@
     <MESSAGE value="Adding Restaurant Login, User SignUp and UserLogin functionality." />
     <MESSAGE value="Adding Order Details, Order Types and other functionalities" />
     <MESSAGE value="Completing all GraphQL query requests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Completing all GraphQL query requests." />
+    <MESSAGE value="Add Dish functionality." />
+    <MESSAGE value="Adding GraphQL on FrontEnd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding GraphQL on FrontEnd" />
   </component>
 </project>

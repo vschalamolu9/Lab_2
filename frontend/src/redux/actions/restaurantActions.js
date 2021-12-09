@@ -24,12 +24,32 @@ import {
 } from '../constants/restaurantConstants'
 import axios from 'axios'
 
+const endpoint = 'http://localhost:5000/graphql'
+
 export const listRestaurants = (keyWord='', filterOption='') => async (dispatch) => {
 
     try{
         dispatch({type: RESTAURANT_LIST_REQUEST})
 
+        /*const headers = {
+            "content-type": "application/json"
+        };
+
+
+        const graphqlQuery = {
+            "operationName" : "getAllRestaurants",
+            "query" : `query getAllRestaurants { _id restaurantName }`,
+            "variables" : {}
+        }*/
+
         const { data } = await axios.get(`/api/restaurants?keyWord=${keyWord}&filterOption=${filterOption}`)
+
+        /*const { data } = await axios({
+            url: endpoint,
+            method: 'post',
+            headers: headers,
+            data: graphqlQuery
+        })*/
 
         dispatch({type: RESTAURANT_LIST_SUCCESS, payload: data})
     }catch(error){

@@ -162,7 +162,7 @@ const Mutation = new GraphQLObjectType({
                 restaurantType: {type: GraphQLString},
                 street: { type: GraphQLString},
                 city: { type: GraphQLString},
-                province: { type: GraphQLString},
+                state: { type: GraphQLString},
                 country: { type: GraphQLString},
                 zipCode: { type: GraphQLString},
                 imageUrl: { type: GraphQLString}
@@ -184,7 +184,7 @@ const Mutation = new GraphQLObjectType({
                             address:{
                                 street: args.street,
                                 city: args.city,
-                                province: args.province,
+                                province: args.state,
                                 country: args.country,
                                 zipCode: args.zipCode
                             },
@@ -291,5 +291,6 @@ const Mutation = new GraphQLObjectType({
         }
     }
 })
+
 
 module.exports = new GraphQLSchema({query: RootQuery, mutation: Mutation})
